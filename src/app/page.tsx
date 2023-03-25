@@ -9,22 +9,20 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+          Instituto Mexicano del Cemento y del Concreto A.C.
         </p>
         <div>
           <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            href="/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
+              src="/logo-imcyc.svg"
+              alt="Webinars en concreto instituto mexicano del cemento y del concreto"
               className={styles.vercelLogo}
-              width={100}
-              height={24}
+              width={200}
+              height={114}
               priority
             />
           </a>
@@ -34,8 +32,8 @@ export default function Home() {
       <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
+          src="/logo-imcyc.svg"
+          alt="Webinars en concreto instituto mexicano del cemento y del concreto"
           width={180}
           height={37}
           priority
@@ -53,11 +51,8 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
+            Cemento <span>-&gt;</span>
           </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
         </a>
 
         <a
@@ -67,9 +62,8 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
+            Certificaciones <span>-&gt;</span>
           </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
         </a>
 
         <a
@@ -79,11 +73,8 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
+            Concreto <span>-&gt;</span>
           </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
         </a>
       </div>
     </main>
