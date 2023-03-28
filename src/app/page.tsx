@@ -15,6 +15,17 @@ export default function Home() {
         />
         <h1>Plataforma Educativa</h1>
         <p><small>Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
+        <div className='login-form'>
+          <div>
+            <label className="form-label">Correo electrónico:</label>
+            <input type="email" className="form-control" placeholder="name@example.com" />
+          </div>
+          <div>
+            <label className="form-label">Contraseña:</label>
+            <input type="password" className="form-control" />
+          </div>
+          <button type="button" className="btn">INGRESAR A SU CUENTA</button>
+        </div>
       </div>
     </div>
   )
