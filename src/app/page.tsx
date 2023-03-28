@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,7 +25,9 @@ export default function Home() {
             <label className="form-label">Contraseña:</label>
             <input type="password" className="form-control" />
           </div>
-          <button type="button" className="btn">INGRESAR A SU CUENTA</button>
+          <Link href="/categorias">
+            <button type="button" className="btn">INGRESAR A SU CUENTA</button>
+          </Link>
         </div>
       </div>
     </div>
