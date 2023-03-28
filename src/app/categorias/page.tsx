@@ -56,6 +56,10 @@ export default function Categorias() {
                 marginLeft: '-12px'
               }}
           />
+          <div className="input-group mt-3">
+            <input type="text" className="form-control" placeholder="Buscar contenido" />
+            <button className="btn btn-outline-secondary m-0" type="button" id="button-addon2">Button</button>
+          </div>
         </div>
         <div className='menu-categorias'>
           <ul>
