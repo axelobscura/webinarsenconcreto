@@ -31,6 +31,14 @@ const categorias = [
   {
     'nombre': 'OCPER',
     'tipo': 'rama'
+  },
+  {
+    'nombre': 'INTERNACIONAL',
+    'tipo': 'rama'
+  },
+  {
+    'nombre': 'LIBRERÍA',
+    'tipo': 'rama'
   }
 ]
 
