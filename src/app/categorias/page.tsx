@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { BsChevronRight } from "react-icons/bs"
+import { CiSearch } from 'react-icons/ci'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -58,7 +59,7 @@ export default function Categorias() {
           />
           <div className="input-group mt-3">
             <input type="text" className="form-control" placeholder="Buscar contenido" />
-            <button className="btn btn-outline-secondary m-0" type="button" id="button-addon2">Button</button>
+            <button className="btn btn-outline-secondary m-0" type="button" id="button-addon2"><CiSearch/></button>
           </div>
         </div>
         <div className='menu-categorias'>
