@@ -21,7 +21,7 @@ export default function Home() {
         <div className='login-form'>
           <div>
             <label className="form-label"><BsChevronRight/> Correo electrónico:</label>
-            <input type="email" className="form-control" placeholder="name@example.com" />
+            <input type="email" className="form-control" placeholder="correo@electronico.com" />
           </div>
           <div>
             <label className="form-label"><BsChevronRight/> Contraseña:</label>
@@ -34,7 +34,7 @@ export default function Home() {
             textAlign: 'center',
             fontSize: '0.7rem',
           }}>
-            Instituto mexicano del Cemento y del Concreto A.C.
+            © 1959 - 2023 Instituto mexicano del Cemento y del Concreto A.C.
           </p>
         </div>
         
