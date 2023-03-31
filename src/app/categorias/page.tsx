@@ -47,12 +47,15 @@ const categorias = [
 import { useEntries } from '../../../lib/swr-hooks';
 
 export default function Categorias() {
-  const { entries, isLoading } = useEntries();
+  //const { entries, isLoading } = useEntries();
+  console.log(entries);
+  /*
   if (isLoading || !entries) {
     return (
       <h1></h1>
     )
   };
+  */
   return (
     <div className="container-fluid login categorias">
       <div className='branding'>
