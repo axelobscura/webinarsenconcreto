@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
+import { BsChevronRight } from 'react-icons/bs';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,11 +19,11 @@ export default function Home() {
         <p><small>Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
         <div className='login-form'>
           <div>
-            <label className="form-label">Correo electrónico:</label>
+            <label className="form-label"><BsChevronRight/> Correo electrónico:</label>
             <input type="email" className="form-control" placeholder="name@example.com" />
           </div>
           <div>
-            <label className="form-label">Contraseña:</label>
+            <label className="form-label"><BsChevronRight/> Contraseña:</label>
             <input type="password" className="form-control" />
           </div>
           <Link href="/categorias">

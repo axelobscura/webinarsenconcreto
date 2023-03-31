@@ -94,13 +94,16 @@ a {
 }
 
 .btn {
-  background: #333;
+  background: #000;
   color: #fff !important;
   margin: 10px 0;
   font-weight: 700;
   padding: 5px 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border-radius: 0;
+  border: 1px solid #555;
+  width: 100%;
 }
 
 .btn:hover {
@@ -132,7 +135,7 @@ a {
   text-align: right;
   padding: 20px;
   height: 100vh;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.6);
 }
 
 .container-fluid.login.categorias .branding {
