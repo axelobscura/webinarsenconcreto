@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { BsChevronRight } from "react-icons/bs"
@@ -43,7 +44,15 @@ const categorias = [
   }
 ]
 
+import { useEntries } from '../../../lib/swr-hooks';
+
 export default function Categorias() {
+  const { entries, isLoading } = useEntries();
+  if (isLoading || !entries) {
+    return (
+      <h1></h1>
+    )
+  };
   return (
     <div className="container-fluid login categorias">
       <div className='branding'>
@@ -59,7 +68,7 @@ export default function Categorias() {
           />
           <div className="input-group mt-3">
             <input type="text" className="form-control" placeholder="Buscar contenido" />
-            <button className="btn btn-outline-secondary m-0" type="button" id="button-addon2"><CiSearch/></button>
+            <button className="btn btn-outline-secondary m-0 p-2" type="button" id="button-addon2"><CiSearch style={{'fontSize':'1.7rem'}}/></button>
           </div>
         </div>
         <div className='menu-categorias'>
