@@ -30,7 +30,14 @@ export default function Home() {
           <Link href="/categorias">
             <button type="button" className="btn">INGRESAR A SU CUENTA</button>
           </Link>
+          <p style={{
+            textAlign: 'center',
+            fontSize: '0.7rem',
+          }}>
+            Instituto mexicano del Cemento y del Concreto A.C.
+          </p>
         </div>
+        
       </div>
     </div>
   )
