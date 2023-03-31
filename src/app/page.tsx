@@ -16,7 +16,8 @@ export default function Home() {
             height="100"
         />
         <h1>Plataforma Educativa</h1>
-        <p><small>Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
+        <h3>Compartir el Conocimiento</h3>
+        
         <div className='login-form'>
           <div>
             <label className="form-label"><BsChevronRight/> Correo electrónico:</label>
