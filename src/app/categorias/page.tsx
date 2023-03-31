@@ -48,7 +48,7 @@ import { useEntries } from '../../../lib/swr-hooks';
 
 export default function Categorias() {
   //const { entries, isLoading } = useEntries();
-  console.log(entries);
+  //console.log(entries);
   /*
   if (isLoading || !entries) {
     return (
