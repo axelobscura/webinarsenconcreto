@@ -72,7 +72,7 @@ export default function Categorias() {
           </div>
         </div>
 
-        <p className='text-center p-0'><small>Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
+        <p className='text-center p-0'><small>© 1959 - 2023 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
       </div>
     </div>
   )

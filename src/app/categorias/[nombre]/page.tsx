@@ -4,7 +4,10 @@ export default function Nombre() {
 
   return (
     <div className="container-fluid login categorias">
-      <p>NOMBRE</p>
+      <div className='branding'>
+        <h2 className="text-white">NOMBRE</h2>
+      </div>
+      
     </div>
   )
 }
