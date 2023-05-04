@@ -165,7 +165,6 @@ height: 100vh;
   padding-right: 20px !important;
   font-size: 1rem;
   padding: 5px 10px;
-  font-weight: bold;
   text-align: center;
 }
 
@@ -214,4 +213,28 @@ height: 100vh;
 .form-control {
   border-radius: 0;
   border: none;
+}
+
+.container-fluid.login .branding .topBar {
+  display: flex;
+  flex: 0 auto;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.container-fluid.login .branding .topBar .input-group {
+  width: auto;
+flex-wrap: inherit;
+height: 50px;
+}
+
+.container-fluid.login .branding .topBar .btn {
+  width: auto;
+  flex-wrap: inherit;
+}
+
+.menu-categorias ul li a svg {
+  width: 50px;
+  height: 50px;
 }
