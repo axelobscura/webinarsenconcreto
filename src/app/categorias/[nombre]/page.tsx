@@ -12,6 +12,7 @@ export default function Nombre() {
         <h2 className="text-white">{nombre}</h2>
       </div>
       
+      <p className='text-center p-0'><small>© 1959 - 2023 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
     </div>
   )
 }
