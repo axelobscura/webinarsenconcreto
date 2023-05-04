@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { BsChevronRight } from "react-icons/bs"
@@ -18,14 +19,14 @@ const categorias = [
     'imagen': 'https://www.webinarsenconcreto.com/images/bk4.jpeg',
   },
   {
-    'nombre': 'TÉCNICO EN PRUEBAS DE CAMPO DE CONCRETO-GRADO I',
+    'nombre': 'TÉCNICO EN PRUEBAS DE AGREGADOS NIVEL I',
     'tipo': 'rama',
-    'imagen': 'https://www.webinarsenconcreto.com/images/bk11.jpeg',
+    'imagen': 'https://www.webinarsenconcreto.com/images/bk2.jpeg',
   },
   {
-    'nombre': 'TÉCNICO EN PRUEBAS DE RESISTENCIA',
+    'nombre': 'TÉCNICO LABORATORISTA NIVEL 2',
     'tipo': 'rama',
-    'imagen': 'https://www.webinarsenconcreto.com/images/bk4.jpeg',
+    'imagen': 'https://www.webinarsenconcreto.com/images/bk11_2022.jpg',
   }
 ]
 
@@ -67,21 +68,25 @@ export default function Categorias() {
             <ul>
               {categorias.map((val, i) => (
                 <li key={i}>
-                  <a href={'/categorias/' + val.nombre.toLowerCase().split(' ').join('-')}>
-                    <Image
-                      src={val.imagen}
-                      alt="Webinars en concreto instituto mexicano del cemento y del concreto"
-                      width="180"
-                      height="100"
-                    />
-                    <div className='d-flex justify-content-center align-items-center mt-2'>
-                      <BsChevronRight style={{
-                        'width': '30px'
-                      }} /> 
-                      <p className='m-0'>{val.nombre}</p>
-                    </div>
-                    
-                  </a>
+                  <Link
+                    href={{
+                      pathname: `/categorias/${val.nombre.toLowerCase().split(' ').join('-')}`,
+                      query: { nombre: val.nombre },
+                    }}
+                  >
+                      <Image
+                        src={val.imagen}
+                        alt="Webinars en concreto instituto mexicano del cemento y del concreto"
+                        width="180"
+                        height="100"
+                      />
+                      <div className='d-flex justify-content-center align-items-center mt-2'>
+                        <BsChevronRight style={{
+                          'width': '30px'
+                        }} /> 
+                        <p className='m-0'>{val.nombre}</p>
+                      </div>
+                  </Link>
                 </li>
               ))}
             </ul>
