@@ -129,20 +129,18 @@ a {
 }
 
 .container-fluid.login .branding {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  text-align: right;
-  padding: 20px;
-  height: 100vh;
-  background: rgba(0,0,0,0.6);
+  text-align: center;
+padding: 20px;
+background: rgba(0,0,0,0.6);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100vh;
 }
 
 .container-fluid.login.categorias .branding {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  text-align: left;
+  text-align: center;
   padding: 20px;
   height: 100vh;
   background: rgba(0,0,0,0.8);
@@ -174,14 +172,6 @@ a {
 .container-fluid.login .branding p {
   color: #fff;
   padding-right: 17px;
-}
-
-.login-form {
-  position: absolute;
-  bottom: 10px;
-  right: 25px;
-  left: 25px;
-  text-align: left;
 }
 
 .container-fluid.login .branding .form-label {
