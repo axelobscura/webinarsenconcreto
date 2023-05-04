@@ -16,6 +16,16 @@ const categorias = [
     'nombre': 'TÉCNICO EN PRUEBAS DE RESISTENCIA',
     'tipo': 'rama',
     'imagen': 'https://www.webinarsenconcreto.com/images/bk4.jpeg',
+  },
+  {
+    'nombre': 'TÉCNICO EN PRUEBAS DE CAMPO DE CONCRETO-GRADO I',
+    'tipo': 'rama',
+    'imagen': 'https://www.webinarsenconcreto.com/images/bk11.jpeg',
+  },
+  {
+    'nombre': 'TÉCNICO EN PRUEBAS DE RESISTENCIA',
+    'tipo': 'rama',
+    'imagen': 'https://www.webinarsenconcreto.com/images/bk4.jpeg',
   }
 ]
 
@@ -40,19 +50,19 @@ export default function Categorias() {
           <Image
             src="/imcyc_registrada.svg"
             alt="Webinars en concreto instituto mexicano del cemento y del concreto"
-            width="180"
-            height="100"
+            width="150"
+            height="70"
             style={{
               marginLeft: '-12px'
             }}
           />
-          <div className="input-group mt-3">
+          <div className="input-group">
               <input type="text" className="form-control" placeholder="Buscar contenido" />
-              <button className="btn btn-outline-secondary m-0 p-2" type="button" id="button-addon2"><CiSearch style={{'fontSize':'1.7rem'}}/></button>
+              <button className="btn btn-outline-secondary m-0 p-2" type="button" id="button-addon2"><CiSearch style={{'fontSize':'1.3rem','display':'flex'}}/></button>
           </div>
         </div>
 
-        <div>
+        <div className='cat-entrada'>
           <div className='menu-categorias'>
             <ul>
               {categorias.map((val, i) => (
@@ -64,7 +74,13 @@ export default function Categorias() {
                       width="180"
                       height="100"
                     />
-                    <BsChevronRight /> <p className='m-0'>{val.nombre}</p>
+                    <div className='d-flex justify-content-center align-items-center mt-2'>
+                      <BsChevronRight style={{
+                        'width': '30px'
+                      }} /> 
+                      <p className='m-0'>{val.nombre}</p>
+                    </div>
+                    
                   </a>
                 </li>
               ))}
