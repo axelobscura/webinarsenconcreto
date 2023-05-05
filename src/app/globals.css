@@ -260,5 +260,45 @@ font-weight: 600;
 
 .cat-entrada {
   width: 100%;
-height: 100%;
+}
+
+.row.contenidos .col-2 {
+  background: #000;
+  height: 100%;
+  padding: 0;
+}
+
+.barra_lateral .logo {
+  padding: 20px;
+}
+
+.barra_lateral ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.barra_lateral ul.menu li {
+  background: rgba(0,0,0,0.6);
+  margin: 0;
+  padding: 0;
+}
+
+.barra_lateral ul.menu li a {
+  color: #fff;
+  padding: 10px 20px;
+  display: block;
+  border-bottom: 1px solid #555;
+  transition: all 0.5s;
+  margin-bottom: 5px;
+  transition: all 1s;
+  font-weight: bold;
+}
+
+.barra_lateral ul.menu li a:hover {
+  color: #000;
+  background: #fff;
 }
