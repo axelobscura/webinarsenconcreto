@@ -289,13 +289,15 @@ font-weight: 600;
 
 .barra_lateral ul.menu li a {
   color: #fff;
-  padding: 10px 20px;
+  padding: 10px 5px;
   display: block;
   border-bottom: 1px solid #555;
   transition: all 0.5s;
   margin-bottom: 5px;
   transition: all 1s;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .barra_lateral ul.menu li a:hover {

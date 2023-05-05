@@ -2,6 +2,7 @@
 import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link';
+import { BsChevronRight } from 'react-icons/bs';
 
 export default function Nombre() {
 
@@ -27,16 +28,16 @@ export default function Nombre() {
               </div>
               <ul className='menu'>
                 <li>
-                  <Link href=''>PRESENTACIÓN EJECUTIVA</Link>
+                  <Link href=''><BsChevronRight/> PRESENTACIÓN EJECUTIVA</Link>
                 </li>
                 <li>
-                  <Link href=''>PRESENTACIÓN GRABADA</Link>
+                  <Link href=''><BsChevronRight/> PRESENTACIÓN GRABADA</Link>
                 </li>
                 <li>
-                  <Link href=''>EVALUACIÓN FINAL</Link>
+                  <Link href=''><BsChevronRight/> EVALUACIÓN FINAL</Link>
                 </li>
                 <li>
-                  <Link href=''>CONTENIDO ADICIONAL</Link>
+                  <Link href=''><BsChevronRight/> CONTENIDO ADICIONAL</Link>
                 </li>
               </ul>
             </div>
