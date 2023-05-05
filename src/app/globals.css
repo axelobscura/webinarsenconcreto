@@ -289,7 +289,7 @@ font-weight: 600;
 
 .barra_lateral ul.menu li a {
   color: #fff;
-  padding: 8px 5px;
+  padding: 15px 5px;
   display: block;
   border-bottom: 1px solid #555;
   transition: all 0.5s;

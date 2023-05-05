@@ -16,15 +16,17 @@ export default function Nombre() {
           <div className='col-3'>
             <div className='barra_lateral'>
               <div className='logo'>
-                <Image
-                  src="/imcyc_registrada.svg"
-                  alt="Webinars en concreto instituto mexicano del cemento y del concreto"
-                  width="200"
-                  height="100"
-                  style={{
-                    marginLeft: '-12px'
-                  }}
-                />
+                <Link href='/categorias'>
+                  <Image
+                    src="/imcyc_registrada.svg"
+                    alt="Webinars en concreto instituto mexicano del cemento y del concreto"
+                    width="200"
+                    height="100"
+                    style={{
+                      marginLeft: '-12px'
+                    }}
+                  />
+                </Link>
               </div>
               <ul className='menu'>
                 <li>
