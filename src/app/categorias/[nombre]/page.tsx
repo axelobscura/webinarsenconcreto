@@ -19,8 +19,8 @@ export default function Nombre() {
                 <Image
                   src="/imcyc_registrada.svg"
                   alt="Webinars en concreto instituto mexicano del cemento y del concreto"
-                  width="150"
-                  height="70"
+                  width="200"
+                  height="100"
                   style={{
                     marginLeft: '-12px'
                   }}
