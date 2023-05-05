@@ -41,7 +41,7 @@ export default function Nombre() {
               </ul>
             </div>
           </div>
-          <div className='col'>
+          <div className='col documento'>
             <h2 className="text-white">{nombre}</h2>
           </div>
         </div>

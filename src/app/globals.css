@@ -302,3 +302,7 @@ font-weight: 600;
   color: #000;
   background: #fff;
 }
+
+.col.documento {
+  padding: 15px 0;
+}
