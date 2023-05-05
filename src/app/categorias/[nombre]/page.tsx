@@ -28,16 +28,16 @@ export default function Nombre() {
               </div>
               <ul className='menu'>
                 <li>
-                  <Link href=''><BsChevronRight/> PRESENTACIÓN EJECUTIVA</Link>
+                  <Link href=''><BsChevronRight className='icono'/> PRESENTACIÓN EJECUTIVA</Link>
                 </li>
                 <li>
-                  <Link href=''><BsChevronRight/> PRESENTACIÓN GRABADA</Link>
+                  <Link href=''><BsChevronRight className='icono'/> PRESENTACIÓN GRABADA</Link>
                 </li>
                 <li>
-                  <Link href=''><BsChevronRight/> EVALUACIÓN FINAL</Link>
+                  <Link href=''><BsChevronRight className='icono'/> EVALUACIÓN FINAL</Link>
                 </li>
                 <li>
-                  <Link href=''><BsChevronRight/> CONTENIDO ADICIONAL</Link>
+                  <Link href=''><BsChevronRight className='icono'/> CONTENIDO ADICIONAL</Link>
                 </li>
               </ul>
             </div>
