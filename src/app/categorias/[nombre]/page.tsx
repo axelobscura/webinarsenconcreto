@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { BsChevronRight } from 'react-icons/bs';
 import Header from '@/app/components/Header';
+import Documento from '@/app/components/Documento';
 
 export default function Nombre() {
 
@@ -35,7 +36,7 @@ export default function Nombre() {
             </div>
           </div>
           <div className='col documento'>
-            
+            <Documento/>
           </div>
         </div>
         <p className='text-center p-0'><small>© 1959 - 2023 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>

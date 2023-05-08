@@ -17,7 +17,6 @@ export default function RootLayout({
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Webinars en concreto Instituto Mexicano del Cemento y del Concreto A.C.</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <body>{children}</body>
     </html>

@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Header from '../components/Header'
 import { Inter } from 'next/font/google'
 import { BsChevronRight } from "react-icons/bs"
-import { CiSearch } from 'react-icons/ci'
 
 const inter = Inter({ subsets: ['latin'] })
 
