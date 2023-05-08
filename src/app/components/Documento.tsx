@@ -20,8 +20,21 @@ export default function Documento() {
                   {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva3.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva3.JPG", title:"Page three"},
                   {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva4.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva4.JPG", title:""},
               ],
-              viewMode:"2d",
-              layout:1
+              skin:"dark",
+              viewMode:"1d",
+              layout:4,
+              btnDownloadPdf: {
+                enabled: false
+              },
+              btnShare: {
+                enabled: false
+              },
+              btnPrint: {
+                enabled: false
+              },
+              btnDownloadPages: {
+                enabled: false
+              },
             });
           }}
           defer
