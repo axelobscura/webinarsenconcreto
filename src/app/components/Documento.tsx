@@ -33,6 +33,7 @@ export default function Documento() {
               layout:2
             });
           }}
+          async
         />
         <div id="containePDF"></div>
       </div>
