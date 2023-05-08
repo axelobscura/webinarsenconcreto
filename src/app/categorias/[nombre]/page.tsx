@@ -6,7 +6,7 @@ import Header from '@/app/components/Header';
 import Documento from '@/app/components/Documento';
 
 export default function Nombre() {
-  const [categoria, setCategoria] = useState('');
+  const [categoria, setCategoria] = useState(' PRESENTACIÓN EJECUTIVA');
 
   const searchParams = useSearchParams();
   const nombre = searchParams.get('nombre');
@@ -40,10 +40,11 @@ export default function Nombre() {
             </div>
           </div>
           <div className='col documento'>
+            <h2 className='titulo'>{categoria}</h2>
             <Documento/>
           </div>
         </div>
-        <p className='text-center p-0'><small>© 1959 - 2023 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
+        <p className='text-center p-0 m-0'><small>© 1959 - 2023 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
       </div>
       
     </div>
