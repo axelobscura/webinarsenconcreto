@@ -14,8 +14,7 @@ export default function Documento() {
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
           <link rel="stylesheet" type="text/css" href="/css/flipbook.style.css" />
         </Head>
-        <Script 
-          // @ts-ignore
+        <Script
           src="/js/flipbook.min.js" 
           onReady={() => {
             ($("#containePDF") as any).flipBook({
@@ -33,7 +32,7 @@ export default function Documento() {
               layout:2
             });
           }}
-          async
+          defer
         />
         <div id="containePDF"></div>
       </div>
