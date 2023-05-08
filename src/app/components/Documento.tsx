@@ -15,17 +15,13 @@ export default function Documento() {
           onReady={() => {
             ($("#containePDF") as any).flipBook({
               pages:[
-                  {src:"/images/book2/page1.jpg", thumb:"/images/book2/thumb1.jpg", title:"Cover"},
-                  {src:"/images/book2/page2.jpg", thumb:"/images/book2/thumb2.jpg", title:"Page two"},
-                  {src:"/images/book2/page3.jpg", thumb:"/images/book2/thumb3.jpg", title:"Page three"},
-                  {src:"/images/book2/page4.jpg", thumb:"/images/book2/thumb4.jpg", title:""},
-                  {src:"/images/book2/page5.jpg", thumb:"/images/book2/thumb5.jpg", title:"Page five"},
-                  {src:"/images/book2/page6.jpg", thumb:"/images/book2/thumb6.jpg", title:"Page six"},
-                  {src:"/images/book2/page7.jpg", thumb:"/images/book2/thumb7.jpg", title:"Page seven"},
-                  {src:"/images/book2/page8.jpg", thumb:"/images/book2/thumb8.jpg", title:"Last"}
+                  {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva1.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva1.JPG", title:"Cover"},
+                  {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva2.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva2.JPG", title:"Page two"},
+                  {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva3.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva3.JPG", title:"Page three"},
+                  {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva4.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva4.JPG", title:""},
               ],
               viewMode:"2d",
-              layout:2
+              layout:1
             });
           }}
           defer
