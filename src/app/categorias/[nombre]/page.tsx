@@ -40,7 +40,7 @@ export default function Nombre() {
             </div>
           </div>
           <div className='col documento'>
-            <h2 className='titulo'>{categoria}</h2>
+            <h2 className='titulo'><BsChevronRight/> {categoria}</h2>
             <Documento/>
           </div>
         </div>
