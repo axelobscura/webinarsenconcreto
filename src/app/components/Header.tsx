@@ -15,7 +15,7 @@ export default function Header() {
         />
         <div className="input-group">
             <input type="text" className="form-control" placeholder="Buscar contenido" />
-            <button className="btn btn-outline-secondary m-0 p-2" type="button" id="button-addon2"><CiSearch style={{'fontSize':'1.3rem','display':'flex'}}/></button>
+            <button className="btn btn-outline-secondary m-0 p-2" type="button" id="button-addon2"><CiSearch /></button>
         </div>
       </div>
   )

@@ -70,9 +70,7 @@ export default function Categorias() {
                         height="100"
                       />
                       <div className='d-flex justify-content-center align-items-center mt-2'>
-                        <BsChevronRight style={{
-                          'width': '30px'
-                        }} /> 
+                        <BsChevronRight /> 
                         <p className='m-0'>{val.nombre}</p>
                       </div>
                   </Link>

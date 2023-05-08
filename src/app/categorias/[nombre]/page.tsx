@@ -20,16 +20,16 @@ export default function Nombre() {
               <h2 className="text-white">{nombre}</h2>
               <ul className='menu'>
                 <li>
-                  <Link href=''><BsChevronRight className='icono'/> PRESENTACIÓN EJECUTIVA</Link>
+                  <Link href=''><BsChevronRight/> PRESENTACIÓN EJECUTIVA</Link>
                 </li>
                 <li>
-                  <Link href=''><BsChevronRight className='icono'/> PRESENTACIÓN GRABADA</Link>
+                  <Link href=''><BsChevronRight/> PRESENTACIÓN GRABADA</Link>
                 </li>
                 <li>
-                  <Link href=''><BsChevronRight className='icono'/> EVALUACIÓN FINAL</Link>
+                  <Link href=''><BsChevronRight/> EVALUACIÓN FINAL</Link>
                 </li>
                 <li>
-                  <Link href=''><BsChevronRight className='icono'/> CONTENIDO ADICIONAL</Link>
+                  <Link href=''><BsChevronRight/> CONTENIDO ADICIONAL</Link>
                 </li>
               </ul>
             </div>
