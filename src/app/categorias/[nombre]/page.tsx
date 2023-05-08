@@ -1,15 +1,19 @@
 "use client"
+import { useState } from 'react';
 import { useSearchParams } from 'next/navigation'
-import Image from 'next/image'
-import Link from 'next/link';
 import { BsChevronRight } from 'react-icons/bs';
 import Header from '@/app/components/Header';
 import Documento from '@/app/components/Documento';
 
 export default function Nombre() {
+  const [categoria, setCategoria] = useState('');
 
   const searchParams = useSearchParams();
   const nombre = searchParams.get('nombre');
+
+  const seccion = (e: any) => {
+    setCategoria(e.target.text);
+  }
 
   return (
     <div className="container-fluid login categorias">
@@ -21,16 +25,16 @@ export default function Nombre() {
               <h2 className="text-white">{nombre}</h2>
               <ul className='menu'>
                 <li>
-                  <Link href=''><BsChevronRight/> PRESENTACIÓN EJECUTIVA</Link>
+                  <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active' : ''}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
                 </li>
                 <li>
-                  <Link href=''><BsChevronRight/> PRESENTACIÓN GRABADA</Link>
+                  <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active' : ''}><BsChevronRight/> PRESENTACIÓN GRABADA</a>
                 </li>
                 <li>
-                  <Link href=''><BsChevronRight/> EVALUACIÓN FINAL</Link>
+                  <a onClick={seccion} className={categoria === ' EVALUACIÓN FINAL' ? 'active' : ''}><BsChevronRight/> EVALUACIÓN FINAL</a>
                 </li>
                 <li>
-                  <Link href=''><BsChevronRight/> CONTENIDO ADICIONAL</Link>
+                  <a onClick={seccion} className={categoria === ' CONTENIDO ADICIONAL' ? 'active' : ''}><BsChevronRight/> CONTENIDO ADICIONAL</a>
                 </li>
               </ul>
             </div>

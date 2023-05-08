@@ -2399,9 +2399,10 @@ font-weight: 600;
   font-weight: bold;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
-.barra_lateral ul.menu li a:hover {
+.barra_lateral ul.menu li a:hover, .barra_lateral ul.menu li a.active {
   color: #000;
   background: #fff;
 }
