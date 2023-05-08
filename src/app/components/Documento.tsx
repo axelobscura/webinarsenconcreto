@@ -30,7 +30,7 @@ export default function Documento() {
           }}
           defer
         />
-        <div id="containePDF"></div>
+        <div id="containePDF" style={{'position':'absolute','width':'73%','height':'75%'}}></div>
       </div>
   )
 }
