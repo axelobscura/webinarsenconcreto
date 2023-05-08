@@ -1,6 +1,7 @@
 "use client"
 import Link from 'next/link'
 import Image from 'next/image'
+import Header from '../components/Header'
 import { Inter } from 'next/font/google'
 import { BsChevronRight } from "react-icons/bs"
 import { CiSearch } from 'react-icons/ci'
@@ -44,25 +45,10 @@ export default function Categorias() {
   */
   return (
     <div className="container-fluid login categorias">
-      
       <div className='branding'>
 
-        <div className='topBar'>
-          <Image
-            src="/imcyc_registrada.svg"
-            alt="Webinars en concreto instituto mexicano del cemento y del concreto"
-            width="150"
-            height="70"
-            style={{
-              marginLeft: '-12px'
-            }}
-          />
-          <div className="input-group">
-              <input type="text" className="form-control" placeholder="Buscar contenido" />
-              <button className="btn btn-outline-secondary m-0 p-2" type="button" id="button-addon2"><CiSearch style={{'fontSize':'1.3rem','display':'flex'}}/></button>
-          </div>
-        </div>
-
+        <Header />
+        
         <div className='cat-entrada'>
           <div className='menu-categorias'>
             <ul>
@@ -71,7 +57,10 @@ export default function Categorias() {
                   <Link
                     href={{
                       pathname: `/categorias/${val.nombre.toLowerCase().split(' ').join('-')}`,
-                      query: { nombre: val.nombre },
+                      query: { 
+                        nombre: val.nombre,
+                        img: val.imagen,
+                      },
                     }}
                   >
                       <Image
@@ -94,7 +83,7 @@ export default function Categorias() {
         </div>
 
         <p className='text-center p-0'><small>© 1959 - 2023 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
-      </div>
+        </div>
     </div>
   )
 }
