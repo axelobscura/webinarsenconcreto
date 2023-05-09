@@ -1,0 +1,19 @@
+{
+  "evaluacion": [
+    {
+      "nombre": "TÉCNICO EN PRUEBAS DE CAMPO DE CONCRETO-GRADO I",
+      "preguntas": [
+        {
+          "pregunta": "¿Cuál es el espesor mínimo de la placa metálica de enrase?",
+          "respuestas": ["1/2 pulgada","1/8 pulgada","1/4 pulgada","3/4 pulgada"],
+          "correcta": 1
+        },
+        {
+          "pregunta": "La frecuencia mínima de un vibrador interno usado en este procedimiento es de:",
+          "respuestas": ["7000 vibraciones por minuto","8000 vibraciones por minuto","7500 vibraciones por minuto","9000 vibraciones por minuto"],
+          "correcta": 3
+        }
+      ]
+    }
+  ]
+}
