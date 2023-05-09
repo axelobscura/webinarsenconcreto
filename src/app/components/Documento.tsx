@@ -24,7 +24,7 @@ export default function Documento() {
                   {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva4.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva4.JPG", title:""},
               ],
               skin:"dark",
-              viewMode:"1d",
+              singlePageMode:true,
               layout:4,
               btnDownloadPdf: {
                 enabled: false
