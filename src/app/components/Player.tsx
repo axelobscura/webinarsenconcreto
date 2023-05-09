@@ -15,7 +15,9 @@ export default function Player() {
           }}
           defer
         />
-        <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="WXkTowQXnq0"></div>
+        <video id="player" controls>
+          <source src="https://webinarimcyc.com/videos/ASTM_C_31.mp4" type="video/mp4" />
+        </video>
       </div>
   )
 }
