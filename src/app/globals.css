@@ -2400,6 +2400,7 @@ font-weight: 600;
   display: flex;
   align-items: center;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .barra_lateral ul.menu li a:hover, .barra_lateral ul.menu li a.active {
