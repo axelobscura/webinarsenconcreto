@@ -15,13 +15,13 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
                 <div>
                   <p>TIEMPO RESTANTE: 25:30:48</p>
                   {val.preguntas.map((preg, i) => (
-                    <div>
+                    <div className='bloque'>
                       <h4>{i + 1} - {preg.pregunta}</h4>
                       <div>
                         <ul>
                         {preg.respuestas.map(val => (
                           <li>
-                            <p>{val}</p>
+                            <p><input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" /> {val}</p>
                           </li>
                         ))}
                         </ul>

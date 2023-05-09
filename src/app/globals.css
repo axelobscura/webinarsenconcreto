@@ -2471,3 +2471,33 @@ font-weight: 600;
 .evaluacion .preguntas h4 {
   color: #fff;
 }
+
+.evaluacion .preguntas ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 50px;
+}
+
+.evaluacion .preguntas ul li, .evaluacion .preguntas ul li p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.evaluacion .preguntas ul li p {
+  display: flex;
+  align-items: center;
+}
+
+.evaluacion .preguntas ul li p input {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.evaluacion .preguntas .bloque {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #333;
+}
