@@ -1,7 +1,6 @@
 "use client"
 // @ts-ignore
 import React, { useEffect } from 'react';
-import Head from 'next/head'
 import './loader.js'
 import $ from "jquery"
 import Script from 'next/script';
