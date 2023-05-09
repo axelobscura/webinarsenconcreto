@@ -1,20 +1,29 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation'
 import { BsChevronRight } from 'react-icons/bs';
 import Header from '@/app/components/Header';
 import Documento from '@/app/components/Documento';
 import Player from '@/app/components/Player';
+import { categorias } from '../../data/categorias.json'
 
 export default function Nombre() {
   const [categoria, setCategoria] = useState(' PRESENTACIÓN EJECUTIVA');
+  const [tema, setTema] = useState({});
 
   const searchParams = useSearchParams();
   const nombre = searchParams.get('nombre');
 
+  useEffect(() => {
+    let tipo = categorias.filter((val) => val.nombre === nombre);
+    setTema(tipo)
+  })
+
   const seccion = (e: any) => {
     setCategoria(e.target.text);
   }
+
+  console.log(tema);
 
   return (
     <div className="container-fluid login categorias">
