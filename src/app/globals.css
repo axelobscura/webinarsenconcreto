@@ -2444,3 +2444,16 @@ font-weight: 600;
   font-weight: bold;
   padding: 10px;
 }
+
+.barra_lateral .regresar {
+  width: 100%;
+  background: #111;
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  border: 1px solid #333;
+}

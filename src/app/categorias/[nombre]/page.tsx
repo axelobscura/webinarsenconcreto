@@ -1,7 +1,8 @@
 "use client"
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation'
-import { BsChevronRight } from 'react-icons/bs';
+import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import Header from '@/app/components/Header';
 import Documento from '@/app/components/Documento';
 import Player from '@/app/components/Player';
@@ -34,6 +35,7 @@ export default function Nombre() {
         <div className='row w-100 h-100 contenidos'>
           <div className='col-3'>
             <div className='barra_lateral'>
+              <Link href='/categorias' className='regresar'><BsChevronLeft/> REGRESAR</Link>
               <h2 className="text-white">{nombre}</h2>
               <ul className='menu'>
                 <li>
