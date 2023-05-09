@@ -2,56 +2,19 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Header from '../components/Header'
-import { Inter } from 'next/font/google'
 import { BsChevronRight } from "react-icons/bs"
-
-const inter = Inter({ subsets: ['latin'] })
-
-const categorias = [
-  {
-    'nombre': 'TÉCNICO EN PRUEBAS DE CAMPO DE CONCRETO-GRADO I',
-    'tipo': 'rama',
-    'imagen': 'https://www.webinarsenconcreto.com/images/bk11.jpeg',
-  },
-  {
-    'nombre': 'TÉCNICO EN PRUEBAS DE RESISTENCIA',
-    'tipo': 'rama',
-    'imagen': 'https://www.webinarsenconcreto.com/images/bk4.jpeg',
-  },
-  {
-    'nombre': 'TÉCNICO EN PRUEBAS DE AGREGADOS NIVEL I',
-    'tipo': 'rama',
-    'imagen': 'https://www.webinarsenconcreto.com/images/bk2.jpeg',
-  },
-  {
-    'nombre': 'TÉCNICO LABORATORISTA NIVEL 2',
-    'tipo': 'rama',
-    'imagen': 'https://www.webinarsenconcreto.com/images/bk11_2022.jpg',
-  }
-]
-
-import { useEntries } from '../../../lib/swr-hooks';
+import { categorias } from '../data/categorias.json'
+//import { useEntries } from '../../../lib/swr-hooks';
 
 export default function Categorias() {
-  //const { entries, isLoading } = useEntries();
-  //console.log(entries);
-  /*
-  if (isLoading || !entries) {
-    return (
-      <h1></h1>
-    )
-  };
-  */
   return (
     <div className="container-fluid login categorias">
       <div className='branding'>
-
         <Header />
-        
         <div className='cat-entrada'>
           <div className='menu-categorias'>
             <ul>
-              {categorias.map((val, i) => (
+              {categorias.map((val: any, i: number) => (
                 <li key={i}>
                   <Link
                     href={{
