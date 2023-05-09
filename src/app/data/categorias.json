@@ -9,13 +9,22 @@
           "ASTM": "ASTM C31",
           "NMX": "NMX-C-159-ONNCCE",
           "documento": "ASTM-C-31",
+          "slides": 31,
           "video": "https://webinarimcyc.com/videos/ASTM_C_31.mp4"
         },
         {
           "ASTM": "ASTM C138",
           "NMX": "NMX-C-162-ONNCCE",
           "documento": "ASTM-C-138",
+          "slides": 62,
           "video": "https://webinarimcyc.com/videos/ASTM_C_138.mp4"
+        },
+        {
+          "ASTM": "ASTM C173",
+          "NMX": "NMX-C-158-ONNCCE",
+          "documento": "ASTM-C-173",
+          "slides": 50,
+          "video": "https://webinarimcyc.com/videos/ASTM_C_173.mp4"
         }
       ]
     },

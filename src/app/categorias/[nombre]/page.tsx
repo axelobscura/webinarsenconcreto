@@ -5,6 +5,8 @@ import { BsChevronRight } from 'react-icons/bs';
 import Header from '@/app/components/Header';
 import Documento from '@/app/components/Documento';
 import Player from '@/app/components/Player';
+import Evaluacion from '@/app/components/Evaluacion';
+import Contenido from '@/app/components/Contenido';
 import { categorias } from '../../data/categorias.json'
 
 export default function Nombre() {
@@ -17,7 +19,7 @@ export default function Nombre() {
   useEffect(() => {
     let tipo = categorias.filter((val) => val.nombre === nombre);
     setTema(tipo)
-  })
+  }, [])
 
   const seccion = (e: any) => {
     setCategoria(e.target.text);
@@ -53,6 +55,8 @@ export default function Nombre() {
             <h2 className='titulo'><BsChevronRight/> {categoria}</h2>
             {categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento/>}
             {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
+            {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}
+            {categoria === ' CONTENIDO ADICIONAL' && <Contenido categoria={nombre}/>}
           </div>
         </div>
         <p className='text-center p-0 m-0'><small>© 1959 - 2023 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>

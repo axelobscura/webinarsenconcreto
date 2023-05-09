@@ -2438,3 +2438,9 @@ font-weight: 600;
   padding: 2px 0 10px 0;
   margin: 0;
 }
+
+.evaluacion h2, .contenido h2 {
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+}
