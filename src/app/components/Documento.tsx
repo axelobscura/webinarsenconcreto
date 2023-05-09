@@ -13,7 +13,7 @@ export default function Documento() {
           src="/js/flipbook.min.js" 
           onReady={() => {
             ($("#containePDF") as any).flipBook({
-              pdfUrl:"/normas/ASTM_C_31.pdf",
+              pdfUrl:"https://www.webinarsenconcreto.com/app/normas/ASTM_C_31.pdf",
               skin:"dark",
               singlePageMode:true,
               layout:4,
