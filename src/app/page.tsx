@@ -47,6 +47,7 @@ export default function Home() {
           <p style={{
             textAlign: 'center',
             fontSize: '0.7rem',
+            padding: '0'
           }}>
             © 1959 - 2023 Instituto mexicano del Cemento y del Concreto A.C.
           </p>
