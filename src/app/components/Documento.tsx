@@ -13,16 +13,7 @@ export default function Documento() {
           src="/js/flipbook.min.js" 
           onReady={() => {
             ($("#containePDF") as any).flipBook({
-              pages:[
-                  {
-                    src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva1.JPG", 
-                    thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva1.JPG", 
-                    title:"Portada"
-                  },
-                  {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva2.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva2.JPG", title:"Página uno"},
-                  {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva3.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva3.JPG", title:"Página dos"},
-                  {src:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva4.JPG", thumb:"https://www.webinarsenconcreto.com/images/grado/ASTM-C-31/Diapositiva4.JPG", title:""},
-              ],
+              pdfUrl:"/normas/ASTM_C_31.pdf",
               skin:"dark",
               singlePageMode:true,
               layout:4,
