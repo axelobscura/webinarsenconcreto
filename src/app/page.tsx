@@ -30,8 +30,7 @@ export default function Home() {
             height="100"
         />
         <h1>Plataforma Educativa</h1>
-        <h3>Compartir el Conocimiento</h3>
-        
+        <h3>COMPARTIR EL CONOCIMIENTO</h3>
         <div className='login-form'>
           <form className='loginf' onSubmit={registro}>
             <div>
