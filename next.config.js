@@ -5,7 +5,7 @@ const nextConfig = {
   },
   images: {
     domains: ['www.webinarsenconcreto.com'],
-  },
+  }
 }
 
 module.exports = nextConfig

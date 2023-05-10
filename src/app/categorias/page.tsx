@@ -35,7 +35,8 @@ export default function Categorias() {
                   <Link
                     href={{
                       pathname: `/categorias/${val.nombre.toLowerCase().split(' ').join('-')}`,
-                      query: { 
+                      query: {
+                        id: val.id,
                         nombre: val.nombre,
                         img: val.imagen,
                       },
