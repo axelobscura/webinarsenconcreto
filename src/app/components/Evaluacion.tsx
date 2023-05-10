@@ -1,7 +1,21 @@
 "use client"
+import { useState, useEffect } from 'react';
 import { evaluacion } from '../data/evaluacion.json'
 
 export default function Evaluacion({ categoria } : {categoria: string | null}) {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch('/api/getentries');
+      const apiData = await res.json();
+      setData(apiData);
+    }
+    fetchData();
+  }, []);
+
+  console.log(data);
+
   return (
       <div className='evaluacion'>
         <h2>{categoria}</h2>
