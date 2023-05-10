@@ -19,8 +19,6 @@ export default function Documento() {
     }
   }, []);
 
-  console.log(paginas);
-
   return (
       <div>
         <Script

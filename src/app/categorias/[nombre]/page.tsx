@@ -26,8 +26,6 @@ export default function Nombre() {
     setCategoria(e.target.text);
   }
 
-  console.log(tema);
-
   return (
     <div className="container-fluid login categorias">
       <div className='branding'>
