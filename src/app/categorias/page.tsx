@@ -1,4 +1,5 @@
 "use client"
+import { useState, useEffect } from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import Header from '../components/Header'
@@ -7,6 +8,23 @@ import { categorias } from '../data/categorias.json'
 //import { useEntries } from '../../../lib/swr-hooks';
 
 export default function Categorias() {
+  const [categorias, setCategorias] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch('/api/categorias');
+      const apiData = await res.json();
+      setCategorias(apiData);
+    }
+    fetchData();
+  }, []);
+
+  if(!categorias){
+    return(
+      <h2>Cargando...</h2>
+    )
+  }
+
   return (
     <div className="container-fluid login categorias">
       <div className='branding'>
@@ -14,7 +32,7 @@ export default function Categorias() {
         <div className='cat-entrada'>
           <div className='menu-categorias'>
             <ul>
-              {categorias.map((val: any, i: number) => (
+              {categorias && categorias.map((val: any, i: number) => (
                 <li key={i}>
                   <Link
                     href={{
