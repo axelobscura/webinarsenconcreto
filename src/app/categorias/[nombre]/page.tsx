@@ -13,7 +13,7 @@ import { categorias } from '../../data/categorias.json'
 export default function Nombre() {
   const [categoria, setCategoria] = useState(' PRESENTACIÓN EJECUTIVA');
   const [tema, setTema] = useState({});
-  const [normas, setNormas] = useState<any[]>([]);
+  const [normas, setNormas] = useState([]);
 
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
