@@ -45,7 +45,7 @@ export default function Nombre() {
     
   }, []);
 
-  console.log('LAS NORMAS: '+JSON.stringify(normas.results));
+  console.log('LAS NORMAS: '+JSON.stringify(normas));
 
   const seccion = (e: any) => {
     setCategoria(e.target.text);
