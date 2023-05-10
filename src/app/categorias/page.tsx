@@ -4,11 +4,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Header from '../components/Header'
 import { BsChevronRight } from "react-icons/bs"
-import { categorias } from '../data/categorias.json'
-//import { useEntries } from '../../../lib/swr-hooks';
 
 export default function Categorias() {
-  const [categorias, setCategorias] = useState(null);
+  const [categorias, setCategorias] = useState<any[]>([]);
 
   useEffect(() => {
     async function fetchData() {
