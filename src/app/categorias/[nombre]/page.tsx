@@ -13,18 +13,39 @@ import { categorias } from '../../data/categorias.json'
 export default function Nombre() {
   const [categoria, setCategoria] = useState(' PRESENTACIÓN EJECUTIVA');
   const [tema, setTema] = useState({});
-  const [normas, setNormas] = useState([]);
+  const [normas, setNormas] = useState<any[]>([]);
 
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
   const nombre = searchParams.get('nombre');
 
-  console.log('el id: ', id);
+  console.log('el id:'+ id);
 
   useEffect(() => {
     let tipo = categorias.filter((val) => val.nombre === nombre);
     setTema(tipo);
   }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`/api/normas/${id}`);
+  
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+  
+        const data = await response.json();
+        setNormas(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+    
+  }, []);
+
+  console.log('LAS NORMAS: '+JSON.stringify(normas.results));
 
   const seccion = (e: any) => {
     setCategoria(e.target.text);
