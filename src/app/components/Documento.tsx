@@ -10,12 +10,6 @@ export default function Documento({lanorma}:{lanorma: any}) {
   const [norm, setNorm] = useState<any[]>([]);
   const [documento, setDocumento] = useState('');
 
-  if(!lanorma){
-    return(
-      <div>Loading</div>
-    )
-  }
-
   useEffect(() => {
     setDocumento(lanorma.documento);
   }, []);
@@ -34,6 +28,12 @@ export default function Documento({lanorma}:{lanorma: any}) {
       }])
     }
   }, []);
+
+  if(!lanorma){
+    return(
+      <div>Loading</div>
+    )
+  }
 
   console.log('la norma state: ' + documento);
 
