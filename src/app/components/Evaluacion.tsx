@@ -35,8 +35,20 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
                       <h2>{i + 1}</h2>
                     </div>
                     <div>
-                      <h3 className='m-0 p-0'>{preg.pregunta}</h3>
-                      <p className='m-0 p-0'><small>NORMA: {preg.norma} - CAPÍTULO: {preg.capitulo}</small></p>
+                      <div>
+                        <h3 className='m-0 p-0'>{preg.pregunta}</h3>
+                        <p className='m-0 p-0'><small>NORMA: {preg.norma} - CAPÍTULO: {preg.capitulo}</small></p>
+                      </div>
+                      <div className='respuestas'>
+                        <div>
+                          <div className="form-check">
+                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                            <label className="form-check-label">
+                              Default radio
+                            </label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -45,7 +57,9 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
                 'height': 'auto'
               }}>
                 <div className='col-12'>
-                  <button className='btn'>ENVIAR RESPUESTAS</button>
+                  <button className='btn' style={{
+                    'marginTop': '0'
+                  }}>ENVIAR RESPUESTAS</button>
                 </div>
               </div>
               </form>

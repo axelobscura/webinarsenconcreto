@@ -2561,10 +2561,26 @@ ul.menu ul.normas li a p {
   max-width: 90px;
   width: 90px;
   text-align: center;
+  display: flex;
 }
 
 .index-numero h2 {
   width: 90px;
   margin: 0;
   padding: 0;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  margin: 20px;
+  color: #000;
+}
+
+.respuestas {
+  margin: 10px 0;
+}
+
+.respuestas .form-check label {
+  color: #fff;
 }
