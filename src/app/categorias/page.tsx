@@ -38,6 +38,7 @@ export default function Categorias() {
                       query: {
                         id: val.id,
                         nombre: val.nombre,
+                        imagen: val.imagen,
                       },
                     }}
                   >

@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation'
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import Header from '@/app/components/Header';
@@ -18,6 +19,7 @@ export default function Nombre() {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
   const nombre = searchParams.get('nombre');
+  const imagen = searchParams.get('imagen');
 
   useEffect(() => {
     async function fetchData() {
@@ -67,6 +69,11 @@ export default function Nombre() {
           <div className='col-3'>
             <div className='barra_lateral'>
               <Link href='/categorias' className='regresar'><BsChevronLeft/> REGRESAR</Link>
+              <Image
+                src={imagen ? imagen : ''}
+                alt="Webinars en concreto instituto mexicano del cemento y del concreto"
+                width="100" height="100" layout="responsive"
+              />
               <h2 className="text-white">{nombre}</h2>
               <ul className='menu'>
                 <li>
