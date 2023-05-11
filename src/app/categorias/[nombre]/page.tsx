@@ -37,7 +37,7 @@ export default function Nombre() {
       }
     }
     fetchData();
-  }, []);
+  }, [normas]);
 
   const seccion = (e: any) => {
     setCategoria(e.target.text);

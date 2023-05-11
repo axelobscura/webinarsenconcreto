@@ -2443,7 +2443,7 @@ font-weight: 600;
 .evaluacion h2, .contenido h2 {
   color: #fff;
   font-weight: bold;
-  padding: 10px;
+  padding: 5px;
 }
 
 .barra_lateral .regresar {
@@ -2528,4 +2528,5 @@ ul.menu ul.normas li a p {
   text-align: left;
   display: block;
   margin: 0;
+  line-height: 1rem;
 }
