@@ -2556,3 +2556,15 @@ ul.menu ul.normas li a p {
 .documento .evaluacion .preguntas h3 {
   text-align: left;
 }
+
+.index-numero {
+  max-width: 90px;
+  width: 90px;
+  text-align: center;
+}
+
+.index-numero h2 {
+  width: 90px;
+  margin: 0;
+  padding: 0;
+}

@@ -30,9 +30,14 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
             <div className='preguntas'>
               {preguntas.map((preg, i) => (
                 <div key={preg.id}>
-                  <div className='d-flex align-items-center'>
-                    <h2>{i + 1}</h2>
-                    <h3>{preg.pregunta}</h3>
+                  <div className='d-flex align-items-center mb-3'>
+                    <div className='index-numero'>
+                      <h2>{i + 1}</h2>
+                    </div>
+                    <div>
+                      <h3 className='m-0 p-0'>{preg.pregunta}</h3>
+                      <p className='m-0 p-0'><small>NORMA: {preg.norma} - CAPÍTULO: {preg.capitulo}</small></p>
+                    </div>
                   </div>
                 </div>
               ))}
