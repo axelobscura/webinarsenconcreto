@@ -2536,5 +2536,19 @@ ul.menu ul.normas li a p {
 .contenidos .col.documento h3 {
   text-align: center;
   font-weight: bold;
-text-transform: uppercase;
+  text-transform: uppercase;
+}
+
+.documento .evaluacion {
+  height: 90%;
+}
+
+.documento .evaluacion .row {
+  height: 70vh;
+  overflow: auto;
+}
+
+.documento .evaluacion .preguntas {
+  height: 70vh;
+  overflow: auto;
 }

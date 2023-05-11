@@ -37,8 +37,6 @@ export default function Categorias() {
                       pathname: `/categorias/${val.nombre.toLowerCase().split(' ').join('-')}`,
                       query: {
                         id: val.id,
-                        nombre: val.nombre,
-                        img: val.imagen,
                       },
                     }}
                   >
@@ -48,7 +46,7 @@ export default function Categorias() {
                         width="180"
                         height="100"
                       />
-                      <div className='d-flex justify-content-center align-items-center mt-2'>
+                      <div className='d-flex align-items-center mt-2'>
                         <BsChevronRight /> 
                         <p className='m-0'>{val.nombre}</p>
                       </div>
