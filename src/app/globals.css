@@ -2603,3 +2603,17 @@ ul.menu ul.normas li a p {
   border-color: #55dc40;
   background: #246139 !important;
 }
+
+a.regresar svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid #fff;
+  padding: 2px;
+  transition: all 1s;
+}
+
+a.regresar:hover svg {
+  background: #fff;
+  color: #000;
+}
