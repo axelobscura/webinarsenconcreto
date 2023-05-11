@@ -30,7 +30,7 @@ export default function Documento({lanorma}:{lanorma: any}) {
             console.log('la norma state 2: ' + documento);
             ($("#containePDF") as any).flipBook({
               //pages: [paginas],
-              pdfUrl:"/normas/ASTM_C_31.pdf",
+              pdfUrl:"https://webinarsenconcreto.com/images/ASTM_C_31/ASTM_C_31.pdf",
               /*
               pages: [
                 {
