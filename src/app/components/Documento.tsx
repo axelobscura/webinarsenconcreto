@@ -8,35 +8,37 @@ import Script from 'next/script';
 export default function Documento({lanorma}:{lanorma: any}) {
   const [paginas, setPagina] = useState([]);
   const [norm, setNorm] = useState<any[]>([]);
-  const [documento, setDocumento] = useState();
+  const [documento, setDocumento] = useState<any[]>();
 
   console.log(lanorma);
 
   useEffect(() => {
     setDocumento(lanorma);
-  }, []);
+  }, [lanorma]);
+
+  //console.log(documento);
 
   useEffect(() => {
-    setNorm(lanorma)
-    for(let i = 1; i < 15; i++){
-      // @ts-ignore
-      setPagina(paginas => [...paginas, {
-        'src': `https://webinarsenconcreto.com/images/${lanorma.documento}/Diapositiva${i}.jpg`,
-        'thumb': `https://webinarsenconcreto.com/images/${lanorma.documento}/Diapositiva${i}.jpg`,
-        'title': `Página ${i}`,
-      }])
+    if(documento){
+      for(let i = 1; i < 15; i++){
+        // @ts-ignore
+        setPagina({
+          // @ts-ignore
+          'src': `https://webinarsenconcreto.com/images/${documento.documento}/Diapositiva${i}.jpg`,
+          'thumb': `https://webinarsenconcreto.com/images/${documento.documento}/Diapositiva${i}.jpg`,
+          'title': `Página ${i}`,
+        })
+      }
     }
-  }, [norm]);
-
-  console.log('paginas: '+ JSON.stringify(paginas));
-  console.log('norm: '+ JSON.stringify(norm));
-  console.log('documento: '+ JSON.stringify(documento));
+  }, [lanorma]);
 
   if(!lanorma){
     return(
       <div>Loading</div>
     )
   }
+
+  console.log(paginas);
 
   return (
       <div>
@@ -45,11 +47,12 @@ export default function Documento({lanorma}:{lanorma: any}) {
           onLoad={() => {
             console.log('la norma state 2: ' + documento);
             ($("#containePDF") as any).flipBook({
+              //pages: [paginas],
               //pdfUrl:"https://webinarsenconcreto.com/images/ASTM_C_31/ASTM_C_31.pdf",
               pages: [
                 {
-                  'src': `https://webinarsenconcreto.com/images/${lanorma.documento}/Diapositiva1.jpg`,
-                  'thumb': `https://webinarsenconcreto.com/images/${lanorma.documento}/Diapositiva1.jpg`,
+                  'src': `https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva1.jpg`,
+                  'thumb': `https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva1.jpg`,
                   'title': 'Página 1',
                 },
                 {
@@ -118,6 +121,7 @@ export default function Documento({lanorma}:{lanorma: any}) {
                   'title': 'Página 16',
                 }
               ],
+              
               skin:"dark",
               singlePageMode:true,
               layout:4,
