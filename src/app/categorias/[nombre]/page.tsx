@@ -8,21 +8,18 @@ import Documento from '@/app/components/Documento';
 import Player from '@/app/components/Player';
 import Evaluacion from '@/app/components/Evaluacion';
 import Contenido from '@/app/components/Contenido';
-import { categorias } from '../../data/categorias.json'
 
 export default function Nombre() {
   const [categoria, setCategoria] = useState(' PRESENTACIÓN EJECUTIVA');
   const [tema, setTema] = useState({});
-  const [normas, setNormas] = useState([]);
+  const [normas, setNormas] = useState<any[]>([]);
 
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
   const nombre = searchParams.get('nombre');
 
-  console.log('el id:'+ id);
-
   useEffect(() => {
-    let tipo = categorias.filter((val) => val.nombre === nombre);
+    let tipo = normas.filter((val) => val.nombre === nombre);
     setTema(tipo);
   }, []);
 
@@ -30,22 +27,17 @@ export default function Nombre() {
     async function fetchData() {
       try {
         const response = await fetch(`/api/normas/${id}`);
-  
         if (!response.ok) {
           throw new Error(response.statusText);
         }
-  
         const data = await response.json();
-        setNormas(data);
+        setNormas(data.results);
       } catch (error) {
         console.error(error);
       }
     }
     fetchData();
-    
   }, []);
-
-  console.log('LAS NORMAS: '+JSON.stringify(normas));
 
   const seccion = (e: any) => {
     setCategoria(e.target.text);
@@ -63,6 +55,18 @@ export default function Nombre() {
               <ul className='menu'>
                 <li>
                   <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active' : ''}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
+                  
+                  <ul className='normas'>
+                    {normas && normas.map((val: any) => (
+                      <li key={val.id}>
+                        <a>
+                          <p>{val.astm}</p>
+                          <p>{val.nmx}</p>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+
                 </li>
                 <li>
                   <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active' : ''}><BsChevronRight/> PRESENTACIÓN GRABADA</a>

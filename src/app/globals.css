@@ -2504,3 +2504,28 @@ font-weight: 600;
   padding-bottom: 15px;
   border-bottom: 1px solid #333;
 }
+
+ul.normas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.menu ul.normas li a {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 3px;
+  padding-left: 22px;
+}
+
+ul.menu ul.normas li a:hover, ul.menu ul.normas li a:hover p {
+  color: #000;
+}
+
+ul.menu ul.normas li a p {
+  width: 100%;
+  text-align: left;
+  display: block;
+  margin: 0;
+}
