@@ -27,6 +27,7 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
         <div className='row'>
           <div className='col-12'>
             <div className='preguntas'>
+              <form>
               {preguntas.map((preg, i) => (
                 <div key={preg.id}>
                   <div className='d-flex align-items-center mb-3'>
@@ -40,6 +41,14 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
                   </div>
                 </div>
               ))}
+              <div className='row' style={{
+                'height': 'auto'
+              }}>
+                <div className='col-12'>
+                  <button className='btn'>ENVIAR RESPUESTAS</button>
+                </div>
+              </div>
+              </form>
             </div>
           </div>
         </div>
