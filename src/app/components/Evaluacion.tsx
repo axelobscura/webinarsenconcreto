@@ -40,8 +40,14 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
                         <p className='m-0 p-0'><small>NORMA: {preg.norma} - CAPÍTULO: {preg.capitulo}</small></p>
                       </div>
                       <div className='respuestas'>
-                        <div>
-                          <div className="form-check">
+                        <div className='d-flex'>
+                          <div className="form-check mr-2">
+                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                            <label className="form-check-label">
+                              Default radio
+                            </label>
+                          </div>
+                          <div className="form-check mr-2">
                             <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                             <label className="form-check-label">
                               Default radio

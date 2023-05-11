@@ -71,7 +71,6 @@ export default function Nombre() {
               <ul className='menu'>
                 <li>
                   <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
-                  
                   <ul className='normas'>
                     {normas && normas.map((val: any) => (
                       <li key={val.id}>
@@ -82,7 +81,6 @@ export default function Nombre() {
                       </li>
                     ))}
                   </ul>
-
                 </li>
                 <li>
                   <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active' : ''}><BsChevronRight/> PRESENTACIÓN GRABADA</a>

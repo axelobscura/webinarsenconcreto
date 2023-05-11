@@ -37,6 +37,7 @@ export default function Categorias() {
                       pathname: `/categorias/${val.nombre.toLowerCase().split(' ').join('-')}`,
                       query: {
                         id: val.id,
+                        nombre: val.nombre,
                       },
                     }}
                   >
