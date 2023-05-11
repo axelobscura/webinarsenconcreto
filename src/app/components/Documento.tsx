@@ -16,29 +16,11 @@ export default function Documento({lanorma}:{lanorma: any}) {
     setDocumento(lanorma);
   }, [lanorma]);
 
-  //console.log(documento);
-
-  useEffect(() => {
-    if(documento){
-      for(let i = 1; i < 15; i++){
-        // @ts-ignore
-        setPagina({
-          // @ts-ignore
-          'src': `https://webinarsenconcreto.com/images/${documento.documento}/Diapositiva${i}.jpg`,
-          'thumb': `https://webinarsenconcreto.com/images/${documento.documento}/Diapositiva${i}.jpg`,
-          'title': `Página ${i}`,
-        })
-      }
-    }
-  }, [lanorma]);
-
   if(!lanorma){
     return(
       <div>Loading</div>
     )
   }
-
-  console.log(paginas);
 
   return (
       <div>
@@ -48,7 +30,8 @@ export default function Documento({lanorma}:{lanorma: any}) {
             console.log('la norma state 2: ' + documento);
             ($("#containePDF") as any).flipBook({
               //pages: [paginas],
-              //pdfUrl:"https://webinarsenconcreto.com/images/ASTM_C_31/ASTM_C_31.pdf",
+              pdfUrl:"/normas/ASTM_C_31.pdf",
+              /*
               pages: [
                 {
                   'src': `https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva1.jpg`,
@@ -121,7 +104,7 @@ export default function Documento({lanorma}:{lanorma: any}) {
                   'title': 'Página 16',
                 }
               ],
-              
+              */
               skin:"dark",
               singlePageMode:true,
               layout:4,

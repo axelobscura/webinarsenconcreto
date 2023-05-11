@@ -25,7 +25,7 @@ export default function Contenido({ categoria } : {categoria: string | null}) {
           src="/js/flipbook.min.js" 
           onReady={() => {
             ($("#containePDF") as any).flipBook({
-              pdfUrl:"https://www.webinarsenconcreto.com/imcyc/libros/grado.pdf",
+              pdfUrl:"/libros/grado.pdf",
               skin:"dark",
               singlePageMode:true,
               layout:4,
