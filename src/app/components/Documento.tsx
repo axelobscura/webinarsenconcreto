@@ -35,8 +35,6 @@ export default function Documento({lanorma}:{lanorma: any}) {
     )
   }
 
-  console.log('la norma state: ' + documento);
-
   return (
       <div>
         <p id='doun'>{documento}</p>
