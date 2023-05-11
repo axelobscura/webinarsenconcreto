@@ -8,26 +8,29 @@ import Script from 'next/script';
 export default function Documento({lanorma}:{lanorma: any}) {
   const [paginas, setPagina] = useState([]);
   const [norm, setNorm] = useState<any[]>([]);
-  const [documento, setDocumento] = useState('');
+  const [documento, setDocumento] = useState();
+
+  console.log(lanorma);
 
   useEffect(() => {
-    setDocumento(lanorma.documento);
+    setDocumento(lanorma);
   }, []);
 
   useEffect(() => {
-    console.log('lanorma 1: '+JSON.stringify(lanorma.titulo));
     setNorm(lanorma)
-    console.log('lanorma 2: '+JSON.stringify(norm));
-
     for(let i = 1; i < 15; i++){
       // @ts-ignore
       setPagina(paginas => [...paginas, {
-        'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva${i}.jpg`,
-        'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva${i}.jpg`,
+        'src': `https://webinarsenconcreto.com/images/${lanorma.documento}/Diapositiva${i}.jpg`,
+        'thumb': `https://webinarsenconcreto.com/images/${lanorma.documento}/Diapositiva${i}.jpg`,
         'title': `Página ${i}`,
       }])
     }
-  }, []);
+  }, [norm]);
+
+  console.log('paginas: '+ JSON.stringify(paginas));
+  console.log('norm: '+ JSON.stringify(norm));
+  console.log('documento: '+ JSON.stringify(documento));
 
   if(!lanorma){
     return(
@@ -39,14 +42,14 @@ export default function Documento({lanorma}:{lanorma: any}) {
       <div>
         <Script
           src="/js/flipbook.min.js" 
-          onReady={() => {
+          onLoad={() => {
             console.log('la norma state 2: ' + documento);
             ($("#containePDF") as any).flipBook({
               //pdfUrl:"https://webinarsenconcreto.com/images/ASTM_C_31/ASTM_C_31.pdf",
               pages: [
                 {
-                  'src': 'https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva1.jpg',
-                  'thumb': 'https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva1.jpg',
+                  'src': `https://webinarsenconcreto.com/images/${lanorma.documento}/Diapositiva1.jpg`,
+                  'thumb': `https://webinarsenconcreto.com/images/${lanorma.documento}/Diapositiva1.jpg`,
                   'title': 'Página 1',
                 },
                 {
