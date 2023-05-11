@@ -2552,3 +2552,7 @@ ul.menu ul.normas li a p {
   height: 70vh;
   overflow: auto;
 }
+
+.documento .evaluacion .preguntas h3 {
+  text-align: left;
+}
