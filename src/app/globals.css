@@ -2601,4 +2601,5 @@ ul.menu ul.normas li a p {
 
 .form-check-input:focus {
   border-color: #55dc40;
+  background: #246139 !important;
 }
