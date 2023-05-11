@@ -2578,9 +2578,27 @@ ul.menu ul.normas li a p {
 }
 
 .respuestas {
-  margin: 10px 0;
+  margin: 5px 0;
+}
+
+.respuestas .form-check {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .respuestas .form-check label {
-  color: #fff;
+  color: #f2f2f2;
+  text-transform: uppercase;
+}
+
+.respuestas .form-check input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background: #000;
+}
+
+.form-check-input:focus {
+  border-color: #55dc40;
 }

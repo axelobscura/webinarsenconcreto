@@ -37,7 +37,6 @@ export default function Documento({lanorma}:{lanorma: any}) {
 
   return (
       <div>
-        <p id='doun'>{documento}</p>
         <Script
           src="/js/flipbook.min.js" 
           onReady={() => {
