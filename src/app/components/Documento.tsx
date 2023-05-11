@@ -16,8 +16,6 @@ export default function Documento({lanorma}:{lanorma: any}) {
     )
   }
 
-  console.log('la norma state 2: ' + lanorma.documento);
-
   useEffect(() => {
     setDocumento(lanorma.documento);
   }, []);
