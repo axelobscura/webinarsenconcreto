@@ -5,25 +5,47 @@ import './loader.js'
 import $ from "jquery"
 import Script from 'next/script';
 
-export default function Documento() {
+export default function Documento({lanorma}:{lanorma: any}) {
   const [paginas, setPagina] = useState([]);
+  const [norm, setNorm] = useState<any[]>([]);
+  const [documento, setDocumento] = useState('');
+
+  if(!lanorma){
+    return(
+      <div>Loading</div>
+    )
+  }
+
+  console.log('la norma state 2: ' + lanorma.documento);
 
   useEffect(() => {
-    for(let i = 1; i < 16; i++){
+    setDocumento(lanorma.documento);
+  }, []);
+
+  useEffect(() => {
+    console.log('lanorma 1: '+JSON.stringify(lanorma.titulo));
+    setNorm(lanorma)
+    console.log('lanorma 2: '+JSON.stringify(norm));
+
+    for(let i = 1; i < 15; i++){
       // @ts-ignore
       setPagina(paginas => [...paginas, {
-        'src': 'https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva'+i+'.jpg',
-        'thumb': 'https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva'+i+'.jpg',
-        'title': 'Página '+i,
+        'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva${i}.jpg`,
+        'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva${i}.jpg`,
+        'title': `Página ${i}`,
       }])
     }
   }, []);
 
+  console.log('la norma state: ' + documento);
+
   return (
       <div>
+        <p id='doun'>{documento}</p>
         <Script
           src="/js/flipbook.min.js" 
           onReady={() => {
+            console.log('la norma state 2: ' + documento);
             ($("#containePDF") as any).flipBook({
               //pdfUrl:"https://webinarsenconcreto.com/images/ASTM_C_31/ASTM_C_31.pdf",
               pages: [

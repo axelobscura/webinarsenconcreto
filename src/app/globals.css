@@ -2509,6 +2509,8 @@ ul.normas {
   list-style: none;
   margin: 0;
   padding: 0;
+  border-top: 5px solid #555;
+border-bottom: 5px solid #555;
 }
 
 ul.menu ul.normas li a {
@@ -2529,4 +2531,10 @@ ul.menu ul.normas li a p {
   display: block;
   margin: 0;
   line-height: 1rem;
+}
+
+.contenidos .col.documento h3 {
+  text-align: center;
+  font-weight: bold;
+text-transform: uppercase;
 }

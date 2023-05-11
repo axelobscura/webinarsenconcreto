@@ -13,15 +13,11 @@ export default function Nombre() {
   const [categoria, setCategoria] = useState(' PRESENTACIÓN EJECUTIVA');
   const [tema, setTema] = useState({});
   const [normas, setNormas] = useState<any[]>([]);
+  const [lanorma, setLanorma] = useState<any>({});
 
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
   const nombre = searchParams.get('nombre');
-
-  useEffect(() => {
-    let tipo = normas.filter((val) => val.nombre === nombre);
-    setTema(tipo);
-  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -32,15 +28,35 @@ export default function Nombre() {
         }
         const data = await response.json();
         setNormas(data.results);
+        setLanorma({
+          astm: data.results[0].astm,
+          nmx: data.results[0].nmx,
+          titulo: data.results[0].titulo,
+          documento: data.results[0].documento,
+        })
       } catch (error) {
         console.error(error);
       }
     }
     fetchData();
-  }, [normas]);
+  }, []);
+
+  useEffect(() => {
+    let tipo = normas.filter((val) => val.nombre === nombre);
+    setTema(tipo);
+  }, []);
 
   const seccion = (e: any) => {
     setCategoria(e.target.text);
+  }
+
+  const norma = (val: any) => {
+    setLanorma({
+      astm: val.astm,
+      nmx: val.nmx,
+      titulo: val.titulo,
+      documento: val.documento,
+    })
   }
 
   return (
@@ -54,12 +70,12 @@ export default function Nombre() {
               <h2 className="text-white">{nombre}</h2>
               <ul className='menu'>
                 <li>
-                  <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active' : ''}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
+                  <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
                   
                   <ul className='normas'>
                     {normas && normas.map((val: any) => (
                       <li key={val.id}>
-                        <a>
+                        <a onClick={() => norma(val)}>
                           <p>{val.astm}</p>
                           <p>{val.nmx}</p>
                         </a>
@@ -82,7 +98,8 @@ export default function Nombre() {
           </div>
           <div className='col documento'>
             <h2 className='titulo'><BsChevronRight/> {categoria}</h2>
-            {categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento/>}
+            <h3>{lanorma.titulo}</h3>
+            {categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
             {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
             {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}
             {categoria === ' CONTENIDO ADICIONAL' && <Contenido categoria={nombre}/>}
