@@ -4,12 +4,14 @@ import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 
 export default function MenuLateral(
   { 
+    id,
     imagen,
     nombre,
     seccion,
     categoria,
     normas,
   } : {
+    id: any | null,
     imagen: any | null,
     nombre: any,
     seccion: any | null,
@@ -38,6 +40,9 @@ export default function MenuLateral(
               <Link href={{
                 pathname: `/norma/${val.astm}`,
                 query: {
+                  id: id,
+                  nombre: nombre,
+                  imagen: imagen,
                   astm: val.astm,
                   nmx: val.nmx,
                   documento: val.documento,

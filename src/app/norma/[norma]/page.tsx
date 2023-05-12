@@ -10,6 +10,9 @@ import MenuLateral from '@/app/components/MenuLateral';
 
 export default function Norma() {
   const searchParams = useSearchParams();
+  const id = searchParams.get('id');
+  const nombre = searchParams.get('nombre');
+  const imagen = searchParams.get('imagen');
   const astm = searchParams.get('astm');
   const nmx = searchParams.get('nmx');
   const documento = searchParams.get('documento');
@@ -26,7 +29,18 @@ export default function Norma() {
         <div className='row w-100 h-100 contenidos'>
           <div className='col-3'>
             <div className='barra_lateral'>
-              <Link href='/categorias' className='regresar'><BsChevronLeft/> REGRESAR</Link>
+              <Link 
+                href={{
+                  pathname: `/categorias/${nombre?.toLowerCase().split(' ').join('-')}`,
+                  query: {
+                    id: id,
+                    nombre: nombre,
+                    imagen: imagen,
+                  },
+                }} 
+                className='regresar'>
+                  <BsChevronLeft/> REGRESAR
+              </Link>
             </div>
           </div>
           <div className='col documento'>

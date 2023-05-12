@@ -71,6 +71,7 @@ export default function Nombre() {
         <div className='row w-100 h-100 contenidos'>
           <div className='col-3'>
             <MenuLateral
+              id={id}
               imagen={imagen}
               nombre={nombre}
               seccion={seccion}
