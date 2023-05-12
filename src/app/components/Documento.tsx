@@ -30,8 +30,8 @@ export default function Documento({lanorma}:{lanorma: any}) {
             console.log('la norma state 2: ' + documento);
             ($("#containePDF") as any).flipBook({
               //pages: [paginas],
-              //pdfUrl:"https://webinarsenconcreto.com/images/ASTM_C_31/ASTM_C_31.pdf",
-
+              //pdfUrl:"https://www.webinarsenconcreto.com/images/ASTM_C_31/ASTM_C_31.pdf",
+              
               pages: [
                 {
                   'src': `https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva1.jpg`,
@@ -104,6 +104,7 @@ export default function Documento({lanorma}:{lanorma: any}) {
                   'title': 'Página 16',
                 }
               ],
+              
               skin:"dark",
               singlePageMode:true,
               layout:4,

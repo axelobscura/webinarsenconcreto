@@ -9,6 +9,7 @@ import Documento from '@/app/components/Documento';
 import Player from '@/app/components/Player';
 import Evaluacion from '@/app/components/Evaluacion';
 import Contenido from '@/app/components/Contenido';
+import MenuLateral from '@/app/components/MenuLateral';
 
 export default function Nombre() {
   const [categoria, setCategoria] = useState(' PRESENTACIÓN EJECUTIVA');
@@ -61,45 +62,21 @@ export default function Nombre() {
     })
   }
 
+  console.log(normas);
+
   return (
     <div className="container-fluid login categorias">
       <div className='branding'>
         <Header/>
         <div className='row w-100 h-100 contenidos'>
           <div className='col-3'>
-            <div className='barra_lateral'>
-              <Link href='/categorias' className='regresar'><BsChevronLeft/> REGRESAR</Link>
-              <Image
-                src={imagen ? imagen : ''}
-                alt="Webinars en concreto instituto mexicano del cemento y del concreto"
-                width="100" height="100" layout="responsive"
-              />
-              <h2 className="text-white">{nombre}</h2>
-              <ul className='menu'>
-                <li>
-                  <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
-                  <ul className='normas'>
-                    {normas && normas.map((val: any) => (
-                      <li key={val.id}>
-                        <a onClick={() => norma(val)}>
-                          <p>{val.astm}</p>
-                          <p>{val.nmx}</p>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-                <li>
-                  <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active' : ''}><BsChevronRight/> PRESENTACIÓN GRABADA</a>
-                </li>
-                <li>
-                  <a onClick={seccion} className={categoria === ' EVALUACIÓN FINAL' ? 'active' : ''}><BsChevronRight/> EVALUACIÓN FINAL</a>
-                </li>
-                <li>
-                  <a onClick={seccion} className={categoria === ' CONTENIDO ADICIONAL' ? 'active' : ''}><BsChevronRight/> CONTENIDO ADICIONAL</a>
-                </li>
-              </ul>
-            </div>
+            <MenuLateral
+              imagen={imagen}
+              nombre={nombre}
+              seccion={seccion}
+              categoria={categoria}
+              normas={normas}
+            />
           </div>
           <div className='col documento'>
             <h2 className='titulo'><BsChevronRight/> {categoria}</h2>
