@@ -31,8 +31,8 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
     console.log(id);
     const pregs = respuestas.filter((val) => val.pregunta_id === id);
     const prex = pregs.map((preta: any) => (
-      <div className="form-check mr-2">
-        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+      <div key={preta.id} className="form-check mr-2">
+        <input className="form-check-input" type="radio" name={`flexRadioDefault${id}`} id={`flexRadioDefault${id}`} />
         <label className="form-check-label">
           {preta.respuestas}
         </label>
@@ -43,7 +43,6 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
   }
 
   console.log(respuestas);
-
   return (
       <div className='evaluacion'>
         <div className='row'>
@@ -62,7 +61,7 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
                         <p className='m-0 p-0'><small>NORMA: {preg.norma} - CAPÍTULO: {preg.capitulo}</small></p>
                       </div>
                       <div className='respuestas'>
-                        <div className='d-flex'>
+                        <div className='d-flex flex-column'>
                           {getRespuestas(preg.id)}
                         </div>
                       </div>
