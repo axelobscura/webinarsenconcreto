@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 export default function Evaluacion({ categoria } : {categoria: string | null}) {
 
   const [preguntas, setPreguntas] = useState<any[]>([]);
+  const [respuestas, setRespuestas] = useState<any[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -12,6 +13,12 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
       setPreguntas(apiData);
     }
     fetchData();
+    async function fetchDataRespuestas() {
+      const res = await fetch('/api/respuestas_grado');
+      const apiData = await res.json();
+      setRespuestas(apiData);
+    }
+    fetchDataRespuestas();
   }, []);
 
   if(!preguntas){
@@ -20,7 +27,22 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
     )
   }
 
-  console.log(preguntas);
+  const getRespuestas = (id: any) => {
+    console.log(id);
+    const pregs = respuestas.filter((val) => val.pregunta_id === id);
+    const prex = pregs.map((preta: any) => (
+      <div className="form-check mr-2">
+        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+        <label className="form-check-label">
+          {preta.respuestas}
+        </label>
+      </div>
+    ));
+
+    return prex
+  }
+
+  console.log(respuestas);
 
   return (
       <div className='evaluacion'>
@@ -41,18 +63,7 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
                       </div>
                       <div className='respuestas'>
                         <div className='d-flex'>
-                          <div className="form-check mr-2">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                            <label className="form-check-label">
-                              Default radio
-                            </label>
-                          </div>
-                          <div className="form-check mr-2">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                            <label className="form-check-label">
-                              Default radio
-                            </label>
-                          </div>
+                          {getRespuestas(preg.id)}
                         </div>
                       </div>
                     </div>
