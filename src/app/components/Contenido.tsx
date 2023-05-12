@@ -26,7 +26,6 @@ export default function Contenido({ categoria } : {categoria: string | null}) {
           onReady={() => {
             ($("#containePDF") as any).flipBook({
               //pdfUrl:"/libros/grado.pdf",
-
               pages: [
                 {
                   'src': `https://webinarsenconcreto.com/images/2023/grado/pagina_001.jpg`,
@@ -64,7 +63,6 @@ export default function Contenido({ categoria } : {categoria: string | null}) {
                   'title': 'Página 8',
                 },
               ],
-
               skin:"dark",
               singlePageMode:true,
               layout:4,
