@@ -1,11 +1,11 @@
 "use client"
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation'
 import Header from '../../components/Header';
 import '../../components/loader';
 import $ from "jquery";
 import Script from 'next/script';
-import { BsChevronRight } from 'react-icons/bs';
+import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import MenuLateral from '@/app/components/MenuLateral';
 
 export default function Norma() {
@@ -13,11 +13,10 @@ export default function Norma() {
   const astm = searchParams.get('astm');
   const nmx = searchParams.get('nmx');
   const documento = searchParams.get('documento');
-  console.log(documento);
 
-  let extension = 'jpg';
-  if(documento === "ASTM_C_138" || documento === "ASTM_C_173" || documento === "ASTM_C_231" || documento === "ASTM_C_1064" || documento === "ASTM_C_143"){
-    extension = 'JPG';
+  let extension = 'JPG';
+  if(documento === "ASTM_C_31"){
+    extension = 'jpg';
   }
 
   return (
@@ -26,7 +25,9 @@ export default function Norma() {
         <Header />
         <div className='row w-100 h-100 contenidos'>
           <div className='col-3'>
-            
+            <div className='barra_lateral'>
+              <Link href='/categorias' className='regresar'><BsChevronLeft/> REGRESAR</Link>
+            </div>
           </div>
           <div className='col documento'>
             <h2 className='titulo'><BsChevronRight/> {astm?.split('-').join(' ')} | {nmx?.split('-').join(' ')}</h2>
@@ -108,7 +109,6 @@ export default function Norma() {
                       'title': 'Página 14',
                     }
                   ],
-                  
                   skin:"dark",
                   singlePageMode:true,
                   layout:4,
@@ -128,7 +128,7 @@ export default function Norma() {
               }}
               defer
             />
-            <div id="containePDF" style={{'position':'absolute','width':'73%','height':'75%','top':'21%'}}></div>
+            <div id="containePDF" style={{'position':'absolute','width':'73%','height':'75%','top':'22%'}}></div>
           </div>
         </div>
       </div>
