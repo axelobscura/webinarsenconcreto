@@ -106,7 +106,6 @@ export default function Documento({lanorma}:{lanorma: any}) {
               ],
               
               skin:"dark",
-              singlePageMode:true,
               layout:4,
               btnDownloadPdf: {
                 enabled: false
