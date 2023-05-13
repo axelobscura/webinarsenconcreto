@@ -81,7 +81,6 @@ export default function Nombre() {
           </div>
           <div className='col documento'>
             <h2 className='titulo'><BsChevronRight/> {categoria}</h2>
-            <h3>{lanorma.titulo}</h3>
             {categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
             {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
             {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}
