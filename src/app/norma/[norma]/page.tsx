@@ -27,7 +27,7 @@ export default function Norma() {
       <div className='branding'>
         <Header />
         <div className='row w-100 h-100 contenidos'>
-          <div className='col-3'>
+          <div className='col-1'>
             <div className='barra_lateral'>
               <Link 
                 href={{
@@ -39,7 +39,7 @@ export default function Norma() {
                   },
                 }} 
                 className='regresar'>
-                  <BsChevronLeft/> REGRESAR
+                  <BsChevronLeft/>
               </Link>
             </div>
           </div>
