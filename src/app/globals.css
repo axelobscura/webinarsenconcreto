@@ -2617,3 +2617,8 @@ a.regresar:hover svg {
   background: #fff;
   color: #000;
 }
+
+.contador h2 {
+  text-align: left;
+  width: 100%;
+}
