@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
+import Contador from './Contador';
 
 export default function Evaluacion({ categoria } : {categoria: string | null}) {
 
@@ -45,6 +46,13 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
   console.log(respuestas);
   return (
       <div className='evaluacion'>
+        <div className='row' style={{
+          'height':'auto'
+        }}>
+          <div className='col-12'>
+            <Contador />
+          </div>
+        </div>
         <div className='row'>
           <div className='col-12'>
             <div className='preguntas'>
