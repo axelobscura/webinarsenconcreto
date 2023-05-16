@@ -142,7 +142,7 @@ export default function Norma() {
               }}
               defer
             />
-            <div id="containePDF" style={{'position':'absolute','width':'100%','height':'75%','top':'22%'}}></div>
+            <div id="containePDF" style={{'position':'relative','width':'100%','height':'85%'}}></div>
           </div>
         </div>
       </div>
