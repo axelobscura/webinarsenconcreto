@@ -2592,6 +2592,7 @@ ul.menu ul.normas li a p {
   color: #f2f2f2;
   text-transform: uppercase;
   padding-left: 5px;
+  padding-top: 3px;
 }
 
 .respuestas .form-check input {
@@ -2669,4 +2670,9 @@ a.regresar:hover svg {
   background: #777;
   padding: 2px;
   margin-right: 10px;
+}
+
+.form-check-input:checked {
+  background: #fff !important;
+  border-color: #444;
 }
