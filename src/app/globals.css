@@ -2645,3 +2645,17 @@ a.regresar:hover svg {
   text-transform: uppercase;
   font-weight: 100;
 }
+
+.barra_busqueda {
+  width: 100%;
+  text-align: left;
+}
+
+.barra_busqueda h4 {
+  text-align: left;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  font-weight: bold;
+  background: #111;
+}
