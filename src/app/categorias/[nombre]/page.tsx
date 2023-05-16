@@ -31,11 +31,13 @@ export default function Nombre() {
         }
         const data = await response.json();
         setNormas(data.results);
+        console.log(data.results);
         setLanorma({
           astm: data.results[0].astm,
           nmx: data.results[0].nmx,
           titulo: data.results[0].titulo,
           documento: data.results[0].documento,
+          imagen: imagen,
         })
       } catch (error) {
         console.error(error);
@@ -62,7 +64,7 @@ export default function Nombre() {
     })
   }
 
-  console.log(normas);
+  
 
   return (
     <div className="container-fluid login categorias">
@@ -80,7 +82,7 @@ export default function Nombre() {
             />
           </div>
           <div className='col documento'>
-            <h2 className='titulo'><BsChevronRight/> {categoria}</h2>
+            {categoria !== ' PRESENTACIÓN EJECUTIVA' ? <h2 className='titulo'><BsChevronRight/>{categoria}</h2> : ''}
             {categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
             {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
             {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}

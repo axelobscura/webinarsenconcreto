@@ -2622,3 +2622,26 @@ a.regresar:hover svg {
   text-align: left;
   width: 100%;
 }
+
+.entrada {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.entrada h2 {
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  background: rgba(0,0,0,0.8);
+  padding: 10px 30px;
+  margin-top: -50px;
+  text-transform: uppercase;
+  font-weight: 100;
+}

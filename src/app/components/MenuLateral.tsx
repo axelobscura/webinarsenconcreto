@@ -21,7 +21,6 @@ export default function MenuLateral(
   return (
     <div className='barra_lateral'>
     <Link href='/categorias' className='regresar'><BsChevronLeft/> REGRESAR</Link>
-    {/* 
     <Image
       src={imagen ? imagen : ''}
       alt="Webinars en concreto instituto mexicano del cemento y del concreto"
@@ -29,7 +28,6 @@ export default function MenuLateral(
       height="100" 
       layout="responsive"
     />
-    */}
     <h2 className="text-white">{nombre}</h2>
     <ul className='menu'>
       <li>
