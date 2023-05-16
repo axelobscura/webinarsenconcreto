@@ -2658,4 +2658,13 @@ a.regresar:hover svg {
   margin: 0;
   font-weight: bold;
   background: #111;
+  border: 1px solid #555;
+  display: flex;
+  align-items: center;
+}
+
+.barra_busqueda h4 svg {
+  background: #777;
+  padding: 2px;
+  margin-right: 10px;
 }
