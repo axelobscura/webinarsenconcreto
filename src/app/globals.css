@@ -2296,7 +2296,7 @@ font-weight: 600;
 
 .menu-categorias ul {
   list-style: none;
-  margin: 20px 0;
+  margin: 10px 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
