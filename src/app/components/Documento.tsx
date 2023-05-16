@@ -2,12 +2,11 @@
 // @ts-ignore
 import React, { useState, useEffect } from 'react';
 import './loader.js'
+import Image from 'next/image.js';
 import $ from "jquery"
 import Script from 'next/script';
 
 export default function Documento({lanorma}:{lanorma: any}) {
-  const [paginas, setPagina] = useState([]);
-  const [norm, setNorm] = useState<any[]>([]);
   const [documento, setDocumento] = useState<any[]>();
 
   console.log('LANORMA: ',lanorma);
@@ -23,9 +22,7 @@ export default function Documento({lanorma}:{lanorma: any}) {
   }
 
   return (
-      <div className='entrada' style={{
-        'background': `url(${lanorma.imagen}) no-repeat center center fixed`,
-      }}>
+      <div className='entrada'>
         <h2>{lanorma.titulo}</h2>
       </div>
   )
