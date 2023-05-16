@@ -2233,13 +2233,14 @@ a {
 
 .container-fluid.login .branding {
   text-align: center;
-padding: 20px;
-background: rgba(0,0,0,0.6);
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-height: 100vh;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: auto;
 }
 
 .container-fluid.login.categorias .branding {

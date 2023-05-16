@@ -55,23 +55,15 @@ export default function Nombre() {
     setCategoria(e.target.text);
   }
 
-  const norma = (val: any) => {
-    setLanorma({
-      astm: val.astm,
-      nmx: val.nmx,
-      titulo: val.titulo,
-      documento: val.documento,
-    })
-  }
-
-  
-
   return (
     <div className="container-fluid login categorias">
       <div className='branding'>
         <Header/>
         <div className='row w-100 h-100 contenidos'>
-          <div className='col-3'>
+          <div className='col-3' style={{
+            'height': '90%',
+            'overflow': 'auto'
+          }}>
             <MenuLateral
               id={id}
               imagen={imagen}
