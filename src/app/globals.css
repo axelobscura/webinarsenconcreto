@@ -2623,6 +2623,7 @@ a.regresar:hover svg {
 .contador h2 {
   text-align: left;
   width: 100%;
+  margin-bottom: 0;
 }
 
 .entrada {
