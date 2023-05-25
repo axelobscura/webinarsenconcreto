@@ -2545,16 +2545,6 @@ ul.menu ul.normas li a p {
   height: 90%;
 }
 
-.documento .evaluacion .row {
-  height: 70vh;
-  overflow: auto;
-}
-
-.documento .evaluacion .preguntas {
-  height: 70vh;
-  overflow: auto;
-}
-
 .documento .evaluacion .preguntas h3 {
   text-align: left;
 }
