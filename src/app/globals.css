@@ -2685,3 +2685,9 @@ a.regresar:hover svg {
 .cat-desc {
   height: 60px;
 }
+
+@media (max-width: 900px){
+  .menu-categorias ul {
+    grid-template-columns: 1fr;
+  }
+}
