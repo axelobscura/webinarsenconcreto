@@ -2686,8 +2686,14 @@ a.regresar:hover svg {
   height: 60px;
 }
 
-@media (max-width: 900px){
+@media (max-width: 500px){
   .menu-categorias ul {
     grid-template-columns: 1fr;
+  }
+}
+
+@media ((min-width: 500px) and (max-width: 950px)){
+  .menu-categorias ul {
+    grid-template-columns: 1fr 1fr;
   }
 }
