@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const router = useRouter();
   //const [usuario, setUsuario] = useState<any[]>([]);
-  const { setUsuario } = useThemeContext();
+  const { usuario, setUsuario } = useThemeContext();
 
   const registro = (e: any) => {
     e.preventDefault();
@@ -41,6 +41,8 @@ export default function Home() {
     }
     fetchData();
   }
+
+  console.log(usuario);
 
   return (
     <div className="container-fluid login">

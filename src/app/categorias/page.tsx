@@ -24,6 +24,7 @@ export default function Categorias() {
       <h2>Cargando...</h2>
     )
   }
+  
   console.log(usuario);
 
   return (

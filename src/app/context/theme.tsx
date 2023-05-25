@@ -13,6 +13,7 @@ const ThemeContext = createContext<MyContextType>({
 
 export const ThemeContextProvider = ({ children }: { children : any }) => {
     const [usuario, setUsuario] = useState('');
+    console.log('usuario: '+usuario);
     return (
       <ThemeContext.Provider value={{ usuario, setUsuario }}>
           {children}
