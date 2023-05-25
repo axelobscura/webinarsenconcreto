@@ -60,10 +60,7 @@ export default function Nombre() {
       <div className='branding'>
         <Header/>
         <div className='row w-100 h-100 contenidos'>
-          <div className='col-3' style={{
-            'height': '90%',
-            'overflow': 'auto'
-          }}>
+          <div className='col-3'>
             <MenuLateral
               id={id}
               imagen={imagen}
