@@ -24,7 +24,7 @@ export default function Categorias() {
       <h2>Cargando...</h2>
     )
   }
-  
+
   console.log(usuario);
 
   return (
@@ -46,13 +46,15 @@ export default function Categorias() {
                       },
                     }}
                   >
-                      <Image
-                        src={val.imagen}
-                        alt="Webinars en concreto instituto mexicano del cemento y del concreto"
-                        width="180"
-                        height="100"
-                      />
-                      <div className='d-flex align-items-center mt-2'>
+                      <div className='cat-image'>
+                        <Image
+                          src={val.imagen}
+                          alt="Webinars en concreto instituto mexicano del cemento y del concreto"
+                          width="180"
+                          height="100"
+                        />
+                      </div>
+                      <div className='d-flex align-items-center mt-2 cat-desc'>
                         <BsChevronRight /> 
                         <p className='m-0'>{val.nombre}</p>
                       </div>
