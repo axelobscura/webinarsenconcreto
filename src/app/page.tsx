@@ -1,7 +1,8 @@
 "use client"
-
-import Image from 'next/image'
-import Link from 'next/link'
+import { useState, useEffect } from 'react';
+import { useThemeContext } from './context/theme';
+import Image from 'next/image';
+import { format } from 'url';
 import { Inter } from 'next/font/google'
 import { BsChevronRight } from 'react-icons/bs';
 import { useRouter } from "next/navigation";
@@ -10,14 +11,35 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const router = useRouter();
+  //const [usuario, setUsuario] = useState<any[]>([]);
+  const { setUsuario } = useThemeContext();
 
   const registro = (e: any) => {
     e.preventDefault();
     let email = e.target.email.value;
     let password = e.target.password.value;
-    console.log(email);
-    console.log(password);
-    router.push("/categorias")
+    let user = {
+      email: email,
+      password: password,
+    }
+    async function fetchData() {
+      try {
+        const response = await fetch(`/api/usuarios/${JSON.stringify(user)}`);
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        const data = await response.json();
+        if (data.results.length > 0) {
+          setUsuario(data.results);
+          router.push('/categorias');
+        } else {
+          alert("Usuario y/o contraseña incorrectos");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
   }
 
   return (

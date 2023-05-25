@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
+import { useThemeContext } from '../context/theme';
 import Link from 'next/link'
 import Image from 'next/image'
 import Header from '../components/Header'
@@ -7,6 +8,7 @@ import { BsChevronRight } from "react-icons/bs"
 
 export default function Categorias() {
   const [categorias, setCategorias] = useState<any[]>([]);
+  const { usuario } = useThemeContext();
 
   useEffect(() => {
     async function fetchData() {
@@ -22,6 +24,7 @@ export default function Categorias() {
       <h2>Cargando...</h2>
     )
   }
+  console.log(usuario);
 
   return (
     <div className="container-fluid login categorias">
