@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react';
 import Contador from './Contador';
 
 export default function Evaluacion({ categoria } : {categoria: string | null}) {
-
   const [preguntas, setPreguntas] = useState<any[]>([]);
   const [respuestas, setRespuestas] = useState<any[]>([]);
+  const [fields, setFields] = useState<any[]>([]);
+  const [fieldSelected, setFieldSelected] = useState<any[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -29,11 +30,10 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
   }
 
   const getRespuestas = (id: any) => {
-    console.log(id);
     const pregs = respuestas.filter((val) => val.pregunta_id === id);
     const prex = pregs.map((preta: any) => (
       <div key={preta.id} className="form-check mr-2">
-        <input className="form-check-input" type="radio" name={`flexRadioDefault${id}`} id={`flexRadioDefault${id}`} />
+        <input className="form-check-input" type="radio" name={`pregunta${id}`} id={`pregunta${id}`} value={preta.correcta} />
         <label className="form-check-label">
           {preta.respuestas}
         </label>
@@ -43,7 +43,27 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
     return prex
   }
 
-  console.log(respuestas);
+  const examen = (e: any) => {
+    e.preventDefault();
+    const { elements } = e.target;
+    const fieldsArray = [];
+    for(let i = 1; i <= 5; i++){
+      const newField = {
+        rate: elements[`pregunta${i}`]['value'],
+      };
+      fieldsArray.push(newField);
+    }
+    setFields(fieldsArray);
+    // reset the form
+    e.target.reset();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  console.log(fields);
+
   return (
       <div className='evaluacion'>
         <div className='row' style={{
@@ -56,37 +76,47 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
         <div className='row'>
           <div className='col-12'>
             <div className='preguntas'>
-              <form>
-              {preguntas.map((preg, i) => (
-                <div key={preg.id}>
-                  <div className='d-flex align-items-center mb-3'>
-                    <div className='index-numero'>
-                      <h2>{i + 1}</h2>
-                    </div>
-                    <div>
-                      <div>
-                        <h3 className='m-0 p-0'>{preg.pregunta}</h3>
-                        <p className='m-0 p-0'><small>NORMA: {preg.norma} - CAPÍTULO: {preg.capitulo}</small></p>
-                      </div>
-                      <div className='respuestas'>
-                        <div className='d-flex flex-column'>
-                          {getRespuestas(preg.id)}
+              {fields.length >= 1 ? 
+                <div>
+                  <h2>RESULTADOS:</h2>
+                </div>
+                : 
+                <form onSubmit={examen}>
+                  {preguntas.map((preg, i) => {
+                    if(i <= 4){
+                      return (
+                        <div key={preg.id}>
+                          <div className='d-flex align-items-center mb-3'>
+                            <div className='index-numero'>
+                              <h2>{i + 1}</h2>
+                            </div>
+                            <div>
+                              <div>
+                                <h3 className='m-0 p-0'>{preg.pregunta}</h3>
+                                <p className='m-0 p-0'><small>NORMA: {preg.norma} - CAPÍTULO: {preg.capitulo}</small></p>
+                              </div>
+                              <div className='respuestas'>
+                                <div className='d-flex flex-column'>
+                                  {getRespuestas(preg.id)}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      )
+                    }
+                  })}
+                  <div className='row' style={{
+                    'height': 'auto'
+                  }}>
+                    <div className='col-12'>
+                      <button type="submit" className='btn' style={{
+                        'marginTop': '0'
+                      }}>ENVIAR RESPUESTAS</button>
                     </div>
                   </div>
-                </div>
-              ))}
-              <div className='row' style={{
-                'height': 'auto'
-              }}>
-                <div className='col-12'>
-                  <button className='btn' style={{
-                    'marginTop': '0'
-                  }}>ENVIAR RESPUESTAS</button>
-                </div>
-              </div>
-              </form>
+                </form>
+              }
             </div>
           </div>
         </div>
