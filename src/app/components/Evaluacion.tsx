@@ -21,6 +21,7 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
       setRespuestas(apiData);
     }
     fetchDataRespuestas();
+
   }, []);
 
   if(!preguntas){
@@ -47,7 +48,7 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
     e.preventDefault();
     const { elements } = e.target;
     const fieldsArray = [];
-    for(let i = 1; i <= 5; i++){
+    for(let i = 1; i <= 50; i++){
       const newField = {
         rate: elements[`pregunta${i}`]['value'],
       };
@@ -64,10 +65,12 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
 
   useEffect(() => {
     const sum = fields.reduce((total, obj) => total + parseInt(obj.rate), 0);
-    setTotal(sum)
+    setTotal(sum);
   })
 
-  console.log(total);
+  preguntas.sort(function(a, b) {
+    return Math.random() - 0.5;
+  });
 
   return (
       <div className='evaluacion'>
@@ -89,7 +92,7 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
                 : 
                 <form onSubmit={examen}>
                   {preguntas.map((preg, i) => {
-                    if(i <= 4){
+                    if(i <= 49){
                       return (
                         <div key={preg.id}>
                           <div className='d-flex align-items-center mb-3'>
