@@ -6,7 +6,7 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
   const [preguntas, setPreguntas] = useState<any[]>([]);
   const [respuestas, setRespuestas] = useState<any[]>([]);
   const [fields, setFields] = useState<any[]>([]);
-  const [fieldSelected, setFieldSelected] = useState<any[]>([]);
+  const [total, setTotal] = useState<any>(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -62,7 +62,12 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
     });
   }
 
-  console.log(fields);
+  useEffect(() => {
+    const sum = fields.reduce((total, obj) => total + parseInt(obj.rate), 0);
+    setTotal(sum)
+  })
+
+  console.log(total);
 
   return (
       <div className='evaluacion'>
@@ -78,7 +83,8 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
             <div className='preguntas'>
               {fields.length >= 1 ? 
                 <div>
-                  <h2>RESULTADOS:</h2>
+                  <h2 className='p-0'>RESULTADOS</h2>
+                  <h4><b>Total de aciertos: {(total * 5 / 100)*100} %</b></h4>
                 </div>
                 : 
                 <form onSubmit={examen}>
