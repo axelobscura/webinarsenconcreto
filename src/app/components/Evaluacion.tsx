@@ -21,7 +21,6 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
       setRespuestas(apiData);
     }
     fetchDataRespuestas();
-
   }, []);
 
   if(!preguntas){
@@ -46,8 +45,6 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
 
   const examen = (e: any) => {
     e.preventDefault();
-
-    
     const { elements } = e.target;
     const fieldsArray = [];
     for(let i = 1; i <= 50; i++){
@@ -70,10 +67,11 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
   useEffect(() => {
     const sum = fields.reduce((total, obj) => total + parseInt(obj.rate), 0);
     setTotal(sum);
-    preguntas.sort(function(a, b) {
-      return Math.random() - 0.5;
-    });
-  }, [fields, preguntas]);
+  }, [fields]);
+
+  preguntas.sort(function(a, b) {
+    return Math.random() - 0.5;
+  });
 
   return (
       <div className='evaluacion'>
