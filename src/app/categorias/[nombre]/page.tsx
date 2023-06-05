@@ -43,7 +43,7 @@ export default function Nombre() {
       }
     }
     fetchData();
-  }, [id, imagen]);
+  }, [id, imagen, nombre, normas]);
 
   useEffect(() => {
     let tipo = normas.filter((val) => val.nombre === nombre);
