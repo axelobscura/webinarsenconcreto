@@ -73,7 +73,7 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
     preguntas.sort(function(a, b) {
       return Math.random() - 0.5;
     });
-  })
+  }, [fields])
 
   console.log(total);
 
