@@ -23,6 +23,12 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
     fetchDataRespuestas();
   }, []);
 
+  useEffect(() => {
+    const sum = fields.reduce((total, obj) => total + parseInt(obj.rate), 0);
+    setTotal(sum);
+  }, [fields]);
+
+
   if(!preguntas){
     return(
       <h2>Cargando...</h2>
@@ -64,15 +70,7 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
     });
   }
 
-  useEffect(() => {
-    const sum = fields.reduce((total, obj) => total + parseInt(obj.rate), 0);
-    setTotal(sum);
-  }, [fields]);
-
-  preguntas.sort(function(a, b) {
-    return Math.random() - 0.5;
-  });
-
+  
   return (
       <div className='evaluacion'>
         <div className='row' style={{
