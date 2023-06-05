@@ -6,7 +6,6 @@ import '../../components/loader';
 import $ from "jquery";
 import Script from 'next/script';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
-import MenuLateral from '@/app/components/MenuLateral';
 
 export default function Norma() {
   const searchParams = useSearchParams();

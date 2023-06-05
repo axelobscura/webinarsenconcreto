@@ -2214,7 +2214,7 @@ a {
 .container-fluid.login {
   height: 100vh;
   background: #000;
-  background: url('https://webinarsenconcreto.com/images/2022/fondo1.jpg') no-repeat center center fixed; 
+  background: url('/bkg.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

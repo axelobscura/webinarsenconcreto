@@ -59,7 +59,7 @@ export default function Nombre() {
     <div className="container-fluid login categorias">
       <div className='branding'>
         <Header/>
-        <div className='row w-100 h-100 contenidos'>
+        <div className='row w-100 contenidos'>
           <div className='col-3'>
             <MenuLateral
               id={id}
