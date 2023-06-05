@@ -43,12 +43,12 @@ export default function Nombre() {
       }
     }
     fetchData();
-  }, [id, imagen, nombre, normas]);
+  }, [id, imagen]);
 
   useEffect(() => {
     let tipo = normas.filter((val) => val.nombre === nombre);
     setTema(tipo);
-  }, []);
+  }, [nombre, normas]);
 
   const seccion = (e: any) => {
     setCategoria(e.target.text);
