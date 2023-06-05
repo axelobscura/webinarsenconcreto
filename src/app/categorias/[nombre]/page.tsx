@@ -31,7 +31,6 @@ export default function Nombre() {
         }
         const data = await response.json();
         setNormas(data.results);
-        console.log(data.results);
         setLanorma({
           astm: data.results[0].astm,
           nmx: data.results[0].nmx,
@@ -44,7 +43,7 @@ export default function Nombre() {
       }
     }
     fetchData();
-  }, []);
+  }, [id, imagen]);
 
   useEffect(() => {
     let tipo = normas.filter((val) => val.nombre === nombre);
