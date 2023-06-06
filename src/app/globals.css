@@ -2280,8 +2280,8 @@ a {
   color: #fff;
   padding-right: 17px;
   text-align: left;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 100;
   line-height: 1.2rem;
 }
 
@@ -2680,6 +2680,18 @@ a.regresar:hover svg {
 
 .cat-desc {
   height: 100px;
+}
+
+.container-fluid.login .branding p.footer {
+  font-weight: 100;
+}
+
+h2.peje {
+  color: #fff;
+  text-align: left;
+  padding: 5px 0;
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
 }
 
 @media (max-width: 500px){
