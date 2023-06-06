@@ -2225,7 +2225,8 @@ a {
 
 
 .container-fluid.categorias {
-  background: url('/bkg1.jpg') no-repeat center center fixed;
+  /*background: url('/bkg1.jpg') no-repeat center center fixed;*/
+  background: #000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2279,8 +2280,9 @@ a {
   color: #fff;
   padding-right: 17px;
   text-align: left;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
+  line-height: 1.2rem;
 }
 
 .container-fluid.login .branding .form-label {
@@ -2320,6 +2322,7 @@ a {
   transition: all 1s;
   display: flex;
   flex-direction: column;
+  border-radius: 30px;
 }
 
 .menu-categorias ul li a img {
@@ -2672,10 +2675,11 @@ a.regresar:hover svg {
 .cat-image {
   max-height: 150px;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .cat-desc {
-  height: 60px;
+  height: 100px;
 }
 
 @media (max-width: 500px){
