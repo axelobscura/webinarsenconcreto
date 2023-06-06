@@ -2,18 +2,17 @@
 import { createContext, useContext, useState } from "react";
 
 interface MyContextType {
-  usuario: string;
+  usuario: string | undefined;
   setUsuario: any;
 };
 
 const ThemeContext = createContext<MyContextType>({
-  usuario: 'red',
+  usuario: '',
   setUsuario: '',
 })
 
 export const ThemeContextProvider = ({ children }: { children : any }) => {
-    const [usuario, setUsuario] = useState('');
-    console.log('usuario: '+usuario);
+    const [usuario, setUsuario] = useState();
     return (
       <ThemeContext.Provider value={{ usuario, setUsuario }}>
           {children}

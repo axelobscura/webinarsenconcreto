@@ -17,8 +17,18 @@ export default function Norma() {
   const documento = searchParams.get('documento');
 
   let extension = 'JPG';
+  let ruta = `https://webinarsenconcreto.com/images/${documento}`;
+  
   if(documento === "ASTM_C_31"){
     extension = 'jpg';
+  }
+  if(documento === "ACI-211" || documento === "ACI-214"){
+    ruta = 'https://webinarsenconcreto.com/imcyc/tecnico-laboratorista/presentacion'
+    extension = 'PNG';
+  }
+  if(documento === "superficies"){
+    ruta = 'https://webinarsenconcreto.com/imcyc/superficies/presentacion'
+    extension = 'JPG';
   }
 
   return (
@@ -26,8 +36,8 @@ export default function Norma() {
       <div className='branding'>
         <Header />
         <div className='row w-100 h-100 contenidos'>
-          <div className='col-1'>
-            <div className='barra_lateral'>
+          <div className='col documento'>
+            <div className='d-flex flex-column align-items-start'>
               <Link 
                 href={{
                   pathname: `/categorias/${nombre?.toLowerCase().split(' ').join('-')}`,
@@ -38,12 +48,10 @@ export default function Norma() {
                   },
                 }} 
                 className='regresar'>
-                  <BsChevronLeft/>
+                  <BsChevronLeft/> REGRESAR
               </Link>
+              <h2 className='titulo'><BsChevronRight/> {astm?.split('-').join(' ')} | {nmx?.split('-').join(' ')}</h2>
             </div>
-          </div>
-          <div className='col documento'>
-            <h2 className='titulo'><BsChevronRight/> {astm?.split('-').join(' ')} | {nmx?.split('-').join(' ')}</h2>
             <Script
               src="/js/flipbook.min.js" 
               onReady={() => {
@@ -52,73 +60,73 @@ export default function Norma() {
                   //pdfUrl:"https://www.webinarsenconcreto.com/images/ASTM_C_31/ASTM_C_31.pdf",
                   pages: [
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva1.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva1.${extension}`,
+                      'src': `${ruta}/Diapositiva1.${extension}`,
+                      'thumb': `${ruta}/Diapositiva1.${extension}`,
                       'title': 'Página 1',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva2.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva2.${extension}`,
+                      'src': `${ruta}/Diapositiva2.${extension}`,
+                      'thumb': `${ruta}/Diapositiva2.${extension}`,
                       'title': 'Página 2',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva3.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva3.${extension}`,
+                      'src': `${ruta}/Diapositiva3.${extension}`,
+                      'thumb': `${ruta}/Diapositiva3.${extension}`,
                       'title': 'Página 3',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva4.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva4.${extension}`,
+                      'src': `${ruta}/Diapositiva4.${extension}`,
+                      'thumb': `${ruta}/Diapositiva4.${extension}`,
                       'title': 'Página 4',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva5.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva5.${extension}`,
+                      'src': `${ruta}/Diapositiva5.${extension}`,
+                      'thumb': `${ruta}/Diapositiva5.${extension}`,
                       'title': 'Página 5',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva6.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva6.${extension}`,
+                      'src': `${ruta}/Diapositiva6.${extension}`,
+                      'thumb': `${ruta}/Diapositiva6.${extension}`,
                       'title': 'Página 6',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva7.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva7.${extension}`,
+                      'src': `${ruta}/Diapositiva7.${extension}`,
+                      'thumb': `${ruta}/Diapositiva7.${extension}`,
                       'title': 'Página 7',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva8.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva8.${extension}`,
+                      'src': `${ruta}/Diapositiva8.${extension}`,
+                      'thumb': `${ruta}/Diapositiva8.${extension}`,
                       'title': 'Página 8',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva9.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva9.${extension}`,
+                      'src': `${ruta}/Diapositiva9.${extension}`,
+                      'thumb': `${ruta}/Diapositiva9.${extension}`,
                       'title': 'Página 9',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva10.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva10.${extension}`,
+                      'src': `${ruta}/Diapositiva10.${extension}`,
+                      'thumb': `${ruta}/Diapositiva10.${extension}`,
                       'title': 'Página 10',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva11.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva11.${extension}`,
+                      'src': `${ruta}/Diapositiva11.${extension}`,
+                      'thumb': `${ruta}/Diapositiva11.${extension}`,
                       'title': 'Página 11',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva12.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva12.${extension}`,
+                      'src': `${ruta}/Diapositiva12.${extension}`,
+                      'thumb': `${ruta}/Diapositiva12.${extension}`,
                       'title': 'Página 12',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva13.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva13.${extension}`,
+                      'src': `${ruta}/Diapositiva13.${extension}`,
+                      'thumb': `${ruta}/Diapositiva13.${extension}`,
                       'title': 'Página 13',
                     },
                     {
-                      'src': `https://webinarsenconcreto.com/images/${documento}/Diapositiva14.${extension}`,
-                      'thumb': `https://webinarsenconcreto.com/images/${documento}/Diapositiva14.${extension}`,
+                      'src': `${ruta}/Diapositiva14.${extension}`,
+                      'thumb': `${ruta}/Diapositiva14.${extension}`,
                       'title': 'Página 14',
                     }
                   ],

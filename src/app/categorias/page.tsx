@@ -8,7 +8,6 @@ import { BsChevronRight } from "react-icons/bs"
 
 export default function Categorias() {
   const [categorias, setCategorias] = useState<any[]>([]);
-  const { usuario } = useThemeContext();
 
   useEffect(() => {
     async function fetchData() {
@@ -17,15 +16,13 @@ export default function Categorias() {
       setCategorias(apiData);
     }
     fetchData();
-  }, []);
+  });
 
   if(!categorias){
     return(
       <h2>Cargando...</h2>
     )
-  }
-
-  console.log(usuario);
+  };
 
   return (
     <div className="container-fluid login categorias">

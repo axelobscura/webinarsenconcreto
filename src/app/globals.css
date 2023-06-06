@@ -2225,7 +2225,7 @@ a {
 
 
 .container-fluid.categorias {
-  background: url('https://webinarsenconcreto.com/images/2022/fondo2.jpg') no-repeat center center fixed;
+  background: url('/bkg1.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2305,7 +2305,7 @@ font-weight: 600;
 }
 
 .menu-categorias ul li {
-  margin: 10px;
+  margin: 2px 10px;
 }
 
 .menu-categorias ul li a {
@@ -2316,7 +2316,7 @@ font-weight: 600;
   margin: 5px 0;
   padding: 10px;
   font-weight: bold;
-  border: 1px solid #999;
+  border: 1px solid #444;
   transition: all 1s;
   display: flex;
   flex-direction: column;
@@ -2449,7 +2449,7 @@ font-weight: 600;
   padding: 5px;
 }
 
-.barra_lateral .regresar {
+a.regresar {
   width: 100%;
   background: #111;
   color: #fff;
@@ -2521,7 +2521,7 @@ ul.menu ul.normas li a {
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 3px;
+  padding: 7px;
   padding-left: 22px;
 }
 

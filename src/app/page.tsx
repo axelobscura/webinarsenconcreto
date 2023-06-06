@@ -11,7 +11,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const router = useRouter();
-  //const [usuario, setUsuario] = useState<any[]>([]);
   const { usuario, setUsuario } = useThemeContext();
 
   const registro = (e: any) => {
@@ -31,6 +30,9 @@ export default function Home() {
         const data = await response.json();
         if (data.results.length > 0) {
           setUsuario(data.results);
+          localStorage.setItem('usuarioEmail', data.results[0].email);
+          localStorage.setItem('usuarioId', data.results[0].id);
+          localStorage.setItem('usuarioTipo', data.results[0].tipo)
           router.push('/categorias');
         } else {
           alert("Usuario y/o contraseña incorrectos");
@@ -41,8 +43,6 @@ export default function Home() {
     }
     fetchData();
   }
-
-  console.log(usuario);
 
   return (
     <div className="container-fluid login">
