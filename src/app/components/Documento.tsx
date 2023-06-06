@@ -9,8 +9,6 @@ import Script from 'next/script';
 export default function Documento({lanorma}:{lanorma: any}) {
   const [documento, setDocumento] = useState<any[]>();
 
-  console.log('LANORMA: ',lanorma);
-
   useEffect(() => {
     setDocumento(lanorma);
   }, [lanorma]);

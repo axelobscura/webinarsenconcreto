@@ -29,6 +29,7 @@ export default function Home() {
         }
         const data = await response.json();
         if (data.results.length > 0) {
+          console.log('RESULTADOS: ', data.results[0]);
           setUsuario(data.results);
           localStorage.setItem('usuarioEmail', data.results[0].email);
           localStorage.setItem('usuarioId', data.results[0].id);
