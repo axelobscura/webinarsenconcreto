@@ -2277,10 +2277,10 @@ a {
   color: #fff;
   padding-right: 17px;
   color: #fff;
-padding-right: 17px;
-text-align: left;
-font-size: 0.8rem;
-font-weight: 600;
+  padding-right: 17px;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .container-fluid.login .branding .form-label {
@@ -2521,7 +2521,7 @@ ul.menu ul.normas li a {
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 7px;
+  padding: 10px;
   padding-left: 22px;
 }
 
