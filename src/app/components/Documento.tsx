@@ -10,15 +10,6 @@ export default function Documento({ lanorma } : {lanorma: any | null}) {
   const [ruta, setRuta] = useState("https://webinarsenconcreto.com/images/ASTM_C_31")
   const [extension, setExtension] = useState("jpg");
 
-  
-
-  useEffect(() => {
-    if(lanorma.documento === "ASTM_C_31"){
-      setRuta("https://webinarsenconcreto.com/images/ASTM_C_31");
-      setExtension("jpg");
-    }
-  }, []);
-
   let lapagina: any = [];
   const crearPaginas = () => {
     for(let i = 1; i < 16; i++){
@@ -31,12 +22,29 @@ export default function Documento({ lanorma } : {lanorma: any | null}) {
     }
   }
 
+  useEffect(() => {
+    if(lanorma.documento === "ASTM_C_31"){
+      setRuta("https://webinarsenconcreto.com/images/ASTM_C_31");
+      setExtension("jpg");
+    }
+
+    for(let i = 1; i < 16; i++){
+      // @ts-ignore
+      setPagina([{
+        'src': 'https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva'+i+'.jpg',
+        'thumb': 'https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva'+i+'.jpg',
+        'title': 'Página '+i,
+      }])
+    }
+    crearPaginas
+  }, []);
+
   return (
       <div>
         {paginas && 
           <Script
             src="/js/flipbook.min.js"
-            strategy="lazyOnload"
+            strategy="beforeInteractive"
             onLoad={() => {
               crearPaginas();
               ($("#containePDF") as any).flipBook({
