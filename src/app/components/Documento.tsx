@@ -7,9 +7,11 @@ import Script from 'next/script';
 
 export default function Documento({ lanorma } : {lanorma: any | null}) {
   const [paginas, setPagina] = useState([]);
+  let ruta;
+  let extension;
   if(lanorma.documento === "ASTM_C_31"){
-    var ruta = "https://webinarsenconcreto.com/images/ASTM_C_31";
-    var extension = "jpg";
+    ruta = "https://webinarsenconcreto.com/images/ASTM_C_31";
+    extension = "jpg";
   }
   useEffect(() => {
     for(let i = 1; i < 16; i++){
@@ -22,17 +24,15 @@ export default function Documento({ lanorma } : {lanorma: any | null}) {
     }
   }, []);
 
-  console.log('paginas: ', typeof(Object.entries(paginas)));
-
   return (
       <div>
         {paginas && 
           <Script
             src="/js/flipbook.min.js" 
             onLoad={() => {
+              console.log('paginas test: ', paginas);
               ($("#containePDF") as any).flipBook({
-                //pdfUrl:"/libros/grado.pdf",
-                pages: Object.entries(paginas),
+                pages: paginas,
                 skin:"dark",
                 singlePageMode:true,
                 layout:4,

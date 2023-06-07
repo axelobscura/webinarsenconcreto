@@ -2280,7 +2280,7 @@ a {
   color: #fff;
   padding-right: 17px;
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 100;
   line-height: 1.2rem;
 }
@@ -2338,6 +2338,9 @@ a {
 .form-control {
   border-radius: 0;
   border: none;
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 .container-fluid.login .branding .topBar {
