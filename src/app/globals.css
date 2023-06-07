@@ -2697,6 +2697,10 @@ h2.peje {
   margin-bottom: 0.2rem;
 }
 
+img, svg {
+  vertical-align: baseline !important;
+}
+
 @media (max-width: 500px){
   .menu-categorias ul {
     grid-template-columns: 1fr;

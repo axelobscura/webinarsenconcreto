@@ -7,35 +7,43 @@ import Script from 'next/script';
 
 export default function Documento({ lanorma } : {lanorma: any | null}) {
   const [paginas, setPagina] = useState([]);
-  let ruta;
-  let extension;
-  if(lanorma.documento === "ASTM_C_31"){
-    ruta = "https://webinarsenconcreto.com/images/ASTM_C_31";
-    extension = "jpg";
-  }
+  const [ruta, setRuta] = useState("https://webinarsenconcreto.com/images/ASTM_C_31")
+  const [extension, setExtension] = useState("jpg");
+
+  
+
   useEffect(() => {
+    if(lanorma.documento === "ASTM_C_31"){
+      setRuta("https://webinarsenconcreto.com/images/ASTM_C_31");
+      setExtension("jpg");
+    }
+  }, []);
+
+  let lapagina: any = [];
+  const crearPaginas = () => {
     for(let i = 1; i < 16; i++){
       // @ts-ignore
-      setPagina(paginas => [{
+      lapagina.push({
         'src': 'https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva'+i+'.jpg',
         'thumb': 'https://webinarsenconcreto.com/images/ASTM_C_31/Diapositiva'+i+'.jpg',
         'title': 'Página '+i,
-      }])
+      })
     }
-  }, []);
+  }
 
   return (
       <div>
         {paginas && 
           <Script
-            src="/js/flipbook.min.js" 
+            src="/js/flipbook.min.js"
+            strategy="lazyOnload"
             onLoad={() => {
-              console.log('paginas test: ', paginas);
+              crearPaginas();
               ($("#containePDF") as any).flipBook({
-                pages: paginas,
-                skin:"dark",
-                singlePageMode:true,
-                layout:4,
+                pages: lapagina,
+                skin: "dark",
+                singlePageMode: true,
+                layout: 4,
                 btnDownloadPdf: {
                   enabled: false
                 },
