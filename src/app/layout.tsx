@@ -1,5 +1,4 @@
 import { ThemeContextProvider } from './context/theme'
-import Head from 'next/head'
 import 'bootstrap/dist/css/bootstrap.css'
 import './globals.css'
 
@@ -15,10 +14,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Webinars en concreto Instituto Mexicano del Cemento y del Concreto A.C.</title>
-      </Head>
       <body>
           <ThemeContextProvider>
             {children}

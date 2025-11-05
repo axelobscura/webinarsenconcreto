@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { useThemeContext } from './context/theme';
 import Image from 'next/image';
-import { format } from 'url';
 import { Inter } from 'next/font/google'
 import { BsChevronRight } from 'react-icons/bs';
 import { useRouter } from "next/navigation";
@@ -28,6 +27,7 @@ export default function Home() {
           throw new Error(response.statusText);
         }
         const data = await response.json();
+        console.log('DATA: ', data);
         if (data.results.length > 0) {
           console.log('RESULTADOS: ', data.results[0]);
           setUsuario(data.results);
