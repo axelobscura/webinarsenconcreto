@@ -1,7 +1,5 @@
 "use client"
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import { useSearchParams } from 'next/navigation'
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import Header from '@/app/components/Header';
@@ -77,9 +75,7 @@ export default function Nombre() {
             {categoria === ' CONTENIDO ADICIONAL' && <Contenido categoria={nombre}/>}
           </div>
         </div>
-        <p className='text-center p-0 m-0 footer'><small>© 1959 - 2023 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
       </div>
-      
     </div>
   )
 }

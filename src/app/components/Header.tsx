@@ -10,8 +10,6 @@ export default function Header() {
     setEltermino(e.target.value);
   }
 
-  console.log(eltermino);
-
   return (
     <>
       <div className='topBar'>

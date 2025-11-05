@@ -46,8 +46,8 @@ export default function Home() {
   }
 
   return (
-    <div className="container-fluid login">
-      <div className='branding'>
+    
+      <>
         <Image
             src="/imcyc_registrada.svg"
             alt="Webinars en concreto instituto mexicano del cemento y del concreto"
@@ -68,16 +68,8 @@ export default function Home() {
             </div>
             <button type="submit" className="btn">INGRESAR A SU CUENTA</button>
           </form>
-          <p style={{
-            textAlign: 'center',
-            fontSize: '0.7rem',
-            padding: '0'
-          }}>
-            © 1959 - 2023 Instituto mexicano del Cemento y del Concreto A.C.
-          </p>
         </div>
         
-      </div>
-    </div>
+      </>
   )
 }

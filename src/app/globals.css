@@ -2225,12 +2225,12 @@ a {
 
 
 .container-fluid.categorias {
-  /*background: url('/bkg1.jpg') no-repeat center center fixed;*/
-  background: #000;
+  background: url('/bkg1.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  padding: 1rem;
 }
 
 .container-fluid.login .branding {

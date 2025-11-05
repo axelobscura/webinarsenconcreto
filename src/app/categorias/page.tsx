@@ -1,6 +1,5 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { useThemeContext } from '../context/theme';
 import Link from 'next/link'
 import Image from 'next/image'
 import Header from '../components/Header'
@@ -24,11 +23,8 @@ export default function Categorias() {
     )
   };
 
-  console.log('categorias: ', categorias);
-
   return (
     <div className="container-fluid login categorias">
-      <div className='branding'>
         <Header />
         <div className='cat-entrada'>
           <div className='menu-categorias'>
@@ -62,9 +58,6 @@ export default function Categorias() {
               ))}
             </ul>
           </div>
-        </div>
-
-        <p className='text-center p-0'><small>© 1959 - 2023 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
         </div>
     </div>
   )
