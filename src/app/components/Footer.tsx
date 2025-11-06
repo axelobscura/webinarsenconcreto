@@ -10,11 +10,11 @@ export default function Footer() {
             <Link href="https://www.cemex.com" target="_blank" className='mx-3'>
               <Image src="/logos/logo_cemex.svg" alt="Webinars en concreto instituto mexicano del cemento y del Concreto A.C." width="150" height="50" />
             </Link>
-            <Link href="https://www.moctezuma.com" target="_blank" className='mx-3'>
-              <Image src="/logos/logo_moctezuma.svg" alt="Webinars en concreto instituto mexicano del cemento y del Concreto A.C." width="150" height="42" />
+            <Link href="https://www.moctezuma.com" target="_blank" className='mx-3 pt-2'>
+              <Image src="/logos/logo_moctezuma.svg" alt="Webinars en concreto instituto mexicano del cemento y del Concreto A.C." width="150" height="30" />
             </Link>
             <Link href="https://www.fortaleza.com" target="_blank">
-              <Image src="/logos/logo_fortaleza.svg" alt="Webinars en concreto instituto mexicano del cemento y del Concreto A.C." width="80" height="50" />
+              <Image src="/logos/logo_fortaleza.svg" alt="Webinars en concreto instituto mexicano del cemento y del Concreto A.C." width="70" height="40" />
             </Link>
             <Link href="https://www.chihuahua.com" target="_blank" className='mx-3'>
               <Image src="/logos/logo_chihuahua.svg" alt="Webinars en concreto instituto mexicano del cemento y del Concreto A.C." width="100" height="50" />
