@@ -9,7 +9,7 @@ import Evaluacion from '@/app/components/Evaluacion';
 import Contenido from '@/app/components/Contenido';
 import MenuLateral from '@/app/components/MenuLateral';
 
-export default function Nombre() {
+export default function Curso() {
   const [categoria, setCategoria] = useState(' PRESENTACIÓN EJECUTIVA');
   const [tema, setTema] = useState({});
   const [normas, setNormas] = useState<any[]>([]);

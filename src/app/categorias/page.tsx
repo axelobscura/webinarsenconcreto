@@ -33,12 +33,12 @@ export default function Categorias() {
                 <li key={i}>
                   <Link
                     href={{
-                      pathname: `/categorias/${val.nombre.toLowerCase().split(' ').join('-')}`,
-                      query: {
-                        id: val.id,
-                        nombre: val.nombre,
-                        imagen: val.imagen,
-                      },
+                      pathname: `/categorias${val.link}`,
+                      // query: {
+                      //   id: val.id,
+                      //   nombre: val.nombre,
+                      //   imagen: val.imagen,
+                      // },
                     }}
                   >
                     {/*

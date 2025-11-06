@@ -26,15 +26,6 @@ export default function Footer() {
               <Image src="/logos/logo_cruzazul.svg" alt="Webinars en concreto instituto mexicano del cemento y del Concreto A.C." width="150" height="55" />
             </Link>
         </div>
-        <div className='col-2 col-md-12 text-center'>
-
-        </div>
-
-
-
-
-
-        
       </div>
       <div className='row w-100'>
         <p className='text-center p-0 mt-2 text-white w-100'><small>© 1959 - 2025 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>

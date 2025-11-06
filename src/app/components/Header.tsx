@@ -3,10 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CiSearch } from 'react-icons/ci';
 import { FaRegUserCircle } from "react-icons/fa";
+import { useThemeContext } from '../context/theme';
 
 export default function Header() {
   const [eltermino, setEltermino] = useState('');
-
+  const { pathname } = useThemeContext();
+  const path = pathname?.split('/');
   const termino = (e: any) => {
     setEltermino(e.target.value);
   }
@@ -15,7 +17,7 @@ export default function Header() {
     <>
       <div className='topBar d-flex align-items-center'>
         <div className='col-8 col-md-8 d-flex align-items-center'>
-          <Link href="/">
+          <Link href={path && path.length > 1 ? '/categorias' : '/'}>
             <Image
               src="/imcyc_registrada.svg"
               alt="Webinars en concreto instituto mexicano del cemento y del concreto"
@@ -26,7 +28,7 @@ export default function Header() {
               }}
             />
           </Link>
-          <span className='text-white ms-2 fs-2'>| Platafroma Educativa</span>
+          <span className='text-white ms-2 fs-2'>| Platafroma Educativa {pathname?.split('/').pop() ? '| ' + pathname?.split('/').pop() : ''}</span>
         </div>
         <div className='col-4 col-md-4 d-flex align-items-center justify-content-end mx-20'>
           <FaRegUserCircle className='text-white fs-2' />
