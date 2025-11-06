@@ -24,7 +24,7 @@ export default function Categorias() {
   };
 
   return (
-    <div className="container-fluid login categorias">
+    <div  className='container-fluid categorias'>
         <Header />
         <div className='cat-entrada'>
           <div className='menu-categorias'>
@@ -41,6 +41,7 @@ export default function Categorias() {
                       },
                     }}
                   >
+                    {/*
                       <div className='cat-image'>
                         <Image
                           src={val.imagen}
@@ -49,7 +50,8 @@ export default function Categorias() {
                           height="100"
                         />
                       </div>
-                      <div className='d-flex align-items-center mt-2 cat-desc'>
+                    */}
+                      <div className='d-flex align-items-center cat-desc'>
                         <BsChevronRight /> 
                         <p className='m-0'>{val.nombre}</p>
                       </div>

@@ -46,8 +46,7 @@ export default function Home() {
   }
 
   return (
-    
-      <>
+      <div className='branding'>
         <Image
             src="/imcyc_registrada.svg"
             alt="Webinars en concreto instituto mexicano del cemento y del concreto"
@@ -56,6 +55,7 @@ export default function Home() {
         />
         <h1>Plataforma Educativa</h1>
         <h3>COMPARTIR EL CONOCIMIENTO</h3>
+        <h5>Una plataforma para profesionales<br/>de la construcción con concreto</h5>
         <div className='login-form'>
           <form className='loginf' onSubmit={registro}>
             <div>
@@ -69,7 +69,6 @@ export default function Home() {
             <button type="submit" className="btn">INGRESAR A SU CUENTA</button>
           </form>
         </div>
-        
-      </>
+      </div>
   )
 }
