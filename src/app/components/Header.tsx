@@ -54,7 +54,7 @@ export default function Header() {
   return (
     <>
       <div className='topBar d-flex align-items-center'>
-        <div className='col-8 col-md-8 d-flex align-items-center'>
+        <div className='col-9 col-md-9 d-flex align-items-center'>
           <Link href={path && path.length > 1 ? '/categorias' : '/'}>
             <Image
               src="/imcyc_registrada.svg"
@@ -66,11 +66,11 @@ export default function Header() {
               }}
             />
           </Link>
-          <span className='text-white ms-2 fs-2'> {(() => {
+          <span className='text-white ms-2 fs-5'> {(() => {
             return getPath();
           })()}</span>
         </div>
-        <div className='col-4 col-md-4 d-flex align-items-center justify-content-end mx-20'>
+        <div className='col-3 col-md-3 d-flex align-items-center justify-content-end mx-20'>
           <FaRegUserCircle className='text-white fs-2' />
         </div>
         {/* <div className="row w-100 input-group">

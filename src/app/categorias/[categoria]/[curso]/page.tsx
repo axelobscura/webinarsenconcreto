@@ -13,7 +13,7 @@ import { useThemeContext } from '../../../context/theme'
 export default function Curso() {
   const { pathname } = useThemeContext()
   const nombre = pathname?.split('/').pop()
-  console.log('CATEGORIA: ', nombre);
+  const [webinar, setWebinar] = useState<any>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -23,15 +23,7 @@ export default function Curso() {
           throw new Error(response.statusText);
         }
         const data = await response.json();
-        console.log('DATA: ', data);
-        // setNormas(data.results);
-        // setLanorma({
-        //   astm: data.results[0].astm,
-        //   nmx: data.results[0].nmx,
-        //   titulo: data.results[0].titulo,
-        //   documento: data.results[0].documento,
-        //   imagen: imagen,
-        // })
+        setWebinar(data.results && data.results.length > 0 ? data.results[0] : null);
       } catch (error) {
         console.error(error);
       }
@@ -53,18 +45,17 @@ export default function Curso() {
         <Header/>
         <div className='row w-100 h-100 contenidos'>
           <div className='col-3'>
-            {/* <MenuLateral
-              id={id}
-              imagen={imagen}
-              nombre={nombre}
-              seccion={seccion}
-              categoria={categoria}
-              normas={normas}
-            /> */}
+            {webinar && <MenuLateral
+              id={webinar.id}
+              imagen={webinar.imagen}
+              nombre={webinar.nombre}
+              seccion=""
+              categoria=""
+            />}
           </div>
           <div className='col documento'>
-            {/* {categoria !== ' PRESENTACIÓN EJECUTIVA' ? <h2 className='titulo'><BsChevronRight/>{categoria}</h2> : ''}
-            {categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
+            {webinar ? <h2 className='titulo'><BsChevronRight/>{webinar.nombre}</h2> : ''}
+            {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
             {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
             {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}
             {categoria === ' CONTENIDO ADICIONAL' && <Contenido categoria={nombre}/>} */}

@@ -2477,7 +2477,7 @@ a {
   padding: 5px;
 }
 
-a.regresar {
+button.regresar {
   width: 100%;
   background: #111;
   color: #fff;
