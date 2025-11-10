@@ -30,13 +30,19 @@ export default function MenuLateral(
       width="100" 
       height="100"
     />
-    <h2 className="text-white">{nombre}</h2>
+    <h2 className="text-white text-center">{nombre}</h2>
     <ul className='menu'>
       <li>
         <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
       </li>
       <li>
         <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active' : ''}><BsChevronRight/> PRESENTACIÓN GRABADA</a>
+      </li>
+      <li>
+        <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> DATO EN CONCRETO</a>
+      </li>
+      <li>
+        <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> INFOGRAFÍAS</a>
       </li>
       <li>
         <a onClick={seccion} className={categoria === ' EVALUACIÓN FINAL' ? 'active' : ''}><BsChevronRight/> EVALUACIÓN FINAL</a>
