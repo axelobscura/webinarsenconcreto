@@ -53,7 +53,7 @@ export default function Categorias() {
                     */}
                       <div className='d-flex align-items-center cat-desc'>
                         <BsChevronRight /> 
-                        <p className='m-0'>{val.nombre}</p>
+                        <p className='m-0 fs-6'>{val.nombre}</p>
                       </div>
                   </Link>
                 </li>

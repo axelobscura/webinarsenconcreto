@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
       </div>
       <div className='row w-100'>
-        <p className='text-center p-0 mt-2 text-white w-100'><small>© 1959 - 2025 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
+        <p className='text-center p-0 mt-0 text-white w-100 font-xs fs-6 mb-0'><small>© 1959 - 2025 Instituto Mexicano del Cemento y del Concreto A.C.</small></p>
       </div>
     </div>
   )

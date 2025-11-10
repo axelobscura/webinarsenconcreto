@@ -9,8 +9,46 @@ export default function Header() {
   const [eltermino, setEltermino] = useState('');
   const { pathname } = useThemeContext();
   const path = pathname?.split('/');
-  const termino = (e: any) => {
-    setEltermino(e.target.value);
+
+  const getPath = () => {
+    const path = pathname?.split('/');
+    if (!path || path.length === 0) return '';
+    
+    // Helper function to format text
+    const formatText = (text: string) => {
+      return text.toUpperCase().split('-').join(' ');
+    };
+    
+    // Home or categorias list page
+    if (path.length <= 2 || (path.length === 2 && path[1] === 'categorias')) {
+      return <Link href="/categorias" className="text-white text-decoration-none">| Plataforma Educativa</Link>;
+    }
+    
+    // Categoria page: /categorias/[categoria]
+    if (path.length === 3 && path[1] === 'categorias') {
+      const categoria = path[2];
+      return (
+        <>
+          <Link href="/categorias" className="text-white text-decoration-none">| Plataforma Educativa</Link>
+          <Link href={`/categorias/${categoria}`} className="text-white text-decoration-none"> | {formatText(categoria)}</Link>
+        </>
+      );
+    }
+    
+    // Curso page: /categorias/[categoria]/[curso]
+    if (path.length === 4 && path[1] === 'categorias') {
+      const categoria = path[2];
+      const curso = path[3];
+      return (
+        <>
+          <Link href="/categorias" className="text-white text-decoration-none">| Plataforma Educativa</Link>
+          <Link href={`/categorias/${categoria}`} className="text-white text-decoration-none"> | {formatText(categoria)}</Link>
+          <Link href={`/categorias/${categoria}/${curso}`} className="text-white text-decoration-none"> | {formatText(curso)}</Link>
+        </>
+      );
+    }
+    
+    return '';
   }
 
   return (
@@ -28,7 +66,9 @@ export default function Header() {
               }}
             />
           </Link>
-          <span className='text-white ms-2 fs-2'>| Platafroma Educativa {pathname?.split('/').pop() ? '| ' + pathname?.split('/').pop() : ''}</span>
+          <span className='text-white ms-2 fs-2'> {(() => {
+            return getPath();
+          })()}</span>
         </div>
         <div className='col-4 col-md-4 d-flex align-items-center justify-content-end mx-20'>
           <FaRegUserCircle className='text-white fs-2' />
