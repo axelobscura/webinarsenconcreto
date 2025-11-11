@@ -1,14 +1,10 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation'
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import Header from '@/app/components/Header';
-import Documento from '@/app/components/Documento';
-import Player from '@/app/components/Player';
-import Evaluacion from '@/app/components/Evaluacion';
-import Contenido from '@/app/components/Contenido';
 import MenuLateral from '@/app/components/MenuLateral';
 import { useThemeContext } from '../../../context/theme'
+import Script from 'next/script';
 
 export default function Curso() {
   const { pathname } = useThemeContext()
@@ -31,10 +27,50 @@ export default function Curso() {
     fetchData();
   }, [nombre]);
 
-  // useEffect(() => {
-  //   let tipo = normas.filter((val) => val.nombre === nombre);
-  //   setTema(tipo);
-  // }, [nombre, normas]);
+  const initializeFlipbook = () => {
+    // Wait a bit to ensure both scripts are fully loaded
+    setTimeout(() => {
+      if (typeof window !== 'undefined' && (window as any).$ && (window as any).$.fn && (window as any).$.fn.flipBook) {
+        ((window as any).$("#container") as any).flipBook({
+          pdfUrl: "/pdf/presentacion-ejecutiva.pdf",
+          backgroundColor: 'transparent',
+          viewMode: '3d',
+          singlePageMode: true,
+          pages: [
+            { title: "Cover" },
+            { title: "" },
+            { title: "Page 3" },
+            { title: "" },
+            { title: "" },
+            { title: "" },
+            { title: "" },
+            { title: "End" },
+          ],
+          btnToc: { enabled: false },
+          btnSelect: { enabled: false },
+          btnDownloadPages: { enabled: false },
+          btnDownloadPdf: { enabled: false },
+          btnPrint: { enabled: false },
+          btnShare: { enabled: false },
+          btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          btnSound: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          btnBookmark: { enabled: false },
+          btnExpand: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          currentPage: { hAlign: 'center' },
+          btnBackground: 'rgb(35 63 139);'
+        });
+      } else {
+        console.error('jQuery or flipBook not available');
+      }
+    }, 100);
+  };
+
+  useEffect(() => {
+    initializeFlipbook()
+  }, []);
 
   // const seccion = (e: any) => {
   //   setCategoria(e.target.text);
@@ -55,12 +91,27 @@ export default function Curso() {
           </div>
           <div className='col documento'>
             {webinar ? <h2 className='titulo'><BsChevronRight/>{webinar.nombre}</h2> : ''}
+            <div style={{'width':'100%','height':'90%','position':'relative', backgroundColor:'rgba(0,0,0,0.5)'}}>
+              <div id="container"></div>
+            </div>
             {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
             {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
             {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}
             {categoria === ' CONTENIDO ADICIONAL' && <Contenido categoria={nombre}/>} */}
           </div>
         </div>
+        <Script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"
+          strategy="afterInteractive"
+          onLoad={() => {
+            // jQuery loaded, now load flipbook
+            const flipbookScript = document.createElement('script');
+            flipbookScript.src = 'https://gcc.webinarsenconcreto.com/js/flipbook.min.js';
+            flipbookScript.onload = initializeFlipbook;
+            document.body.appendChild(flipbookScript);
+          }}
+        />
     </div>
+    
   )
 }
