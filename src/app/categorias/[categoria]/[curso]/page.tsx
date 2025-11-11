@@ -80,7 +80,7 @@ export default function Curso() {
     <div className="container-fluid login categorias">
         <Header/>
         <div className='row w-100 h-100 contenidos'>
-          <div className='col-3'>
+          <div className='col-12 col-md-3'>
             {webinar && <MenuLateral
               id={webinar.id}
               imagen={webinar.imagen}
