@@ -24,19 +24,21 @@ export default function MenuLateral(
   return (
     <div className='barra_lateral'>
     <button onClick={back} className='regresar'><BsChevronLeft/> REGRESAR</button>
-    <Image
-      src={imagen ? imagen : ''}
+    {/* <Image
+      src={imagen ? '/'+imagen : ''}
       alt="Webinars en concreto instituto mexicano del cemento y del concreto"
       width="100" 
-      height="100"
-    />
+      height="0"
+      style={{'width':'100%','height':'auto'}}
+      className='img-fluid'
+    /> */}
     <h2 className="text-white text-center">{nombre}</h2>
     <ul className='menu'>
       <li>
         <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
       </li>
       <li>
-        <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active' : ''}><BsChevronRight/> PRESENTACIÓN GRABADA</a>
+        <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN GRABADA</a>
       </li>
       <li>
         <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> DATO EN CONCRETO</a>
@@ -45,10 +47,10 @@ export default function MenuLateral(
         <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> INFOGRAFÍAS</a>
       </li>
       <li>
-        <a onClick={seccion} className={categoria === ' EVALUACIÓN FINAL' ? 'active' : ''}><BsChevronRight/> EVALUACIÓN FINAL</a>
+        <a onClick={seccion} className={categoria === ' EVALUACIÓN FINAL' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> EVALUACIÓN FINAL</a>
       </li>
       <li>
-        <a onClick={seccion} className={categoria === ' CONTENIDO ADICIONAL' ? 'active' : ''}><BsChevronRight/> CONTENIDO ADICIONAL</a>
+        <a onClick={seccion} className={categoria === ' CONTENIDO ADICIONAL' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> CONTENIDO ADICIONAL</a>
       </li>
     </ul>
   </div>
