@@ -2729,7 +2729,8 @@ img, svg {
 @media ((min-width: 500px) and (max-width: 750px)){
   .menu-categorias ul, .webinars {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
   }
   .container-fluid.login .branding .login-form {
     width: 100%;
@@ -2740,6 +2741,7 @@ img, svg {
   .menu-categorias ul, .webinars  {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
   }
   .container-fluid.login .branding .login-form {
     width: 100%;
@@ -2750,6 +2752,7 @@ img, svg {
   .menu-categorias ul, .webinars  {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
   }
 }
 
@@ -2757,6 +2760,7 @@ img, svg {
   .menu-categorias ul, .webinars  {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
   }
 }
 

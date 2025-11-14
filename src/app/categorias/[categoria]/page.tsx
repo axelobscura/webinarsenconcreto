@@ -33,7 +33,7 @@ export default function Categoria() {
         <Header />
         <div className='cat-entrada'>
           <div className='menu-categorias'>
-            <h2 className='text-white'>{categoriaData && categoriaData.nombre.toUpperCase().split('-').join(' ')}</h2>
+            <h2 className='text-white fw-bold mb-3'>{categoriaData && categoriaData.nombre.toUpperCase().split('-').join(' ')}</h2>
           </div>
           <div className='webinars'>
             {webinars.map((val: any) => (

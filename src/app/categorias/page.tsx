@@ -27,39 +27,85 @@ export default function Categorias() {
     <div  className='container-fluid categorias'>
         <Header />
         <div className='cat-entrada'>
-          <div className='menu-categorias'>
-            <ul>
-              {categorias && categorias.map((val: any, i: number) => (
-                <li key={i}>
-                  <Link
-                    href={{
-                      pathname: `/categorias${val.link}`,
-                      // query: {
-                      //   id: val.id,
-                      //   nombre: val.nombre,
-                      //   imagen: val.imagen,
-                      // },
-                    }}
-                  >
-                    {/*
-                      <div className='cat-image'>
-                        <Image
-                          src={val.imagen}
-                          alt="Webinars en concreto instituto mexicano del cemento y del concreto"
-                          width="180"
-                          height="100"
-                        />
-                      </div>
-                    */}
-                      <div className='d-flex align-items-center cat-desc'>
-                        <BsChevronRight /> 
-                        <p className='m-0 fs-6'>{val.nombre}</p>
-                      </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <div className="tipo">
+                <h2 className='fs-1 text-white ps-2 mb-4 fw-bold'>Contenido IMCYC</h2>
+                <div className='menu-categorias'>
+                  <ul>
+                    {categorias && categorias.map((val: any, i: number) => val.id_tipo === 1 &&(
+                      <li key={i}>
+                        <Link
+                          href={{
+                            pathname: `/categorias${val.link}`,
+                            // query: {
+                            //   id: val.id,
+                            //   nombre: val.nombre,
+                            //   imagen: val.imagen,
+                            // },
+                          }}
+                        >
+                          {/*
+                            <div className='cat-image'>
+                              <Image
+                                src={val.imagen}
+                                alt="Webinars en concreto instituto mexicano del cemento y del concreto"
+                                width="180"
+                                height="100"
+                              />
+                            </div>
+                          */}
+                            <div className='d-flex align-items-center cat-desc'>
+                              <BsChevronRight /> 
+                              <p className='m-0 fs-6'>{val.nombre}</p>
+                            </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-6">
+              <div className="tipo">
+                <h2 className='fs-1 text-white ps-2 mb-4 fw-bold'>Valor Agregado</h2>
+                <div className='menu-categorias'>
+                  <ul>
+                    {categorias && categorias.map((val: any, i: number) => val.id_tipo === 2 &&(
+                      <li key={i}>
+                        <Link
+                          href={{
+                            pathname: `/categorias${val.link}`,
+                            // query: {
+                            //   id: val.id,
+                            //   nombre: val.nombre,
+                            //   imagen: val.imagen,
+                            // },
+                          }}
+                        >
+                          {/*
+                            <div className='cat-image'>
+                              <Image
+                                src={val.imagen}
+                                alt="Webinars en concreto instituto mexicano del cemento y del concreto"
+                                width="180"
+                                height="100"
+                              />
+                            </div>
+                          */}
+                            <div className='d-flex align-items-center cat-desc'>
+                              <BsChevronRight /> 
+                              <p className='m-0 fs-6'>{val.nombre}</p>
+                            </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
+          
         </div>
     </div>
   )
