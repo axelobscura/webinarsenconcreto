@@ -2250,7 +2250,7 @@ a {
 }
 
 .container-fluid.login .branding .login-form {
-  width: 30%;
+  width: 100%;
 }
 
 .container-fluid.login.categorias .branding {
@@ -2722,7 +2722,7 @@ img, svg {
     grid-template-columns: 1fr;
   }
   .container-fluid.login .branding .login-form {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -2732,7 +2732,7 @@ img, svg {
     grid-template-columns: 1fr 1fr;
   }
   .container-fluid.login .branding .login-form {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -2742,7 +2742,7 @@ img, svg {
     grid-template-columns: 1fr 1fr 1fr;
   }
   .container-fluid.login .branding .login-form {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -2758,4 +2758,29 @@ img, svg {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+form.loginf {
+  width: 100%;
+}
+
+.branding-form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: rgba(0,0,0,0.5);
+  margin: 20px;
+  box-shadow: 0 0 10px #000;
+}
+
+.branding.entrada {
+  align-items: flex-start !important;
+}
+
+.login-form .btn {
+  padding: 15px;
+  font-side: 2rem;
 }
