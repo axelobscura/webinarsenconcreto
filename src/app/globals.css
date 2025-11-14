@@ -2784,3 +2784,9 @@ form.loginf {
   padding: 15px;
   font-side: 2rem;
 }
+
+@media (max-width: 750px){
+  .branding-form {
+    width: 93%;
+  }
+}
