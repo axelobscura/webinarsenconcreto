@@ -45,19 +45,17 @@ export default function Categorias() {
                             // },
                           }}
                         >
-                          {/*
                             <div className='cat-image'>
                               <Image
-                                src={val.imagen}
+                                src={val ? `/bkgs/${val.imagen}` : '/bkg.jpg'}
                                 alt="Webinars en concreto instituto mexicano del cemento y del concreto"
                                 width="180"
                                 height="100"
                               />
                             </div>
-                          */}
                             <div className='d-flex align-items-center cat-desc'>
-                              <BsChevronRight /> 
-                              <p className='m-0 fs-6'>{val.nombre}</p>
+                              <BsChevronRight size={20} /> 
+                              <p className='m-0 fs-6 py-3'>{val.nombre}</p>
                             </div>
                         </Link>
                       </li>
@@ -83,19 +81,17 @@ export default function Categorias() {
                             // },
                           }}
                         >
-                          {/*
                             <div className='cat-image'>
                               <Image
-                                src={val.imagen}
+                                src={val ? `/bkgs/${val.imagen}` : '/bkg.jpg'}
                                 alt="Webinars en concreto instituto mexicano del cemento y del concreto"
                                 width="180"
                                 height="100"
                               />
                             </div>
-                          */}
                             <div className='d-flex align-items-center cat-desc'>
-                              <BsChevronRight /> 
-                              <p className='m-0 fs-6'>{val.nombre}</p>
+                              <BsChevronRight size={20} /> 
+                              <p className='m-0 fs-6 py-3'>{val.nombre}</p>
                             </div>
                         </Link>
                       </li>

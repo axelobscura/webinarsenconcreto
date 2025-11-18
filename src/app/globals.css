@@ -2332,13 +2332,14 @@ a {
   background: rgba(255,255,255,0.65);
   color: #111;
   margin: 0.11rem 0;
-  padding: 2rem;
+  padding: 0;
   font-weight: bold;
-  border: 5px solid #fff;
+  border: 10px solid #fff;
   transition: all 1s;
   display: flex;
   flex-direction: column;
   border-radius: 30px;
+  padding-bottom: 0.5rem;
 }
 
 .menu-categorias ul li a img {
@@ -2348,8 +2349,9 @@ a {
 
 .menu-categorias ul li a:hover {
   background: #000;
-  border: 5px solid #fff;
+  border: 10px solid #111;
   color: #fff;
+  background: rgba(15, 15, 15, 0.65);
 }
 
 .form-control {
@@ -2462,10 +2464,12 @@ a {
 .documento .titulo {
   color: #fff;
   text-align: left;
-  padding: 2px 0 10px 0;
+  padding: 10px 0 10px 0;
   margin: 0;
   display: flex;
   align-items: center;
+  font-weight: bold;
+  background: rgba(0,0,0,0.8);
 }
 
 .evaluacion h2, .contenido h2 {
