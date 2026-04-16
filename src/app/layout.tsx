@@ -1,7 +1,7 @@
 import { ThemeContextProvider } from './context/theme'
-import 'bootstrap/dist/css/bootstrap.css'
 import './globals.css'
 import Footer from './components/Footer'
+import FixedHeader from './components/FixedHeader'
 
 export const metadata = {
   title: 'Webinars en concreto Instituto Mexicano del Cemento y del Concreto A.C.',
@@ -18,9 +18,10 @@ export default function RootLayout({
       <body>
         <div className='container-fluid login'>
             <ThemeContextProvider>
-              {children}
+              <FixedHeader />
+                {children}
+              <Footer />
             </ThemeContextProvider>
-            <Footer />
         </div>
       </body>
       

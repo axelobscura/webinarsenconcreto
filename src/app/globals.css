@@ -1,12 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;700&display=swap');
 
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+ * Custom CSS Variables - Loaded after Bootstrap to ensure they take precedence
+ * Bootstrap 5 uses --bs-* prefix, so our custom variables won't conflict
+ */
+:root,
+html {
+  /* Custom design tokens */
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
+  /* RGB color values (for use with rgb() function) */
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -40,10 +51,21 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  /* Optional: Override Bootstrap CSS variables if needed */
+  /* Bootstrap 5 uses --bs-* prefix, e.g.:
+   * --bs-primary: #0d6efd;
+   * --bs-secondary: #6c757d;
+   * --bs-body-bg: #fff;
+   * --bs-body-color: #212529;
+   */
+   --bs-body-bg: rgb(33, 47, 76);
+   --bs-body-color: rgb(16, 23, 37);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root,
+  html {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
@@ -104,9 +126,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  font-family: 'Kanit', sans-serif;
-}
 
 .flipbook-icon-pause1:before {
   content: "\e911";
@@ -2191,6 +2210,9 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: 'Kanit', sans-serif;
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(33, 47, 76)) rgb(16, 23, 37) !important;
 }
 
 a {
@@ -2217,12 +2239,6 @@ a {
 
 .container-fluid.login {
   height: 100vh;
-  background: #000;
-  background: url('/bkg2.webp') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   margin: 0;
   padding: 0;
   display: flex;
@@ -2231,13 +2247,14 @@ a {
 }
 
 .container-fluid.categorias {
+  /*
   background: url('/bkg3.webp') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding: 1rem;
-  height: 100vh;
+  */
+  padding: 0;
 }
 
 .container-fluid.login .branding {
@@ -2246,7 +2263,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .container-fluid.login .branding .login-form {
@@ -2359,7 +2375,12 @@ a {
   border: none;
   background: #000;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid #5978ba;
+}
+
+.footer {
+  border-top: 1px solid #5978ba;
+  box-shadow: 0 0 10px #5978ba;
 }
 
 .container-fluid.login .branding .topBar {
@@ -2442,11 +2463,10 @@ a {
 .topBar {
   margin-bottom: 20px;
   padding: 1rem;
-  background: rgba(0,0,0,0.8);
-  padding: 0.5rem;
-  padding-bottom: 0.2rem;
-  border-bottom: 2px solid #555;
-  border-radius: 2rem;
+  background: rgba(16, 23, 37 ,0.8);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #5978ba;
+  box-shadow: 0 0 10px #5978ba;
 }
 
 .barra_lateral h2 {
@@ -2782,6 +2802,7 @@ form.loginf {
   background: rgba(0,0,0,0.5);
   margin: 20px;
   box-shadow: 0 0 10px #000;
+  border: 1px solid #5978ba;
 }
 
 .branding.entrada {

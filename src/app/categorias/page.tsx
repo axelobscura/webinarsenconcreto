@@ -25,7 +25,6 @@ export default function Categorias() {
 
   return (
     <div  className='container-fluid categorias'>
-        <Header />
         <div className='cat-entrada'>
           <div className="row">
             <div className="col-12 col-md-6">
@@ -37,7 +36,7 @@ export default function Categorias() {
                       <li key={i}>
                         <Link
                           href={{
-                            pathname: `/categorias${val.link}`,
+                            pathname: `/categorias/${val.link}`,
                             // query: {
                             //   id: val.id,
                             //   nombre: val.nombre,

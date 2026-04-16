@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
+import { BsChevronRight } from 'react-icons/bs';
 import Header from '@/app/components/Header';
 import MenuLateral from '@/app/components/MenuLateral';
 import { useThemeContext } from '../../../context/theme'
@@ -106,7 +106,7 @@ export default function Curso() {
           onLoad={() => {
             // jQuery loaded, now load flipbook
             const flipbookScript = document.createElement('script');
-            flipbookScript.src = 'https://gcc.webinarsenconcreto.com/js/flipbook.min.js';
+            flipbookScript.src = 'https://webinarsenconcreto.com/js/flipbook.min.js';
             flipbookScript.onload = initializeFlipbook;
             document.body.appendChild(flipbookScript);
           }}

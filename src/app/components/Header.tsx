@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -57,13 +58,10 @@ export default function Header() {
         <div className='col-9 col-md-9 d-flex align-items-center'>
           <Link href={path && path.length > 1 ? '/categorias' : '/'}>
             <Image
-              src="/imcyc_registrada.svg"
+              src="/logo-imcyc-blanco-large.svg"
               alt="Webinars en concreto instituto mexicano del cemento y del concreto"
               width="150"
-              height="70"
-              style={{
-                marginLeft: '-12px'
-              }}
+              height="59"
             />
           </Link>
           <span className='text-white ms-2 fs-5'> {(() => {
