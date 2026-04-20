@@ -74,39 +74,44 @@ export default function Home() {
   }
 
   return (
-      <div className="flex justify-center items-center min-h-80 bg-[url('https://webinars.webinarsenconcreto.com/images/login.png')] bg-gray-700 bg-blend-multiply z-10 bg-cover bg-center bg-no-repeat">
-        <div className='flex flex-col items-center justify-center h-screen'>
-          <div className='flex flex-col justify-center items-center p-4 rounded-lg shadow-lg z-20 text-white'>
-          <h1 className='text-5xl text-center uppercase p-10'>
+      <div
+        className={`flex justify-center items-center min-h-80 ${
+          !useInicio
+            ? "bg-[url('https://webinars.webinarsenconcreto.com/images/login.png')]"
+            : "bg-[url('https://webinars.webinarsenconcreto.com/images/login2.png')]"
+        } bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat`}
+      >
+        <div className='flex flex-col items-center justify-center w-full h-screen'>
+          <div className='z-20 flex flex-col w-full p-4 text-white rounded-lg shadow-lg justify-left'>
+          <h1 className='py-5 text-6xl text-left uppercase'>
             {!useInicio ? (
               <>Una plataforma para profesionales<br />de la construcción con concreto</>
-            ) : '¡Bienvenido a la plataforma educativa del IMCYC!'}
+            ) : 'Iniciar sesión'}
           </h1>
-          <div className='w-full flex justify-center'>
+          <div className='flex w-full'>
             {!useInicio &&
-              <button className='bg-black py-3 rounded-lg px-20 text-white text-2xl hover:bg-slate-950 font-bold' onClick={checkInicio}>INICIAR SESIÓN</button>
+              <button className='px-20 py-3 text-2xl font-bold text-white bg-transparent border border-white hover:bg-slate-950 rounded-3xl' onClick={checkInicio}>INICIAR SESIÓN</button>
             }
           </div>
           {useInicio && (
             loading ? (
               <h5>Cargando...</h5>
             ) : (
-            <div className='bg-gray-950 bg-opacity-20 p-5 w-full md:w-1/2 lg:w-1/3 mt-0 rounded-lg text-2xl'>
+            <div className='w-full my-2 text-2xl md:w-1/2 lg:w-1/3'>
               {showErrorMessage && (
                 <h5 dangerouslySetInnerHTML={{ __html: errorMessage }} />
               )}
               <form onSubmit={registro}>
                 <div className='flex flex-col'>
                   <label className='flex items-center py-3'><BsChevronRight/> Correo electrónico:</label>
-                  <input type="email" name='email' className="p-3 bg-black text-white" placeholder="correo@electronico.com" required />
+                  <input type="email" name='email' className="p-2 px-5 text-gray-900 bg-white border bg-opacity-70 border-slate-500 rounded-2xl" placeholder="correo@electronico.com" required />
                 </div>
                 <div className='flex flex-col'>
                   <label className='flex items-center py-3'><BsChevronRight/> Contraseña:</label>
-                  <input type="password" name='password' className="p-3 bg-black text-white" required />
+                  <input type="password" name='password' className="p-2 px-5 text-gray-900 bg-white border bg-opacity-70 border-slate-500 rounded-2xl" required />
                 </div>
-                <button className='bg-slate-800 py-3 rounded-lg px-10 text-white text-2xl hover:bg-slate-950 font-bold my-3 w-full' type="submit">INGRESAR A SU CUENTA</button>
+                <button className='w-full px-10 py-3 my-3 mt-5 font-bold text-white text-1xl bg-slate-800 hover:bg-slate-950 rounded-2xl' type="submit">INGRESAR A SU CUENTA</button>
               </form>
-
             </div>
             )
           )}
