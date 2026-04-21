@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <div className='container-fluid login'>
+        <div>
             <ThemeContextProvider>
               <FixedHeader />
                 {children}

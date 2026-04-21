@@ -4,16 +4,32 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useThemeContext } from '../../context/theme'
 
+function decodeCategorySegment(segment?: string) {
+  if (!segment) {
+    return ''
+  }
+
+  try {
+    return decodeURIComponent(segment)
+  } catch {
+    return segment
+  }
+}
+
 export default function Categoria() {
   const { pathname } = useThemeContext()
-  const categoria = pathname?.split('/').pop()
+  const categoria = decodeCategorySegment(pathname?.split('/').pop())
   const [categoriaData, setCategoriaData] = useState<any>(null);
   const [webinars, setWebinars] = useState<any[]>([]);
 
   useEffect(() => {
+    if (!categoria) {
+      return;
+    }
+
     async function fetchData() {
       try {
-        const response = await fetch(`/api/getcontenido/${categoria}`);
+        const response = await fetch(`/api/getcontenido/${encodeURIComponent(categoria)}`);
         if (!response.ok) {
           throw new Error(response.statusText);
         }
@@ -35,7 +51,7 @@ export default function Categoria() {
 
   return (
     <div
-        className={`flex justify-center items-center min-h-screen bg-[url('https://webinars.webinarsenconcreto.com/images/bkg_contenidos.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
+        className={`flex justify-center items-center bg-[url('https://webinars.webinarsenconcreto.com/images/bkg_contenidos.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
       >
         <div className='grid grid-cols-1 sm:grid-cols-[1fr_2fr] w-full p-10 pt-36'>
           <div className='flex flex-col w-fullp-10'>
@@ -43,15 +59,18 @@ export default function Categoria() {
           </div>
           <div className='grid w-full grid-cols-1 gap-3 p-3 sm:grid-cols-3'>
             {webinars.map((webinar) => (
-              <Link href={`/contenido/${webinar.url}`} key={webinar.id} className='flex flex-col items-center justify-center w-full p-1 text-center transition bg-white border border-white rounded-lg shadow-lg bg-opacity-20 hover:bg-opacity-50 hover:text-gray-900'>
+              <Link href={`/categorias/${categoria}/${webinar.url}`} key={webinar.id} className='grid items-center justify-between w-full grid-cols-1 text-center transition bg-white rounded-lg shadow-lg bg-opacity-30 hover:bg-opacity-50 hover:text-gray-900'>
                 <Image
                   src={`https://webinars.webinarsenconcreto.com/images/fundamentos/${webinar.imagen}.png` || '/imcyc_registrada.svg'}
                   alt={webinar.nombre}
                   width={300}
                   height={200}
                   className='object-cover rounded-tl-lg rounded-tr-lg'
+                  style={{
+                    width: "100%"
+                  }}
                 />
-                <h3 className='text-2xl font-bold text-white hover:text-gray-950'>{webinar.nombre}</h3>
+                <h3 className='flex items-center p-3 text-[1.2rem] leading-5 min-h-28 uppercase font-bold text-white hover:text-gray-950'>{webinar.nombre}</h3>
               </Link>
             ))}
           </div>

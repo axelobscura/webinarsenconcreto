@@ -4,7 +4,7 @@ import { query } from '../../../../../lib/dbb'
 export async function GET(request: Request, {params} : {params: any}) {
   try {
     console.log('PARAMS: ', params);
-    const nombre = params.nombre;
+    const nombre = decodeURIComponent(params.nombre);
     const results = await query('SELECT * FROM categorias WHERE url = ?', [nombre]) as any[];
     if (!results || results.length === 0 || !results[0]?.id) {
       return NextResponse.json({ message: 'categoria not found', results: [], webinars: [] }, { status: 404 });

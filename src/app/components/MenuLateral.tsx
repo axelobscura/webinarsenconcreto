@@ -23,7 +23,7 @@ export default function MenuLateral(
     }
   return (
     <div className='barra_lateral'>
-    <button onClick={back} className='regresar'><BsChevronLeft/> REGRESAR</button>
+    
     {/* <Image
       src={imagen ? '/'+imagen : ''}
       alt="Webinars en concreto instituto mexicano del cemento y del concreto"
@@ -32,7 +32,8 @@ export default function MenuLateral(
       style={{'width':'100%','height':'auto'}}
       className='img-fluid'
     /> */}
-    <h2 className="text-white text-center">{nombre}</h2>
+    <h2 className="text-[8rem] text-center text-white">{nombre}</h2>
+    <button onClick={back} className='regresar'><BsChevronLeft/> REGRESAR</button>
     <ul className='menu'>
       <li>
         <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>

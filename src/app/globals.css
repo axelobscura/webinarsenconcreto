@@ -2433,18 +2433,20 @@ a {
 }
 
 .barra_lateral ul.menu li a {
-  color: #fff;
-  padding: 11px 5px;
-  display: block;
-  border-bottom: 1px solid #555;
-  transition: all 0.5s;
-  margin-bottom: 5px;
-  transition: all 1s;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none;
+      color: #fff;
+    padding: 11px 5px;
+    display: block;
+    border-bottom: 1px solid #555;
+    transition: all 0.5s;
+    margin-bottom: 5px;
+    transition: all 1s;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.3rem;
+    background: rgba(255,255,255,0.4);
 }
 
 .barra_lateral ul.menu li a:hover, .barra_lateral ul.menu li a.active {
@@ -2470,10 +2472,11 @@ a {
 }
 
 .barra_lateral h2 {
-  font-size: 1rem;
+  font-size: 2rem;
   background: #313538;
   padding: 12px;
   font-weight: bold;
+  line-height: 1.9rem;
 }
 
 #containePDF {
@@ -2502,13 +2505,11 @@ button.regresar {
   width: 100%;
   background: #111;
   color: #fff;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 10px;
   text-align: left;
   display: flex;
   align-items: center;
-  margin-top: 5px;
-  border: 1px solid #333;
 }
 
 .evaluacion .preguntas {
