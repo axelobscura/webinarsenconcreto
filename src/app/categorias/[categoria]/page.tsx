@@ -1,9 +1,8 @@
 "use client"
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Header from '../../components/Header'
+import Image from 'next/image'
 import { useThemeContext } from '../../context/theme'
-import { BsChevronRight } from "react-icons/bs"
 
 export default function Categoria() {
   const { pathname } = useThemeContext()
@@ -14,7 +13,7 @@ export default function Categoria() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`/api/getcategoria/${categoria}`);
+        const response = await fetch(`/api/getcontenido/${categoria}`);
         if (!response.ok) {
           throw new Error(response.statusText);
         }
@@ -34,35 +33,27 @@ export default function Categoria() {
     )
   };
 
-  console.log(categoriaData.imagen);
-
   return (
-    <div  className='container-fluid categorias bg-image bg-image-no-repeat bg-cover bg-center'>
-      <style jsx>{`
-        .bg-image {
-          background-image: url('/bkgs/${categoriaData && categoriaData.imagen}');
-        }
-      `}</style>
-        <Header />
-        <div className='cat-entrada'>
-          <div className="row">
-            <div className="col-12 col-md-3 d-flex align-items-center justify-content-center">
-              <div className="tipo w-100">
-                <h2 className='text-white fw-bold bg-dark bg-opacity-50 p-5 rounded-3'>{categoriaData && categoriaData.nombre.toUpperCase().split('-').join(' ')}</h2>
-              </div>
-            </div>
-            <div className="col-12 col-md-9">
-              <div className='webinars'>
-                {webinars.map((val: any) => (
-                  <Link href={`/categorias/${categoria}/${val.url}`} key={val.id}>
-                    <div className='d-flex align-items-center cat-desc'>
-                      <BsChevronRight /> 
-                      <p className='m-0 fs-6'>{val.nombre}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+    <div
+        className={`flex justify-center items-center min-h-screen bg-[url('https://webinars.webinarsenconcreto.com/images/bkg_contenidos.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
+      >
+        <div className='grid grid-cols-1 sm:grid-cols-[1fr_2fr] w-full p-10 pt-36'>
+          <div className='flex flex-col w-fullp-10'>
+            <h2 className='font-bold text-left text-white text-[3rem] border-b border-white mb-4 uppercase leading-10 py-5'>{categoria?.split('-').join(' ')}</h2>
+          </div>
+          <div className='grid w-full grid-cols-1 gap-3 p-3 sm:grid-cols-3'>
+            {webinars.map((webinar) => (
+              <Link href={`/contenido/${webinar.url}`} key={webinar.id} className='flex flex-col items-center justify-center w-full p-1 text-center transition bg-white border border-white rounded-lg shadow-lg bg-opacity-20 hover:bg-opacity-50 hover:text-gray-900'>
+                <Image
+                  src={`https://webinars.webinarsenconcreto.com/images/fundamentos/${webinar.imagen}.png` || '/imcyc_registrada.svg'}
+                  alt={webinar.nombre}
+                  width={300}
+                  height={200}
+                  className='object-cover rounded-tl-lg rounded-tr-lg'
+                />
+                <h3 className='text-2xl font-bold text-white hover:text-gray-950'>{webinar.nombre}</h3>
+              </Link>
+            ))}
           </div>
         </div>
     </div>

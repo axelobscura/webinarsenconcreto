@@ -82,7 +82,7 @@ export default function Home() {
         } bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat`}
       >
         <div className='flex flex-col items-center justify-center w-full h-screen'>
-          <div className='z-20 flex flex-col w-full p-4 text-white rounded-lg shadow-lg justify-left'>
+          <div className='z-20 flex flex-col w-full p-4 text-white rounded-lg justify-left'>
           <h1 className='py-5 text-6xl text-left uppercase'>
             {!useInicio ? (
               <>Una plataforma para profesionales<br />de la construcción con concreto</>
