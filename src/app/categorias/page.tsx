@@ -33,7 +33,7 @@ export default function Categorias() {
                   if (categoria.tipo === 'superior') {
                     return (
                       <Link href={`/categorias/${categoria.url}`} key={categoria.id} className='flex items-center justify-center w-full p-2 text-center transition bg-white border border-white shadow-lg rounded-3xl bg-opacity-20 hover:bg-opacity-50 hover:text-gray-900'>
-                        <h3 className='py-2 text-2xl font-bold leading-7 text-white hover:text-gray-950'>{categoria.nombre}</h3>
+                        <h3 className='py-2 text-2xl font-bold leading-7 text-center text-white hover:text-gray-950'>{categoria.nombre}</h3>
                       </Link>
                     )
                   }

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useThemeContext } from '../../context/theme'
+import Loader from '../../components/Loader'
 
 function decodeCategorySegment(segment?: string) {
   if (!segment) {
@@ -44,9 +45,7 @@ export default function Categoria() {
   }, [categoria]);
 
   if(!categoriaData){
-    return(
-      <h2>Cargando...</h2>
-    )
+    return <Loader />
   };
 
   return (
@@ -55,6 +54,7 @@ export default function Categoria() {
       >
         <div className='grid grid-cols-1 sm:grid-cols-[1fr_2fr] w-full p-10 pt-36'>
           <div className='flex flex-col w-fullp-10'>
+            
             <h2 className='font-bold text-left text-white text-[3rem] border-b border-white mb-4 uppercase leading-10 py-5'>{categoria?.split('-').join(' ')}</h2>
           </div>
           <div className='grid w-full grid-cols-1 gap-3 p-3 sm:grid-cols-3'>
@@ -63,6 +63,7 @@ export default function Categoria() {
                 <Image
                   src={`https://webinars.webinarsenconcreto.com/images/fundamentos/${webinar.imagen}.png` || '/imcyc_registrada.svg'}
                   alt={webinar.nombre}
+                  title={webinar.nombre}
                   width={300}
                   height={200}
                   className='object-cover rounded-tl-lg rounded-tr-lg'
@@ -70,7 +71,7 @@ export default function Categoria() {
                     width: "100%"
                   }}
                 />
-                <h3 className='flex items-center p-3 text-[1.2rem] leading-5 min-h-28 uppercase font-bold text-white hover:text-gray-950'>{webinar.nombre}</h3>
+                <h3 className='flex items-center justify-center p-3 text-[1.2rem] leading-5 min-h-28 uppercase font-bold text-white hover:text-gray-950 text-center w-full'>{webinar.nombre}</h3>
               </Link>
             ))}
           </div>
