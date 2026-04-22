@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation'
 import Header from '../../components/Header';
-import '../../components/loader';
+import '../../components/LoaderImcyc';
 import $ from "jquery";
 import Script from 'next/script';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';

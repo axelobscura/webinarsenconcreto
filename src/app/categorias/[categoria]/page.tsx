@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useThemeContext } from '../../context/theme'
-import Loader from '../../components/Loader'
+import LoaderImcyc from '../../components/LoaderImcyc'
 
 function decodeCategorySegment(segment?: string) {
   if (!segment) {
@@ -45,7 +45,7 @@ export default function Categoria() {
   }, [categoria]);
 
   if(!categoriaData){
-    return <Loader />
+    return <LoaderImcyc />
   };
 
   return (

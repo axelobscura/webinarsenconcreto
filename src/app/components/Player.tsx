@@ -1,5 +1,5 @@
 "use client"
-import './loader.js'
+import './LoaderImcyc.jsx'
 import Plyr from 'plyr'
 import Script from 'next/script';
 

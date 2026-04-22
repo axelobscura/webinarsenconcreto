@@ -1,7 +1,7 @@
 "use client"
 // @ts-ignore
 import React, { useState, useEffect } from 'react';
-import './loader.js'
+import './LoaderImcyc.jsx'
 import $ from "jquery"
 import Script from 'next/script';
 

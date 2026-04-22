@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const Loader = () => {
+const LoaderImcyc = () => {
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center w-full bg-slate-950">
         <Image
@@ -17,4 +17,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default LoaderImcyc;
