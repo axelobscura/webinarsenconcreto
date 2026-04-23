@@ -24,7 +24,6 @@ export default function RootLayout({
             </ThemeContextProvider>
         </div>
       </body>
-      
     </html>
   )
 }

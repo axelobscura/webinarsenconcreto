@@ -21,39 +21,31 @@ export default function MenuLateral(
     const back = () => {
       router.back()
     }
+
   return (
     <div className='barra_lateral'>
-    
-    {/* <Image
-      src={imagen ? '/'+imagen : ''}
-      alt="Webinars en concreto instituto mexicano del cemento y del concreto"
-      width="100" 
-      height="0"
-      style={{'width':'100%','height':'auto'}}
-      className='img-fluid'
-    /> */}
-    <h2 className="text-[8rem] text-center text-white">{nombre}</h2>
-    <button onClick={back} className='regresar'><BsChevronLeft/> REGRESAR</button>
-    <ul className='menu'>
-      <li>
-        <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
-      </li>
-      <li>
-        <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN GRABADA</a>
-      </li>
-      <li>
-        <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> DATO EN CONCRETO</a>
-      </li>
-      <li>
-        <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> INFOGRAFÍAS</a>
-      </li>
-      <li>
-        <a onClick={seccion} className={categoria === ' EVALUACIÓN FINAL' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> EVALUACIÓN FINAL</a>
-      </li>
-      <li>
-        <a onClick={seccion} className={categoria === ' CONTENIDO ADICIONAL' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> CONTENIDO ADICIONAL</a>
-      </li>
-    </ul>
+      <h2 className="text-[8rem] text-center text-white">{nombre}</h2>
+      <button onClick={back} className='regresar'><BsChevronLeft/> REGRESAR</button>
+      <ul className='menu'>
+        <li>
+          <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
+        </li>
+        <li>
+          <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN GRABADA</a>
+        </li>
+        <li>
+          <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> DATO EN CONCRETO</a>
+        </li>
+        <li>
+          <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> INFOGRAFÍAS</a>
+        </li>
+        <li>
+          <a onClick={seccion} className={categoria === ' EVALUACIÓN FINAL' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> EVALUACIÓN FINAL</a>
+        </li>
+        <li>
+          <a onClick={seccion} className={categoria === ' CONTENIDO ADICIONAL' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> CONTENIDO ADICIONAL</a>
+        </li>
+      </ul>
   </div>
   )
 }

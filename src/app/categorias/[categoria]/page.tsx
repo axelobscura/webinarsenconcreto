@@ -54,12 +54,15 @@ export default function Categoria() {
       >
         <div className='grid grid-cols-1 sm:grid-cols-[1fr_2fr] w-full p-10 pt-36'>
           <div className='flex flex-col w-fullp-10'>
-            
             <h2 className='font-bold text-left text-white text-[3rem] border-b border-white mb-4 uppercase leading-10 py-5'>{categoria?.split('-').join(' ')}</h2>
           </div>
           <div className='grid w-full grid-cols-1 gap-3 p-3 sm:grid-cols-3'>
             {webinars.map((webinar) => (
-              <Link href={`/categorias/${categoria}/${webinar.url}`} key={webinar.id} className='grid items-center justify-between w-full grid-cols-1 text-center transition bg-white rounded-lg shadow-lg bg-opacity-30 hover:bg-opacity-50 hover:text-gray-900'>
+              <Link 
+                href={`/categorias/${categoria}/${webinar.url}/presentación-ejecutiva`}
+                key={webinar.id} 
+                className='grid items-center justify-between w-full grid-cols-1 text-center transition duration-300 bg-white rounded-lg shadow-lg bg-opacity-30 hover:bg-opacity-50 hover:text-gray-900 hover:scale-110 hover:bg-black'
+              >
                 <Image
                   src={`https://webinars.webinarsenconcreto.com/images/fundamentos/${webinar.imagen}.png` || '/imcyc_registrada.svg'}
                   alt={webinar.nombre}
@@ -71,7 +74,7 @@ export default function Categoria() {
                     width: "100%"
                   }}
                 />
-                <h3 className='flex items-center justify-center p-3 text-[1.2rem] leading-5 min-h-28 uppercase font-bold text-white hover:text-gray-950 text-center w-full'>{webinar.nombre}</h3>
+                <h3 className='flex items-center justify-center p-3 text-[1.2rem] leading-5 min-h-28 uppercase font-bold text-white hover:text-white text-center w-full'>{webinar.nombre}</h3>
               </Link>
             ))}
           </div>

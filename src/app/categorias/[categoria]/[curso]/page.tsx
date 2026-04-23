@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import MenuLateral from '@/app/components/MenuLateral';
 import { useThemeContext } from '../../../context/theme'
 import Script from 'next/script';
-import { BsChevronRight } from 'react-icons/bs';
 
 export default function Curso() {
   const { pathname } = useThemeContext()
@@ -71,16 +70,14 @@ export default function Curso() {
     initializeFlipbook()
   }, []);
 
-  // const seccion = (e: any) => {
-  //   setCategoria(e.target.text);
-  // }
+  console.log('Webinar data:', webinar);
 
   return (
       <div
         className={`flex min-h-screen bg-[url('https://webinars.webinarsenconcreto.com/images/webinars.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
       >
         <div className='w-full mt-28'>
-          <div className='grid grid-cols-1 gap-3 p-3 sm:grid-cols-[300px_1fr] w-full'>
+          <div className='grid grid-cols-1 gap-3 p-3 sm:grid-cols-[1fr_4fr] w-full'>
             <div>
               {webinar && <MenuLateral
                 id={webinar.id}
@@ -91,7 +88,7 @@ export default function Curso() {
               />}
             </div>
             <div>
-              <div className='min-h-screen' style={{'width':'100%','height':'100%','position':'relative', backgroundColor:'rgba(0,0,0,0.5)'}}>
+              <div className='min-h-screen' style={{'width':'100%','position':'relative', backgroundColor:'rgba(0,0,0,0.5)'}}>
                 <div id="container"></div>
               </div>
               {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
