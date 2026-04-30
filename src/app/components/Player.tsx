@@ -1,5 +1,5 @@
 "use client"
-import './LoaderImcyc.jsx'
+//import './LoaderImcyc.jsx'
 import Plyr from 'plyr'
 import Script from 'next/script';
 
@@ -15,9 +15,11 @@ export default function Player() {
           }}
           defer
         />
-        <video id="player" controls>
-          <source src="https://webinarimcyc.com/videos/ASTM_C_31.mp4" type="video/mp4" />
-        </video>
+        <div className='p-3 bg-black bg-opacity-50'>
+          <video id="player" controls>
+            <source src="https://webinarimcyc.com/videos/ASTM_C_31.mp4" type="video/mp4" />
+          </video>
+        </div>
       </div>
   )
 }

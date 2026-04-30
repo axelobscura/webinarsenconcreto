@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import LoaderImcyc from '../components/LoaderImcyc';
 
 export default function Categorias() {
   const [categorias, setCategorias] = useState<any[]>([]);
@@ -14,9 +15,9 @@ export default function Categorias() {
     fetchData();
   }, []);
 
-  if(!categorias){
+  if(!categorias || categorias.length === 0){
     return(
-      <h2>Cargando...</h2>
+      <LoaderImcyc />
     )
   };
 
@@ -57,7 +58,6 @@ export default function Categorias() {
           </div>
           <div className='grid w-full grid-cols-1 p-10'>
             <div>
-              <h2 className='text-[3rem] font-bold text-left text-white border-b border-white mb-4'>Concretón</h2>
               <div className='grid grid-cols-1 gap-4'>
                 <Link href={`/categorias/inteligencia-artificial`} className='flex items-center justify-center w-full p-2 text-center transition bg-white border border-white shadow-lg rounded-3xl bg-opacity-20 hover:bg-opacity-50 hover:text-gray-900'>
                   <h3 className='py-2 text-2xl font-bold leading-7 text-white hover:text-gray-950'>Inteligencia Artificial</h3>

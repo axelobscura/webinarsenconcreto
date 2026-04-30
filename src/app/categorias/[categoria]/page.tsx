@@ -50,11 +50,11 @@ export default function Categoria() {
 
   return (
     <div
-        className={`flex justify-center items-center bg-[url('https://webinars.webinarsenconcreto.com/images/bkg_contenidos.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
+        className={`flex justify-center items-center bg-[url('https://webinars.webinarsenconcreto.com/images/contenido.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
       >
         <div className='grid grid-cols-1 sm:grid-cols-[1fr_2fr] w-full p-10 pt-36'>
           <div className='flex flex-col w-fullp-10'>
-            <h2 className='font-bold text-left text-white text-[3rem] border-b border-white mb-4 uppercase leading-10 py-5'>{categoria?.split('-').join(' ')}</h2>
+            <h2 className='font-bold text-left text-white text-[4rem] border-b border-white mb-4 uppercase leading-[3.5rem] py-5'>{categoria?.split('-').join(' ')}</h2>
           </div>
           <div className='grid w-full grid-cols-1 gap-3 p-3 sm:grid-cols-3'>
             {webinars.map((webinar) => (

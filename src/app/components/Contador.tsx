@@ -23,11 +23,11 @@ export default function Contador(props:any) {
             };
     });
   return (
-      <div className='contador'>
+      <div className='p-5 mb-3 text-white bg-gray-900 bg-opacity-70'>
         <div>
         { minutes === 0 && seconds === 0
             ? null
-            : <h2>TIEMPO RESTANTE: {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h2> 
+            : <h2 className='text-2xl'>TIEMPO RESTANTE: {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h2> 
         }
         </div>
       </div>

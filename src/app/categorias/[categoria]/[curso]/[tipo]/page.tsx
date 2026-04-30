@@ -3,11 +3,26 @@ import { useState, useEffect } from 'react';
 import MenuLateralWebinar from '@/app/components/MenuLateralWebinar';
 import { useThemeContext } from '../../../../context/theme'
 import LoaderImcyc from '../../../../components/LoaderImcyc'
-import Script from 'next/script';
+import Presentacion from '@/app/components/Presentacion';
+import Player from '@/app/components/Player';
+import Evaluacion from '@/app/components/Evaluacion';
+
+function decodeCategorySegment(segment?: string) {
+  if (!segment) {
+    return ''
+  }
+
+  try {
+    return decodeURIComponent(segment)
+  } catch {
+    return segment
+  }
+}
 
 export default function Tipo() {
   const { pathname } = useThemeContext();
-  const nombre = pathname?.split('/')[pathname.split('/').length - 2];
+  const nombre = decodeCategorySegment(pathname?.split('/')[pathname.split('/').length - 2]);
+  const seccion = decodeCategorySegment(pathname?.split('/')[pathname.split('/').length - 1]);
   const [webinar, setWebinar] = useState<any>(null);
 
   useEffect(() => {
@@ -40,9 +55,12 @@ export default function Tipo() {
               <MenuLateralWebinar webinar={webinar ? webinar : null} />
             </div>
             <div>
-              <div className='min-h-screen' style={{'width':'100%','height':'100%','position':'relative'}}>
-                <div id="container"></div>
-              </div>
+              {seccion === 'presentación-ejecutiva' && <Presentacion />}
+              {seccion === 'dato-en-concreto' && <Presentacion />}
+              {seccion === 'infografías' && <Presentacion />}
+              {seccion === 'videos' && <Player />}
+              {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} />}
+              {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} />}
               {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
               {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
               {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}

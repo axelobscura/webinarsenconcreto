@@ -83,14 +83,14 @@ export default function Home() {
       >
         <div className='flex flex-col items-center justify-center w-full h-screen'>
           <div className='z-20 flex flex-col w-full p-4 text-white rounded-lg justify-left'>
-          <h1 className='py-5 text-6xl text-left uppercase'>
+          <h1 className='py-5 text-left uppercase text-7xl'>
             {!useInicio ? (
               <>Una plataforma para profesionales<br />de la construcción con concreto</>
             ) : 'Iniciar sesión'}
           </h1>
           <div className='flex w-full'>
             {!useInicio &&
-              <button className='px-20 py-3 text-2xl font-bold text-white bg-transparent border border-white hover:bg-slate-950 rounded-3xl' onClick={checkInicio}>INICIAR SESIÓN</button>
+              <button className='px-20 py-3 text-2xl font-bold text-white bg-transparent border-2 border-white rounded-full border-spacing-40 hover:bg-slate-950' onClick={checkInicio}>INICIAR SESIÓN</button>
             }
           </div>
           {useInicio && (
