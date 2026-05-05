@@ -42,7 +42,7 @@ export default function AsistenteConcreton() {
 
   return (
     <div
-        className={`flex flex-col justify-center items-center min-h-full bg-[url('https://webinars.webinarsenconcreto.com/images/bkg_contenidos.jpg')] bg-gray-900 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat`}
+        className={`flex flex-col min-h-screen justify-center items-center bg-[url('https://webinars.webinarsenconcreto.com/images/bkg_contenidos.jpg')] bg-gray-900 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat`}
       >
         <div className='flex flex-col items-center justify-center w-full'>
           <Image

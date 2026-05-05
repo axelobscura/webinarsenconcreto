@@ -76,13 +76,14 @@ export default function Tipo() {
             </div>
             <div className='w-full'>
               {modulos.length > 0 && modulo === 'modulos' &&
-                <div className='grid w-full grid-cols-1 gap-5 sm:grid-cols-2'>
+                <div className='grid w-full grid-cols-1 gap-5 sm:grid-cols-1'>
                   {modulos.length > 0 && modulos.map((modulo: any, index: number) => (
                     <Link 
                       href={`/categorias/${categoria}/${nombre}/presentación-ejecutiva&modulo=${modulo.webinar}`}
                       key={webinar.titulo} 
-                      className='w-full p-5 text-2xl font-bold text-center text-white transition duration-300 bg-white rounded-lg shadow-lg py-7 bg-opacity-30 hover:bg-opacity-50 hover:text-gray-100 hover:scale-110 hover:bg-black'
+                      className='flex flex-col w-full p-5 text-2xl font-bold text-center text-white transition duration-300 bg-white rounded-lg shadow-lg py-7 bg-opacity-30 hover:bg-opacity-50 hover:text-gray-100 hover:scale-110 hover:bg-black'
                     >
+                      {modulo.norma && <span className='text-black' dangerouslySetInnerHTML={{ __html: modulo.norma }} />}
                       <span dangerouslySetInnerHTML={{ __html: modulo.titulo }} />
                     </Link>
                   ))}
