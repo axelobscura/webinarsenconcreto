@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useThemeContext } from './context/theme';
 import { BsChevronRight } from 'react-icons/bs';
 import { useRouter } from "next/navigation";
+import LoaderImcyc from './components/LoaderImcyc';
 
 export default function Home() {
   const router = useRouter();
@@ -79,7 +80,7 @@ export default function Home() {
           !useInicio
             ? "bg-[url('https://webinars.webinarsenconcreto.com/images/login.png')]"
             : "bg-[url('https://webinars.webinarsenconcreto.com/images/login2.png')]"
-        } bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat`}
+        } bg-gray-700 bg-blend-multiply bg-opacity-50 z-10 bg-cover bg-center bg-no-repeat`}
       >
         <div className='flex flex-col items-center justify-center w-full h-screen'>
           <div className='z-20 flex flex-col w-full p-4 text-white rounded-lg justify-left'>
@@ -95,7 +96,7 @@ export default function Home() {
           </div>
           {useInicio && (
             loading ? (
-              <h5>Cargando...</h5>
+                <LoaderImcyc />
             ) : (
             <div className='w-full my-2 text-2xl md:w-1/2 lg:w-1/3'>
               {showErrorMessage && (

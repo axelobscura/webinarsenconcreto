@@ -12,6 +12,7 @@ export default function MenuLateralWebinar(
     webinar?: any | null,
   }) {
   const { pathname } = useThemeContext();
+  const modulo = pathname?.split('/').pop();
   const contenido = pathname?.split('/')[2];
   const categoria = pathname?.split('/')[3];
   const tipo = pathname?.split('/')[pathname.split('/').length - 1];
@@ -52,22 +53,24 @@ export default function MenuLateralWebinar(
         }}
       />
       <h2 className="px-1 py-2 text-2xl font-semibold text-center text-white bg-black bg-opacity-50">{webinar?.nombre?.split("-").join(" ").toUpperCase()}</h2>
-      <ul className='w-full p-0 m-0'>
-        <li className='w-full'>
-          {itemsMenu.map((item, index) => (
-            <Link 
-              href={item.url}
-              key={index} 
-              className={`flex items-center justify-between w-full rounded-md p-3 my-1 font-bold text-1xl hover:bg-gray-950 hover:bg-opacity-50 hover:text-gray-100 ${
-                tipoDecode === item.nombre ? 'bg-black bg-opacity-50 text-gray-100' : 'bg-white bg-opacity-30 text-white'
-              }`}
-            > 
-              {item.nombre}
-              <BsArrowRightSquare className='inline mr-2 text-white' />
-            </Link>
-          ))}
-        </li>
-      </ul>
+      {modulo !== 'modulos' &&
+        <ul className='w-full p-0 m-0'>
+          <li className='w-full'>
+            {itemsMenu.map((item, index) => (
+              <Link 
+                href={item.url}
+                key={index} 
+                className={`flex items-center justify-between w-full rounded-md p-3 my-1 font-bold text-1xl hover:bg-gray-950 hover:bg-opacity-50 hover:text-gray-100 ${
+                  tipoDecode === item.nombre ? 'bg-black bg-opacity-50 text-gray-100' : 'bg-white bg-opacity-30 text-white'
+                }`}
+              > 
+                {item.nombre}
+                <BsArrowRightSquare className='inline mr-2 text-white' />
+              </Link>
+            ))}
+          </li>
+        </ul>
+      }
   </div>
   )
 }

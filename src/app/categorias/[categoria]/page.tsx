@@ -22,10 +22,19 @@ export default function Categoria() {
   const categoria = decodeCategorySegment(pathname?.split('/').pop())
   const [categoriaData, setCategoriaData] = useState<any>(null);
   const [webinars, setWebinars] = useState<any[]>([]);
+  const [useFondo, setFondo] = useState<string>('https://webinars.webinarsenconcreto.com/images/contenido.jpg');
 
   useEffect(() => {
     if (!categoria) {
       return;
+    }
+
+    switch (categoria) {
+      case 'tilt-up':
+        setFondo('/bkgs/tiltup.webp');
+        break;
+      default:
+        setFondo('https://webinars.webinarsenconcreto.com/images/contenido.jpg');
     }
 
     async function fetchData() {
@@ -50,7 +59,14 @@ export default function Categoria() {
 
   return (
     <div
-        className={`flex justify-center items-center bg-[url('https://webinars.webinarsenconcreto.com/images/contenido.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
+        className={`flex justify-center items-center bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
+        style={{ 
+          background: `url(${useFondo}) fixed center/cover no-repeat`,
+          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
       >
         <div className='grid grid-cols-1 sm:grid-cols-[1fr_2fr] w-full p-10 pt-36'>
           <div className='flex flex-col w-fullp-10'>
@@ -59,7 +75,7 @@ export default function Categoria() {
           <div className='grid w-full grid-cols-1 gap-3 p-3 sm:grid-cols-3'>
             {webinars.map((webinar) => (
               <Link 
-                href={`/categorias/${categoria}/${webinar.url}/presentación-ejecutiva`}
+                href={`/categorias/${categoria}/${webinar.url}/${webinar.modulo ? 'modulos' : 'presentación-ejecutiva'}`}
                 key={webinar.id} 
                 className='grid items-center justify-between w-full grid-cols-1 text-center transition duration-300 bg-white rounded-lg shadow-lg bg-opacity-30 hover:bg-opacity-50 hover:text-gray-900 hover:scale-110 hover:bg-black'
               >

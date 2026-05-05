@@ -6,6 +6,7 @@ import LoaderImcyc from '../../../../components/LoaderImcyc'
 import Presentacion from '@/app/components/Presentacion';
 import Player from '@/app/components/Player';
 import Evaluacion from '@/app/components/Evaluacion';
+import Link from 'next/link';
 
 function decodeCategorySegment(segment?: string) {
   if (!segment) {
@@ -21,9 +22,12 @@ function decodeCategorySegment(segment?: string) {
 
 export default function Tipo() {
   const { pathname } = useThemeContext();
+  const categoria = decodeCategorySegment(pathname?.split('/')[2]);
+  const modulo = pathname?.split('/').pop()
   const nombre = decodeCategorySegment(pathname?.split('/')[pathname.split('/').length - 2]);
   const seccion = decodeCategorySegment(pathname?.split('/')[pathname.split('/').length - 1]);
   const [webinar, setWebinar] = useState<any>(null);
+  const [modulos, setModulos] = useState<any[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -41,6 +45,22 @@ export default function Tipo() {
     fetchData();
   }, [nombre]);
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`/api/get_modulos/${webinar?.id}`);
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        const data = await response.json();
+        setModulos(data.modulos && data.modulos.length > 0 ? data.modulos : []);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+  }, [webinar, nombre]);
+
   if (!webinar) {
     return <LoaderImcyc />;
   }
@@ -54,17 +74,32 @@ export default function Tipo() {
             <div>
               <MenuLateralWebinar webinar={webinar ? webinar : null} />
             </div>
-            <div>
-              {seccion === 'presentación-ejecutiva' && <Presentacion />}
-              {seccion === 'dato-en-concreto' && <Presentacion />}
-              {seccion === 'infografías' && <Presentacion />}
-              {seccion === 'videos' && <Player />}
-              {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} />}
-              {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} />}
-              {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
-              {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
-              {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}
-              {categoria === ' CONTENIDO ADICIONAL' && <Contenido categoria={nombre}/>} */}
+            <div className='w-full'>
+              {modulos.length > 0 && modulo === 'modulos' &&
+                <div className='grid w-full grid-cols-1 gap-5 sm:grid-cols-2'>
+                  {modulos.length > 0 && modulos.map((modulo: any, index: number) => (
+                    <Link 
+                      href={`/categorias/${categoria}/${nombre}/presentación-ejecutiva&modulo=${modulo.webinar}`}
+                      key={webinar.titulo} 
+                      className='w-full p-5 text-2xl font-bold text-center text-white transition duration-300 bg-white rounded-lg shadow-lg py-7 bg-opacity-30 hover:bg-opacity-50 hover:text-gray-100 hover:scale-110 hover:bg-black'
+                    >
+                      <span dangerouslySetInnerHTML={{ __html: modulo.titulo }} />
+                    </Link>
+                  ))}
+                </div>
+              }
+              {modulos.length === 0 && <>
+                {seccion === 'presentación-ejecutiva' && <Presentacion />}
+                {seccion === 'dato-en-concreto' && <Presentacion />}
+                {seccion === 'infografías' && <Presentacion />}
+                {seccion === 'videos' && <Player />}
+                {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} />}
+                {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} />}
+                {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
+                {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
+                {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}
+                {categoria === ' CONTENIDO ADICIONAL' && <Contenido categoria={nombre}/>} */}
+              </>}
             </div>
           </div>
         </div>

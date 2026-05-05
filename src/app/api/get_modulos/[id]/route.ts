@@ -3,18 +3,20 @@ import { query } from '../../../../../lib/dbb'
 
 export async function GET(request: Request, {params} : {params: any}) {
   try {
-    const nombre = decodeURIComponent(params.nombre);
-    const results = await query('SELECT * FROM categorias2026 WHERE url = ?', [nombre]) as any[];
+    const id = params.id;
+    const results = await query('SELECT * FROM webinars WHERE id_contenido = ?', [id]) as any[];
     if (!results || results.length === 0 || !results[0]?.id) {
       return NextResponse.json({ message: 'categoria not found', results: [], webinars: [] }, { status: 404 });
     }
     // Convert RowDataPacket to plain object for accessing id
+    /*
     const categoria = JSON.parse(JSON.stringify(results[0]));
     const categoriaId = Number(categoria.id);
-    const results2 = await query('SELECT * FROM contenido2026 WHERE id_categoria = ?', [categoriaId]) as any[];
-    // Convert RowDataPacket objects to plain JavaScript objects
+    const results2 = await query('SELECT * FROM webinars WHERE id_categoria = ?', [categoriaId]) as any[];
+    Convert RowDataPacket objects to plain JavaScript objects
     const webinars = JSON.parse(JSON.stringify(results2 || []));
-    return NextResponse.json({ message: 'categoria', webinars, categoria: categoria });
+    */
+    return NextResponse.json({ message: 'modulos', modulos: results });
   } catch (error: any) {
     console.error('Error in getcategoria:', error);
     return NextResponse.json({ message: 'error', error: error.message, results: [], webinars: [] }, { status: 500 });

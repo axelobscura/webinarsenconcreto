@@ -94,7 +94,6 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
     });
   }
 
-  
   return (
       <div>
         <div className='h-auto'>

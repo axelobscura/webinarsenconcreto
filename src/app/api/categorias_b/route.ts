@@ -3,7 +3,7 @@ import { query } from '../../../../lib/dbb'
 
 export async function GET(request: Request) {
   try {
-    const results = await query('SELECT * FROM categorias');
+    const results = await query('SELECT * FROM categorias2026');
     return new Response(JSON.stringify(results));
   } catch ( error ) {
     console.log( error );

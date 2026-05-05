@@ -70,8 +70,6 @@ export default function Curso() {
     initializeFlipbook()
   }, []);
 
-  console.log('Webinar data:', webinar);
-
   return (
       <div
         className={`flex min-h-screen bg-[url('https://webinars.webinarsenconcreto.com/images/webinars.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}

@@ -47,7 +47,7 @@ export default function Categorias() {
                 {categorias.map((categoria) => {
                   if (categoria.tipo === 'consulta' && categoria.nombre !== 'Inteligencia Artificial') {
                     return (
-                      <Link href={`/categorias/${categoria.url}`} key={categoria.id} className='flex items-center justify-center p-2 text-center transition bg-white border-[0.1rem] border-white shadow-lg rounded-3xl bg-opacity-20 hover:bg-opacity-50 hover:text-gray-900'>
+                      <Link href={`/${categoria.url}`} key={categoria.id} className='flex items-center justify-center p-2 text-center transition bg-white border-[0.1rem] border-white shadow-lg rounded-3xl bg-opacity-20 hover:bg-opacity-50 hover:text-gray-900'>
                         <h3 className='py-2 text-2xl font-bold leading-7 text-white hover:text-gray-950'>{categoria.nombre}</h3>
                       </Link>
                     )
@@ -59,8 +59,8 @@ export default function Categorias() {
           <div className='grid w-full grid-cols-1 p-10'>
             <div>
               <div className='grid grid-cols-1 gap-4'>
-                <Link href={`/categorias/inteligencia-artificial`} className='flex items-center justify-center w-full p-2 text-center transition bg-white border border-white shadow-lg rounded-3xl bg-opacity-20 hover:bg-opacity-50 hover:text-gray-900'>
-                  <h3 className='py-2 text-2xl font-bold leading-7 text-white hover:text-gray-950'>Inteligencia Artificial</h3>
+                <Link href={`/asistente-concreton`} className='flex items-center justify-center w-full p-2 text-center transition bg-white border border-white shadow-lg rounded-3xl bg-opacity-20 hover:bg-opacity-50 hover:text-gray-900'>
+                  <h3 className='py-2 text-2xl font-bold leading-7 text-white hover:text-gray-950'>Asistente Concretón - Inteligencia Artificial</h3>
                 </Link>
               </div>
             </div>
