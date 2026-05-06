@@ -8,11 +8,12 @@ import { BsArrowRightSquare } from "react-icons/bs";
 export default function MenuLateralWebinar(
   { 
     webinar,
+    modulo,
   } : {
     webinar?: any | null,
+    modulo?: string | null,
   }) {
   const { pathname } = useThemeContext();
-  const modulo = pathname?.split('/').pop();
   const contenido = pathname?.split('/')[2];
   const categoria = pathname?.split('/')[3];
   const tipo = pathname?.split('/')[pathname.split('/').length - 1];
