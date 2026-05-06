@@ -84,7 +84,7 @@ export default function Home() {
       >
         <div className='flex flex-col items-center justify-center w-full h-screen'>
           <div className='z-20 flex flex-col w-full p-4 text-white rounded-lg justify-left'>
-          <h1 className='py-5 text-left uppercase text-7xl'>
+          <h1 className='max-w-screen-md py-5 text-4xl text-left uppercase sm:text-7xl'>
             {!useInicio ? (
               <>Una plataforma para profesionales<br />de la construcción con concreto</>
             ) : 'Iniciar sesión'}
