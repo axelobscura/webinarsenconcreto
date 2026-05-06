@@ -12,7 +12,7 @@ export default function AsistenteConcreton() {
   const [useRespuesta, setRespuesta] = useState<any[]>([]);
   const [choices, setChoices] = useState<any[]>([]);
 
-  async function fetchData() {
+  async function fetchData(consulta: string | null) {
     setIsLoading(true);
     const res = await fetch("/api/chatgpt", {
       method: "POST",
@@ -20,11 +20,12 @@ export default function AsistenteConcreton() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        prompt: usePompt,
+        prompt: consulta,
       }),
     });
     setIsLoading(false);
     const apiData = await res.json();
+    console.log(apiData);
     setRespuesta(apiData);
     setChoices(apiData.choices);
   };
@@ -34,17 +35,14 @@ export default function AsistenteConcreton() {
     const formData = new FormData(e.currentTarget);
     const consulta = formData.get('consulta') as string | null;
     setPompt(consulta);
-    fetchData();
+    fetchData(consulta);
   };
-
-  console.log(usuario);
-  console.log(useRespuesta);
 
   return (
     <div
-        className={`flex flex-col min-h-screen justify-center items-center bg-[url('https://webinars.webinarsenconcreto.com/images/bkg_contenidos.jpg')] bg-gray-900 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat`}
+        className={`flex flex-col min-h-screen justify-center items-center bg-[url('https://webinars.webinarsenconcreto.com/images/bkg_contenidos.jpg')] bg-gray-900 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
       >
-        <div className='flex flex-col items-center justify-center w-full'>
+        <div className='flex flex-col items-center justify-center w-full mt-32'>
           <Image
             src={`/concreton.webp`}
             alt=""
@@ -110,7 +108,7 @@ export default function AsistenteConcreton() {
           {choices && choices.length > 0 && (
             <div className='grid max-w-4xl grid-cols-1 m-5 text-center'>
               <h3 className='mb-5 text-2xl font-bold text-white'>Respuesta del Asistente Concretón:</h3>
-              <div className='text-left text-white'>
+              <div className='text-left text-white chatopt'>
                 <ReactMarkdown
                   rehypePlugins={[rehypeHighlight]}
                   components={{

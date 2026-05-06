@@ -2815,6 +2815,27 @@ form.loginf {
   font-side: 2rem;
 }
 
+.chatopt h2 {
+  color: #fff;
+  text-align: left;
+  padding: 5px 0;
+  padding-bottom: 0;
+  margin-bottom: 0.2rem;
+  margin-top: 0.7rem;
+  font-size: 2rem;
+}
+
+.chatopt ul, .chatopt ol {
+  padding: 10px;
+  list-style: square;
+  padding-left: 30px;
+  font-size: 1.2rem;
+}
+
+.chatopt p {
+  font-size: 1.2rem;
+}
+
 @media (max-width: 750px){
   .branding-form {
     width: 93%;
