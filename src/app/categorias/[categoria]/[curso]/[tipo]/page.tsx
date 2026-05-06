@@ -79,7 +79,7 @@ export default function Tipo() {
                 <div className='grid w-full grid-cols-1 gap-5 sm:grid-cols-2'>
                   {modulos.length > 0 && modulos.map((modulo: any, index: number) => (
                     <Link 
-                      href={`/categorias/${categoria}/${nombre}/modulo-${modulo.webinar}/presentación-ejecutiva`}
+                      href={`/categorias/${categoria}/${nombre}/módulo-${modulo.webinar}/presentación-ejecutiva`}
                       key={webinar.titulo} 
                       className='flex flex-col w-full p-5 text-2xl font-bold text-center text-white transition duration-300 bg-white rounded-lg shadow-lg py-7 bg-opacity-30 hover:bg-opacity-50 hover:text-gray-100 hover:scale-110 hover:bg-black'
                     >

@@ -91,7 +91,7 @@ export default function Categoria() {
                       width: "100%"
                     }}
                   />
-                  <h3 className='p-3 text-[1.2rem] leading-5 h-28 uppercase font-bold text-white hover:text-white text-center w-full'>{webinar.nombre}</h3>
+                  <h3 className='flex items-center justify-center p-3 text-[1.2rem] leading-5 h-28 uppercase font-bold text-white hover:text-white text-center w-full'>{webinar.nombre}</h3>
                 </Link>
               ))}
             </div>

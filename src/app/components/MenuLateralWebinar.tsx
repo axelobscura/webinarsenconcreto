@@ -36,6 +36,19 @@ export default function MenuLateralWebinar(
     { nombre: 'INTELIGENCIA ARTIFICIAL', url: `/categorias/${contenido}/${categoria}/encuesta-de-salida` },
   ];
 
+  const itemsMenuModulo = [
+    { nombre: 'EVALUACIÓN DIAGNÓSTICO', url: `/categorias/${contenido}/${categoria}/${modulo}/evaluación-diagnóstico` },
+    { nombre: 'PRESENTACIÓN EJECUTIVA', url: `/categorias/${contenido}/${categoria}/${modulo}/presentación-ejecutiva` },
+    { nombre: 'DATO EN CONCRETO', url: `/categorias/${contenido}/${categoria}/${modulo}/dato-en-concreto` },
+    { nombre: 'INFOGRAFÍAS', url: `/categorias/${contenido}/${categoria}/${modulo}/infografías` },
+    { nombre: 'VIDEOS', url: `/categorias/${contenido}/${categoria}/${modulo}/videos` },
+    { nombre: 'EVALUACIÓN FINAL', url: `/categorias/${contenido}/${categoria}/${modulo}/evaluación-final` },
+    { nombre: 'CONTENIDO ADICIONAL', url: `/categorias/${contenido}/${categoria}/${modulo}/contenido-adicional` },
+    { nombre: 'CONSTANCIA DE ASISTENCIA', url: `/categorias/${contenido}/${categoria}/${modulo}/constancia-de-asistencia` },
+    { nombre: 'ENCUESTA DE SALIDA', url: `/categorias/${contenido}/${categoria}/${modulo}/encuesta-de-salida` },
+    { nombre: 'INTELIGENCIA ARTIFICIAL', url: `/categorias/${contenido}/${categoria}/${modulo}/encuesta-de-salida` },
+  ];
+
   return (
     <div>
       <Link href={`/categorias/${contenido}/`} className='flex items-center w-full p-2 mb-5 font-bold text-white bg-gray-900 rounded-md hover:bg-gray-800 hover:text-gray-300'>
@@ -53,8 +66,8 @@ export default function MenuLateralWebinar(
           width: "100%"
         }}
       />
-      <h2 className="px-1 py-2 text-2xl font-semibold text-center text-white bg-black bg-opacity-50">{webinar?.nombre?.split("-").join(" ").toUpperCase()}</h2>
-      {modulo !== 'modulos' &&
+      <h2 className="px-3 py-2 text-2xl font-semibold text-center text-white bg-black bg-opacity-50">{webinar?.nombre?.split("-").join(" ").toUpperCase()}</h2>
+      {!modulo?.length &&
         <ul className='w-full p-0 m-0'>
           <li className='w-full'>
             {itemsMenu.map((item, index) => (
@@ -71,6 +84,27 @@ export default function MenuLateralWebinar(
             ))}
           </li>
         </ul>
+      }
+      {modulo?.length &&
+        <>
+          <h2 className="px-1 py-0 text-2xl font-light text-center text-white bg-gray-900 bg-opacity-50">{modulo?.split("-").join(" ").toUpperCase()}</h2>
+          <ul className='w-full p-0 m-0'>
+            <li className='w-full'>
+              {itemsMenuModulo.map((item, index) => (
+                <Link 
+                  href={item.url}
+                  key={index} 
+                  className={`flex items-center justify-between w-full rounded-md p-3 my-1 font-bold text-1xl hover:bg-gray-950 hover:bg-opacity-50 hover:text-gray-100 ${
+                    tipoDecode === item.nombre ? 'bg-black bg-opacity-50 text-gray-100' : 'bg-white bg-opacity-30 text-white'
+                  }`}
+                > 
+                  {item.nombre}
+                  <BsArrowRightSquare className='inline mr-2 text-white' />
+                </Link>
+              ))}
+            </li>
+          </ul>
+        </>
       }
   </div>
   )
