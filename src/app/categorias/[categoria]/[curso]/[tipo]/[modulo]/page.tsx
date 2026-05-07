@@ -57,13 +57,11 @@ export default function Modulo() {
             </div>
             <div className='w-full'>
                 {modulo === 'presentación-ejecutiva' && <Presentacion modulo={seccion} />}
-                {/*
-                {seccion === 'dato-en-concreto' && <Presentacion />}
-                {seccion === 'infografías' && <Presentacion />}
+                {modulo === 'dato-en-concreto' && <Presentacion modulo={seccion} />}
+                {modulo === 'infografías' && <Presentacion modulo={seccion} />}
                 {seccion === 'videos' && <Player />}
                 {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} />}
                 {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} />}
-                */}
             </div>
           </div>
         </div>

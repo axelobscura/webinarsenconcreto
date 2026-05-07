@@ -51,7 +51,7 @@ export default function MenuLateralWebinar(
 
   return (
     <div>
-      <Link href={`/categorias/${contenido}/`} className='flex items-center w-full p-2 mb-5 font-bold text-white bg-gray-900 rounded-md hover:bg-gray-800 hover:text-gray-300'>
+      <Link href={`/categorias/${contenido}/`} className='flex items-center w-full p-2 mb-0 font-bold text-white bg-gray-900 rounded-md hover:bg-gray-800 hover:text-gray-300'>
         <BsChevronLeft className='mr-3 text-gray-400 bg-gray-900'/> 
         REGRESAR
       </Link>
@@ -66,7 +66,7 @@ export default function MenuLateralWebinar(
           width: "100%"
         }}
       />
-      <h2 className="px-3 py-2 text-2xl font-semibold text-center text-white bg-black bg-opacity-50">{webinar?.nombre?.split("-").join(" ").toUpperCase()}</h2>
+      <h2 className="px-3 py-5 text-2xl font-semibold text-center text-white bg-black bg-opacity-50">{webinar?.nombre?.split("-").join(" ").toUpperCase()}</h2>
       {!modulo?.length &&
         <ul className='w-full p-0 m-0'>
           <li className='w-full'>
