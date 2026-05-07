@@ -80,7 +80,7 @@ export default function Tipo() {
                   {modulos.length > 0 && modulos.map((modulo: any, index: number) => (
                     <Link 
                       href={`/categorias/${categoria}/${nombre}/módulo-${modulo.webinar}/presentación-ejecutiva`}
-                      key={webinar.titulo} 
+                      key={`${modulo.webinar ?? modulo.titulo ?? 'modulo'}-${index}`} 
                       className='flex flex-col w-full p-5 text-2xl font-bold text-center text-white transition duration-300 bg-white rounded-lg shadow-lg py-7 bg-opacity-30 hover:bg-opacity-50 hover:text-gray-100 hover:scale-110 hover:bg-black'
                     >
                       {modulo.norma && <span className='text-black' dangerouslySetInnerHTML={{ __html: modulo.norma }} />}

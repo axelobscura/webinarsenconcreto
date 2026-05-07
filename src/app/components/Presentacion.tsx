@@ -3,11 +3,28 @@ import { useState, useEffect, useCallback } from 'react';
 import { useThemeContext } from '../context/theme'
 import Script from 'next/script';
 
-export default function Presentacion() {
+function decodeCategorySegment(segment?: string) {
+  if (!segment) {
+    return ''
+  }
+
+  try {
+    return decodeURIComponent(segment)
+  } catch {
+    return segment
+  }
+}
+
+export default function Presentacion({ modulo }: { modulo?: string | null }) {
   const { pathname } = useThemeContext();
-  const nombre = pathname?.split('/').pop();
-  const webinarUrlSegment = pathname?.split('/')[pathname.split('/').length - 2];
+  const pathSegments = pathname?.split('/').filter(Boolean) ?? [];
+  const nombre = decodeCategorySegment(pathSegments[pathSegments.length - 1]);
+  const webinarUrlSegment = decodeCategorySegment(
+    pathSegments[pathSegments.length - (modulo ? 3 : 2)]
+  ) || '';
   const [webinar, setWebinar] = useState<any>(null);
+  const [useModuloNumero, setModuloNumero] = useState<string>("");
+  const [useUrl, setUrl] = useState<string>("");
 
   useEffect(() => {
     async function fetchData() {
@@ -26,14 +43,47 @@ export default function Presentacion() {
     fetchData();
   }, [nombre]);
 
-  const url =  `/webinars/${webinarUrlSegment}/${nombre}.pdf`;
+  useEffect(() => {
+    let numero = modulo ? modulo.split('-')[1] : '';
+    if (numero) {
+      setModuloNumero(numero);
+      return;
+    }
+
+    setModuloNumero('');
+  }, [modulo]);
+
+  useEffect(() => {
+    if (!nombre || !webinarUrlSegment) {
+      setUrl('');
+      return;
+    }
+
+    if (modulo?.length) {
+      if (!useModuloNumero) {
+        setUrl('');
+        return;
+      }
+
+      const generatedUrl = `/webinars/${webinarUrlSegment}/webinar/${useModuloNumero}/${nombre}.pdf`;
+      setUrl(generatedUrl);
+    } else {
+      const generatedUrl = `/webinars/${webinarUrlSegment}/${nombre}.pdf`;
+      setUrl(generatedUrl);
+    }
+  }, [webinar, useModuloNumero, webinarUrlSegment, nombre, modulo?.length]);
 
   const initializeFlipbook = useCallback(() => {
+    if (!useUrl) {
+      return;
+    }
+
     // Wait a bit to ensure both scripts are fully loaded
     setTimeout(() => {
       if (typeof window !== 'undefined' && (window as any).$ && (window as any).$.fn && (window as any).$.fn.flipBook) {
+        (window as any).$("#container").empty();
         ((window as any).$("#container") as any).flipBook({
-          pdfUrl: url,
+          pdfUrl: useUrl,
           backgroundColor: 'transparent',
           viewMode: '3d',
           singlePageMode: true,
@@ -67,7 +117,7 @@ export default function Presentacion() {
         console.error('jQuery or flipBook not available');
       }
     }, 100);
-  }, [url]);
+  }, [useUrl]);
 
   useEffect(() => {
     initializeFlipbook()

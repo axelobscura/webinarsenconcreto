@@ -87,7 +87,7 @@ export default function MenuLateralWebinar(
       }
       {modulo?.length &&
         <>
-          <h2 className="px-1 py-0 text-2xl font-light text-center text-white bg-gray-900 bg-opacity-50">{modulo?.split("-").join(" ").toUpperCase()}</h2>
+          <h2 className="px-1 py-3 text-2xl font-light text-center text-white bg-gray-900 bg-opacity-50">{modulo?.split("-").join(" ").toUpperCase()}</h2>
           <ul className='w-full p-0 m-0'>
             <li className='w-full'>
               {itemsMenuModulo.map((item, index) => (

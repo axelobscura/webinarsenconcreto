@@ -6,7 +6,6 @@ import LoaderImcyc from '../../../../../components/LoaderImcyc'
 import Presentacion from '@/app/components/Presentacion';
 import Player from '@/app/components/Player';
 import Evaluacion from '@/app/components/Evaluacion';
-import Link from 'next/link';
 
 function decodeCategorySegment(segment?: string) {
   if (!segment) {
@@ -22,7 +21,7 @@ function decodeCategorySegment(segment?: string) {
 
 export default function Modulo() {
   const { pathname } = useThemeContext();
-  const modulo = decodeCategorySegment(pathname?.split('/')[2]);
+  const modulo = decodeCategorySegment(pathname?.split('/')[pathname.split('/').length - 1]);
   const nombre = decodeCategorySegment(pathname?.split('/')[pathname.split('/').length - 3]);
   const seccion = decodeCategorySegment(pathname?.split('/')[pathname.split('/').length - 2]);
   const [webinar, setWebinar] = useState<any>(null);
@@ -57,7 +56,14 @@ export default function Modulo() {
               <MenuLateralWebinar webinar={webinar ? webinar : null} modulo={seccion ? seccion : null} />
             </div>
             <div className='w-full'>
-              modulo: {seccion}<br />
+                {modulo === 'presentación-ejecutiva' && <Presentacion modulo={seccion} />}
+                {/*
+                {seccion === 'dato-en-concreto' && <Presentacion />}
+                {seccion === 'infografías' && <Presentacion />}
+                {seccion === 'videos' && <Player />}
+                {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} />}
+                {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} />}
+                */}
             </div>
           </div>
         </div>
