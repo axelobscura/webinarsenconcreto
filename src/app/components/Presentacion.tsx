@@ -116,7 +116,7 @@ export default function Presentacion({ modulo }: { modulo?: string | null }) {
       } else {
         console.error('jQuery or flipBook not available');
       }
-    }, 100);
+    }, 300);
   }, [useUrl]);
 
   useEffect(() => {

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useThemeContext } from '../context/theme';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
+import LoaderConcreton from '../components/LoaderConcreton';
 
 export default function AsistenteConcreton() {
   const { usuario, setUsuario } = useThemeContext();
@@ -25,7 +26,6 @@ export default function AsistenteConcreton() {
     });
     setIsLoading(false);
     const apiData = await res.json();
-    console.log(apiData);
     setRespuesta(apiData);
     setChoices(apiData.choices);
   };
@@ -71,42 +71,16 @@ export default function AsistenteConcreton() {
               onSubmit={consultaAi}
             >
               <input type="text" name='consulta' className="w-full p-3 px-5 text-2xl font-bold text-black bg-white border bg-opacity-90 border-slate-500 rounded-2xl" placeholder="Escribe tu consulta aquí..." required />
-              <button className='w-full px-10 py-4 my-3 font-bold text-white border text-1xl bg-slate-800 hover:bg-slate-950 rounded-2xl' type="submit">
-                {isLoading && useRespuesta.length > 0 && (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                  >
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeDasharray="30 30"
-                      strokeLinecap="round"
-                      strokeOpacity="0.3"
-                    />
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeDasharray="30 150"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                )}
-                ENVIAR CONSULTA
+              <button className='flex items-center gap-3 w-full px-8 py-4 font-bold text-white border text-1xl bg-slate-800 hover:bg-slate-950 rounded-2xl' type="submit">
+                {isLoading && <LoaderConcreton />}
+                {!isLoading ? "ENVIAR CONSULTA" : "CARGANDO..."}
               </button>
             </form>
           </div>
         </div>
-        <div className='p-5 mb-5 bg-black rounded-2xl bg-opacity-70'>
+        <div className='p-5 mb-5 bg-black rounded-2xl bg-opacity-70 mt-5 w-full max-w-6xl'>
           {choices && choices.length > 0 && (
-            <div className='grid max-w-4xl grid-cols-1 m-5 text-center'>
+            <div className='grid max-w-6xl grid-cols-1 m-5 text-center'>
               <h3 className='mb-5 text-2xl font-bold text-white'>Respuesta del Asistente Concretón:</h3>
               <div className='text-left text-white chatopt'>
                 <ReactMarkdown
