@@ -13,14 +13,19 @@ export default function AsistenteConcreton() {
   const [choices, setChoices] = useState<any[]>([]);
 
   async function fetchData(consulta: string | null) {
+    const prompt = consulta?.trim() || "";
+    const endpoint = prompt
+      ? `/api/chatgpt?prompt=${encodeURIComponent(prompt)}`
+      : "/api/chatgpt";
+
     setIsLoading(true);
-    const res = await fetch("/api/chatgpt", {
+    const res = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        prompt: consulta,
+        prompt,
       }),
     });
     console.log(res);
