@@ -16,22 +16,44 @@ export async function POST(request) {
     }
 
     phase = "read-request-body";
-    const rawBody = await request.text();
-    if (!rawBody) {
-      return NextResponse.json(
-        { error: "Request body is empty." },
-        { status: 400 }
-      );
-    }
-
     let params;
-    try {
-      params = JSON.parse(rawBody);
-    } catch {
-      return NextResponse.json(
-        { error: "Invalid JSON body." },
-        { status: 400 }
-      );
+    const contentType = request.headers.get("content-type") || "";
+
+    if (contentType.includes("application/json")) {
+      try {
+        params = await request.json();
+      } catch {
+        return NextResponse.json(
+          { error: "Invalid JSON body." },
+          { status: 400 }
+        );
+      }
+    } else {
+      let rawBody = "";
+      try {
+        rawBody = await request.text();
+      } catch {
+        return NextResponse.json(
+          { error: "Unable to read request body." },
+          { status: 400 }
+        );
+      }
+
+      if (!rawBody || !rawBody.trim()) {
+        return NextResponse.json(
+          { error: "Request body is empty." },
+          { status: 400 }
+        );
+      }
+
+      try {
+        params = JSON.parse(rawBody);
+      } catch {
+        return NextResponse.json(
+          { error: "Invalid JSON body." },
+          { status: 400 }
+        );
+      }
     }
 
     if (!params?.prompt || typeof params.prompt !== "string") {
