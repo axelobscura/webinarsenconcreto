@@ -15,6 +15,8 @@ export async function POST(request) {
       );
     }
 
+    console.log("/api/chatgpt received request with content-type:", request);
+
     phase = "read-request-body";
     let params;
     const contentType = (request.headers.get("content-type") || "").toLowerCase();
