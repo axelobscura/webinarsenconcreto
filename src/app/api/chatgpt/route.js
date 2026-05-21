@@ -17,17 +17,35 @@ export async function POST(request) {
 
     phase = "read-request-body";
     let params;
-    const contentType = request.headers.get("content-type") || "";
+    const contentType = (request.headers.get("content-type") || "").toLowerCase();
 
-    if (contentType.includes("application/json")) {
+    if (contentType.includes("multipart/form-data")) {
       try {
-        params = await request.json();
+        const form = await request.formData();
+        params = {
+          prompt: form.get("prompt") ?? form.get("consulta") ?? "",
+        };
       } catch {
         return NextResponse.json(
-          { error: "Invalid JSON body." },
+          { error: "Unable to read form-data body." },
           { status: 400 }
         );
       }
+    } else if (contentType.includes("application/x-www-form-urlencoded")) {
+      let rawBody = "";
+      try {
+        rawBody = await request.text();
+      } catch {
+        return NextResponse.json(
+          { error: "Unable to read request body." },
+          { status: 400 }
+        );
+      }
+
+      const form = new URLSearchParams(rawBody);
+      params = {
+        prompt: form.get("prompt") ?? form.get("consulta") ?? "",
+      };
     } else {
       let rawBody = "";
       try {
@@ -49,10 +67,8 @@ export async function POST(request) {
       try {
         params = JSON.parse(rawBody);
       } catch {
-        return NextResponse.json(
-          { error: "Invalid JSON body." },
-          { status: 400 }
-        );
+        // Fallback: treat non-JSON payload as plain text prompt
+        params = { prompt: rawBody.trim() };
       }
     }
 
