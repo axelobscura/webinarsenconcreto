@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
-export const maxDuration = 30;
+export const maxDuration = 60;
 
 export async function POST(request) {
   let phase = "init";
@@ -14,8 +14,6 @@ export async function POST(request) {
         { status: 500 }
       );
     }
-
-    console.log("/api/chatgpt received request with content-type:", request);
 
     phase = "read-request-body";
     let params;
@@ -129,10 +127,13 @@ export async function POST(request) {
     }
 
     if (!normalizedPrompt) {
-      return NextResponse.json(
-        { error: "A non-empty prompt is required. Use 'prompt' or 'consulta'." },
-        { status: 400 }
-      );
+      return NextResponse.json({
+        answer:
+          "Por favor escribe una consulta para que el Asistente Concretón pueda ayudarte.",
+        id: null,
+        model: null,
+        usage: null,
+      });
     }
 
     // Passing it to OpenAI API via HTTP to avoid SDK runtime/private-field issues.
