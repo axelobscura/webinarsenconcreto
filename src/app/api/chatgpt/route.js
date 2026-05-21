@@ -23,7 +23,13 @@ export async function POST(request) {
       request.nextUrl.searchParams.get("consulta") ||
       "";
 
-    if (contentType.includes("multipart/form-data")) {
+    if (contentType.includes("application/json")) {
+      try {
+        params = await request.json();
+      } catch {
+        params = { prompt: promptFromQuery };
+      }
+    } else if (contentType.includes("multipart/form-data")) {
       try {
         const form = await request.formData();
         params = {

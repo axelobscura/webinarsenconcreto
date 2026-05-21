@@ -23,9 +23,9 @@ export default function AsistenteConcreton() {
         prompt: consulta,
       }),
     });
-    setIsLoading(false);
     console.log(res);
     const apiData = await res.json();
+    setIsLoading(false);
     console.log(apiData);
     setRespuesta(apiData.answer);
     setChoices(apiData.answer ? [{ text: apiData.answer }] : []);
