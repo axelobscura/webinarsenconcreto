@@ -1,13 +1,16 @@
 import { NextResponse } from "next/server";
-import OpenAI from "openai";
 
 export const runtime = "nodejs";
 
 export async function POST(request) {
   try {
-    const openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
-    });
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "Missing OPENAI_API_KEY environment variable." },
+        { status: 500 }
+      );
+    }
 
     const rawBody = await request.text();
     if (!rawBody) {
@@ -34,8 +37,14 @@ export async function POST(request) {
       );
     }
 
-    // Passing it to Chat GPT API
-    const response = await openai.chat.completions.create({
+    // Passing it to OpenAI API via HTTP to avoid SDK runtime/private-field issues.
+    const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
       model: "gpt-5.2",
       messages: [
         {
@@ -54,7 +63,21 @@ export async function POST(request) {
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
+      }),
     });
+
+    const response = await openaiRes.json().catch(() => null);
+    if (!openaiRes.ok || !response) {
+      return NextResponse.json(
+        {
+          error: "OpenAI request failed.",
+          details:
+            response?.error?.message ||
+            `HTTP ${openaiRes.status} ${openaiRes.statusText}`,
+        },
+        { status: 502 }
+      );
+    }
 
     const answer = response?.choices?.[0]?.message?.content ?? "";
 
