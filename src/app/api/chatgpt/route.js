@@ -69,9 +69,28 @@ export async function POST(request) {
       params = { ...params, prompt: promptFromQuery };
     }
 
-    if (!params?.prompt || typeof params.prompt !== "string") {
+    const promptCandidate =
+      params?.prompt ??
+      params?.consulta ??
+      params?.message ??
+      params?.query ??
+      "";
+
+    let normalizedPrompt = "";
+    if (typeof promptCandidate === "string") {
+      normalizedPrompt = promptCandidate.trim();
+    } else if (typeof promptCandidate === "number" || typeof promptCandidate === "boolean") {
+      normalizedPrompt = String(promptCandidate);
+    } else if (Array.isArray(promptCandidate)) {
+      normalizedPrompt = promptCandidate
+        .map((item) => (typeof item === "string" ? item : String(item)))
+        .join(" ")
+        .trim();
+    }
+
+    if (!normalizedPrompt) {
       return NextResponse.json(
-        { error: "Field 'prompt' is required and must be a string." },
+        { error: "A non-empty prompt is required. Use 'prompt' or 'consulta'." },
         { status: 400 }
       );
     }
@@ -95,7 +114,7 @@ export async function POST(request) {
         },
         {
           role: "user",
-          content: params.prompt, // string that the user passes in
+          content: normalizedPrompt,
         },
       ],
       temperature: 1,
