@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-export async function POST(request) {
+async function handleChatRequest(request) {
   let phase = "init";
   try {
     phase = "read-env";
@@ -15,43 +15,16 @@ export async function POST(request) {
       );
     }
 
-    phase = "read-request-body";
-    let params;
     const contentType = (request.headers.get("content-type") || "").toLowerCase();
     const promptFromQuery =
       request.nextUrl.searchParams.get("prompt") ||
       request.nextUrl.searchParams.get("consulta") ||
       "";
 
-    if (contentType.includes("application/json")) {
-      try {
-        params = await request.json();
-      } catch {
-        params = { prompt: promptFromQuery };
-      }
-    } else if (contentType.includes("multipart/form-data")) {
-      try {
-        const form = await request.formData();
-        params = {
-          prompt: form.get("prompt") ?? form.get("consulta") ?? "",
-        };
-      } catch {
-        params = { prompt: promptFromQuery };
-      }
-    } else if (contentType.includes("application/x-www-form-urlencoded")) {
-      let rawBody = "";
-      try {
-        rawBody = await request.text();
-      } catch {
-        rawBody = "";
-      }
+    phase = "read-request-body";
+    let params = { prompt: promptFromQuery };
 
-      const form = new URLSearchParams(rawBody);
-      params = {
-        prompt:
-          form.get("prompt") ?? form.get("consulta") ?? promptFromQuery ?? "",
-      };
-    } else {
+    if (!promptFromQuery && request.method === "POST") {
       let rawBody = "";
       try {
         rawBody = await request.text();
@@ -66,8 +39,6 @@ export async function POST(request) {
           // Fallback: treat non-JSON payload as plain text prompt
           params = { prompt: rawBody.trim() };
         }
-      } else {
-        params = { prompt: promptFromQuery };
       }
     }
 
@@ -216,3 +187,11 @@ export async function POST(request) {
     );
   }
 }
+
+  export async function GET(request) {
+    return handleChatRequest(request);
+  }
+
+  export async function POST(request) {
+    return handleChatRequest(request);
+  }

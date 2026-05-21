@@ -20,13 +20,7 @@ export default function AsistenteConcreton() {
 
     setIsLoading(true);
     const res = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt,
-      }),
+      method: "GET",
     });
     console.log(res);
     const apiData = await res.json();
