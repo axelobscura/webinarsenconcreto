@@ -3,7 +3,9 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 export async function POST(request) {
+  let phase = "init";
   try {
+    phase = "read-env";
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
@@ -12,6 +14,7 @@ export async function POST(request) {
       );
     }
 
+    phase = "read-request-body";
     const rawBody = await request.text();
     if (!rawBody) {
       return NextResponse.json(
@@ -38,6 +41,7 @@ export async function POST(request) {
     }
 
     // Passing it to OpenAI API via HTTP to avoid SDK runtime/private-field issues.
+    phase = "call-openai";
     const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -66,7 +70,15 @@ export async function POST(request) {
       }),
     });
 
-    const response = await openaiRes.json().catch(() => null);
+    phase = "parse-openai-response";
+    const openaiRaw = await openaiRes.text();
+    let response = null;
+    try {
+      response = openaiRaw ? JSON.parse(openaiRaw) : null;
+    } catch {
+      response = null;
+    }
+
     if (!openaiRes.ok || !response) {
       return NextResponse.json(
         {
@@ -74,11 +86,13 @@ export async function POST(request) {
           details:
             response?.error?.message ||
             `HTTP ${openaiRes.status} ${openaiRes.statusText}`,
+          phase,
         },
         { status: 502 }
       );
     }
 
+    phase = "build-success-response";
     const answer = response?.choices?.[0]?.message?.content ?? "";
 
     // Send a plain, JSON-serializable payload to the front end
@@ -88,23 +102,13 @@ export async function POST(request) {
       model: response?.model,
       usage: response?.usage,
     });
-  } catch (error) {
-    let safeErrorMessage = "Unknown error";
-    try {
-      safeErrorMessage =
-        error && typeof error === "object" && "message" in error
-          ? String(error.message)
-          : String(error);
-    } catch {
-      safeErrorMessage = "Unknown error";
-    }
-
-    // Avoid logging raw error objects that may fail inspection in some runtimes.
-    console.error("/api/chatgpt error:", safeErrorMessage);
+  } catch {
+    // Keep catch handling minimal and avoid touching unknown error objects.
+    console.error("/api/chatgpt error in phase:", phase);
     return NextResponse.json(
       {
         error: "Internal server error.",
-        details: safeErrorMessage,
+        details: `Unhandled exception at phase: ${phase}`,
       },
       { status: 500 }
     );
