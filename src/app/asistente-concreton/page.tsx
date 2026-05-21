@@ -25,7 +25,9 @@ export default function AsistenteConcreton() {
       }),
     });
     setIsLoading(false);
+    console.log(res);
     const apiData = await res.json();
+    console.log(apiData);
     setRespuesta(apiData);
     setChoices(apiData.choices);
   };
