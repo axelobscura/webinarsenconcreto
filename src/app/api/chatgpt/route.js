@@ -69,11 +69,43 @@ export async function POST(request) {
       params = { ...params, prompt: promptFromQuery };
     }
 
+    const promptFromMessages = Array.isArray(params?.messages)
+      ? params.messages
+          .filter((msg) => msg && typeof msg === "object")
+          .map((msg) => {
+            if (typeof msg.content === "string") {
+              return msg.content;
+            }
+
+            if (Array.isArray(msg.content)) {
+              return msg.content
+                .map((part) => {
+                  if (typeof part === "string") {
+                    return part;
+                  }
+                  if (part && typeof part === "object" && typeof part.text === "string") {
+                    return part.text;
+                  }
+                  return "";
+                })
+                .join(" ");
+            }
+
+            return "";
+          })
+          .join(" ")
+      : "";
+
     const promptCandidate =
       params?.prompt ??
       params?.consulta ??
       params?.message ??
       params?.query ??
+      params?.input ??
+      params?.text ??
+      params?.data?.prompt ??
+      params?.body?.prompt ??
+      promptFromMessages ??
       "";
 
     let normalizedPrompt = "";
@@ -86,6 +118,12 @@ export async function POST(request) {
         .map((item) => (typeof item === "string" ? item : String(item)))
         .join(" ")
         .trim();
+    } else if (promptCandidate && typeof promptCandidate === "object") {
+      if (typeof promptCandidate.text === "string") {
+        normalizedPrompt = promptCandidate.text.trim();
+      } else if (typeof promptCandidate.content === "string") {
+        normalizedPrompt = promptCandidate.content.trim();
+      }
     }
 
     if (!normalizedPrompt) {
