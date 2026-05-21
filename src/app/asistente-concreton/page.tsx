@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { useThemeContext } from '../context/theme';
 import ReactMarkdown from 'react-markdown';
@@ -9,7 +9,6 @@ import LoaderConcreton from '../components/LoaderConcreton';
 export default function AsistenteConcreton() {
   const { usuario, setUsuario } = useThemeContext();
   const [isLoading, setIsLoading] = useState(false);
-  const [usePompt, setPompt] = useState<string | null>(null);
   const [useRespuesta, setRespuesta] = useState<any>("");
   const [choices, setChoices] = useState<any[]>([]);
 
@@ -36,14 +35,8 @@ export default function AsistenteConcreton() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const consulta = formData.get('consulta') as string | null;
-    setPompt(consulta);
+    fetchData(consulta);
   };
-
-  useEffect(() => {
-    if (usePompt) {
-      fetchData(usePompt);
-    }
-  }, [usePompt]);
 
   return (
     <div
