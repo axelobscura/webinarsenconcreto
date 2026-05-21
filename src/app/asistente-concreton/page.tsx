@@ -23,6 +23,7 @@ export default function AsistenteConcreton() {
       method: "GET",
     });
     const apiData = await res.json();
+    console.log("Respuesta de la API:", apiData);
     setIsLoading(false);
     setRespuesta(apiData.answer);
     setChoices(apiData.answer ? [{ text: apiData.answer }] : []);
