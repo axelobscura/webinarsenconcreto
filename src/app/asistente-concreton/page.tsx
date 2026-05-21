@@ -37,8 +37,13 @@ export default function AsistenteConcreton() {
     const formData = new FormData(e.currentTarget);
     const consulta = formData.get('consulta') as string | null;
     setPompt(consulta);
-    fetchData(consulta);
   };
+
+  useEffect(() => {
+    if (usePompt) {
+      fetchData(usePompt);
+    }
+  }, [usePompt]);
 
   return (
     <div
@@ -73,14 +78,14 @@ export default function AsistenteConcreton() {
               onSubmit={consultaAi}
             >
               <input type="text" name='consulta' className="w-full p-3 px-5 text-2xl font-bold text-black bg-white border bg-opacity-90 border-slate-500 rounded-2xl" placeholder="Escribe tu consulta aquí..." required />
-              <button className='flex items-center gap-3 w-full px-8 py-4 font-bold text-white border text-1xl bg-slate-800 hover:bg-slate-950 rounded-2xl' type="submit">
+              <button className='flex items-center w-full gap-3 px-8 py-4 font-bold text-white border text-1xl bg-slate-800 hover:bg-slate-950 rounded-2xl' type="submit">
                 {isLoading && <LoaderConcreton />}
                 {!isLoading ? "ENVIAR CONSULTA" : "CARGANDO..."}
               </button>
             </form>
           </div>
         </div>
-        <div className='p-5 mb-5 bg-black rounded-2xl bg-opacity-70 mt-5 w-full max-w-6xl'>
+        <div className='w-full max-w-6xl p-5 mt-5 mb-5 bg-black rounded-2xl bg-opacity-70'>
           {choices && choices.length > 0 && (
             <div className='grid max-w-6xl grid-cols-1 m-5 text-center'>
               <h3 className='mb-5 text-2xl font-bold text-white'>Respuesta del Asistente Concretón:</h3>
