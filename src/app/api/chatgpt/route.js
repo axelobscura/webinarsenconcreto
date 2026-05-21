@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
+export const runtime = "nodejs";
+
 export async function POST(request) {
   try {
     const openai = new OpenAI({
@@ -64,11 +66,22 @@ export async function POST(request) {
       usage: response?.usage,
     });
   } catch (error) {
-    console.error("/api/chatgpt error:", error);
+    let safeErrorMessage = "Unknown error";
+    try {
+      safeErrorMessage =
+        error && typeof error === "object" && "message" in error
+          ? String(error.message)
+          : String(error);
+    } catch {
+      safeErrorMessage = "Unknown error";
+    }
+
+    // Avoid logging raw error objects that may fail inspection in some runtimes.
+    console.error("/api/chatgpt error:", safeErrorMessage);
     return NextResponse.json(
       {
         error: "Internal server error.",
-        details: error?.message || "Unknown error",
+        details: safeErrorMessage,
       },
       { status: 500 }
     );
