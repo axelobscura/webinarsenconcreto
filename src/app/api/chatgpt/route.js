@@ -54,8 +54,15 @@ export async function POST(request) {
       presence_penalty: 0,
     });
 
-    // Send our response to the front end
-    return NextResponse.json(response);
+    const answer = response?.choices?.[0]?.message?.content ?? "";
+
+    // Send a plain, JSON-serializable payload to the front end
+    return NextResponse.json({
+      answer,
+      id: response?.id,
+      model: response?.model,
+      usage: response?.usage,
+    });
   } catch (error) {
     console.error("/api/chatgpt error:", error);
     return NextResponse.json(
