@@ -18,6 +18,10 @@ export async function POST(request) {
     phase = "read-request-body";
     let params;
     const contentType = (request.headers.get("content-type") || "").toLowerCase();
+    const promptFromQuery =
+      request.nextUrl.searchParams.get("prompt") ||
+      request.nextUrl.searchParams.get("consulta") ||
+      "";
 
     if (contentType.includes("multipart/form-data")) {
       try {
@@ -26,50 +30,43 @@ export async function POST(request) {
           prompt: form.get("prompt") ?? form.get("consulta") ?? "",
         };
       } catch {
-        return NextResponse.json(
-          { error: "Unable to read form-data body." },
-          { status: 400 }
-        );
+        params = { prompt: promptFromQuery };
       }
     } else if (contentType.includes("application/x-www-form-urlencoded")) {
       let rawBody = "";
       try {
         rawBody = await request.text();
       } catch {
-        return NextResponse.json(
-          { error: "Unable to read request body." },
-          { status: 400 }
-        );
+        rawBody = "";
       }
 
       const form = new URLSearchParams(rawBody);
       params = {
-        prompt: form.get("prompt") ?? form.get("consulta") ?? "",
+        prompt:
+          form.get("prompt") ?? form.get("consulta") ?? promptFromQuery ?? "",
       };
     } else {
       let rawBody = "";
       try {
         rawBody = await request.text();
       } catch {
-        return NextResponse.json(
-          { error: "Unable to read request body." },
-          { status: 400 }
-        );
+        rawBody = "";
       }
 
-      if (!rawBody || !rawBody.trim()) {
-        return NextResponse.json(
-          { error: "Request body is empty." },
-          { status: 400 }
-        );
+      if (rawBody && rawBody.trim()) {
+        try {
+          params = JSON.parse(rawBody);
+        } catch {
+          // Fallback: treat non-JSON payload as plain text prompt
+          params = { prompt: rawBody.trim() };
+        }
+      } else {
+        params = { prompt: promptFromQuery };
       }
+    }
 
-      try {
-        params = JSON.parse(rawBody);
-      } catch {
-        // Fallback: treat non-JSON payload as plain text prompt
-        params = { prompt: rawBody.trim() };
-      }
+    if (!params?.prompt && promptFromQuery) {
+      params = { ...params, prompt: promptFromQuery };
     }
 
     if (!params?.prompt || typeof params.prompt !== "string") {
