@@ -22,10 +22,8 @@ export default function AsistenteConcreton() {
     const res = await fetch(endpoint, {
       method: "GET",
     });
-    console.log(res);
     const apiData = await res.json();
     setIsLoading(false);
-    console.log(apiData);
     setRespuesta(apiData.answer);
     setChoices(apiData.answer ? [{ text: apiData.answer }] : []);
   };

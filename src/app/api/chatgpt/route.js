@@ -15,93 +15,13 @@ async function handleChatRequest(request) {
       );
     }
 
-    const contentType = (request.headers.get("content-type") || "").toLowerCase();
     const promptFromQuery =
       request.nextUrl.searchParams.get("prompt") ||
       request.nextUrl.searchParams.get("consulta") ||
       "";
 
     phase = "read-request-body";
-    let params = { prompt: promptFromQuery };
-
-    if (!promptFromQuery && request.method === "POST") {
-      let rawBody = "";
-      try {
-        rawBody = await request.text();
-      } catch {
-        rawBody = "";
-      }
-
-      if (rawBody && rawBody.trim()) {
-        try {
-          params = JSON.parse(rawBody);
-        } catch {
-          // Fallback: treat non-JSON payload as plain text prompt
-          params = { prompt: rawBody.trim() };
-        }
-      }
-    }
-
-    if (!params?.prompt && promptFromQuery) {
-      params = { ...params, prompt: promptFromQuery };
-    }
-
-    const promptFromMessages = Array.isArray(params?.messages)
-      ? params.messages
-          .filter((msg) => msg && typeof msg === "object")
-          .map((msg) => {
-            if (typeof msg.content === "string") {
-              return msg.content;
-            }
-
-            if (Array.isArray(msg.content)) {
-              return msg.content
-                .map((part) => {
-                  if (typeof part === "string") {
-                    return part;
-                  }
-                  if (part && typeof part === "object" && typeof part.text === "string") {
-                    return part.text;
-                  }
-                  return "";
-                })
-                .join(" ");
-            }
-
-            return "";
-          })
-          .join(" ")
-      : "";
-
-    const promptCandidate =
-      params?.prompt ??
-      params?.consulta ??
-      params?.message ??
-      params?.query ??
-      params?.input ??
-      params?.text ??
-      params?.data?.prompt ??
-      params?.body?.prompt ??
-      promptFromMessages ??
-      "";
-
-    let normalizedPrompt = "";
-    if (typeof promptCandidate === "string") {
-      normalizedPrompt = promptCandidate.trim();
-    } else if (typeof promptCandidate === "number" || typeof promptCandidate === "boolean") {
-      normalizedPrompt = String(promptCandidate);
-    } else if (Array.isArray(promptCandidate)) {
-      normalizedPrompt = promptCandidate
-        .map((item) => (typeof item === "string" ? item : String(item)))
-        .join(" ")
-        .trim();
-    } else if (promptCandidate && typeof promptCandidate === "object") {
-      if (typeof promptCandidate.text === "string") {
-        normalizedPrompt = promptCandidate.text.trim();
-      } else if (typeof promptCandidate.content === "string") {
-        normalizedPrompt = promptCandidate.content.trim();
-      }
-    }
+    const normalizedPrompt = promptFromQuery.trim();
 
     if (!normalizedPrompt) {
       return NextResponse.json({
@@ -188,10 +108,6 @@ async function handleChatRequest(request) {
   }
 }
 
-  export async function GET(request) {
-    return handleChatRequest(request);
-  }
-
-  export async function POST(request) {
-    return handleChatRequest(request);
-  }
+export async function GET(request) {
+  return handleChatRequest(request);
+}
