@@ -10,7 +10,7 @@ export default function AsistenteConcreton() {
   const { usuario, setUsuario } = useThemeContext();
   const [isLoading, setIsLoading] = useState(false);
   const [usePompt, setPompt] = useState<string | null>(null);
-  const [useRespuesta, setRespuesta] = useState<any[]>([]);
+  const [useRespuesta, setRespuesta] = useState<any>("");
   const [choices, setChoices] = useState<any[]>([]);
 
   async function fetchData(consulta: string | null) {
@@ -28,8 +28,8 @@ export default function AsistenteConcreton() {
     console.log(res);
     const apiData = await res.json();
     console.log(apiData);
-    setRespuesta(apiData);
-    setChoices(apiData.choices);
+    setRespuesta(apiData.answer);
+    setChoices(apiData.answer ? [{ text: apiData.answer }] : []);
   };
 
   const consultaAi  = (e: React.FormEvent<HTMLFormElement>) => {
@@ -96,7 +96,7 @@ export default function AsistenteConcreton() {
                     ),
                   }}
                 >
-                  {choices[0].message.content}
+                  {useRespuesta ? useRespuesta : "No se recibió una respuesta del asistente."}
                 </ReactMarkdown>
               </div>
             </div>
