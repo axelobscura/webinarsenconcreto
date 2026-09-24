@@ -22,7 +22,7 @@ export default function Footer() {
             <span className='w-5 h-5 bg-mist bh-triangle' />
             <span className='w-5 h-5 bg-steel' />
           </span>
-          <p className='text-xs font-bold tracking-[0.3em] uppercase'>Con el apoyo de</p>
+          <p className='text-xs font-bold tracking-[0.3em] uppercase'>Nuestros Asociados</p>
         </div>
         <div className='flex flex-wrap items-center gap-x-8 gap-y-6 lg:justify-end'>
           {patrocinadores.map((p) => (

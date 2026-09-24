@@ -4,41 +4,43 @@ import LoaderImcyc from '../components/LoaderImcyc';
 import Image from 'next/image';
 import { StickyHeading, acento } from '../components/Bauhaus';
 
-export default function Concreton() {
-  const [useConcreton, setConcreton] = useState<any[]>([]);
+const publicaciones = [
+  {
+    id: 1,
+    nombre: 'IT Informes Técnicos',
+    foto: 'https://webinarsenconcreto.com/images/publicaciones/image0.jpeg',
+  },
+  {
+    id: 2,
+    nombre: 'NE Números Especiales',
+    foto: 'https://webinarsenconcreto.com/images/publicaciones/image1.jpeg',
+  },
+  {
+    id: 3,
+    nombre: 'S Suplementos',
+    foto: 'https://webinarsenconcreto.com/images/publicaciones/image2.jpeg',
+  },
+];
 
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch('/api/getconcreton');
-      const apiData = await res.json();
-      setConcreton(apiData.results);
-    }
-    fetchData();
-  }, []);
-
-  if(!useConcreton || useConcreton.length === 0){
-    return(
-      <LoaderImcyc />
-    )
-  };
+export default function PublicacionesEspeciales() {
 
   return (
     <div className='min-h-screen w-full bg-paper text-ink pt-[72px]'>
-      <StickyHeading eyebrow='Problemas, causas y soluciones' titulo='Concretón' />
+      <StickyHeading eyebrow='Valor agregado' titulo='Publicaciones Especiales' />
       <div className='w-full px-5 pt-10 pb-20 sm:px-10'>
-        <div className='grid w-full grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-6'>
-          {useConcreton && useConcreton.map((item, index) => (
+        <div className='grid w-full grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-4'>
+          {publicaciones && publicaciones.map((item, index) => (
             <div key={item.id} className='flex flex-col overflow-hidden bh-card-link group'>
               <Image
-                src={`https://www.webinarsenconcreto.com/imcyc/concreton/2017/${item.imagen}`}
-                alt={item.norma}
+                src={item.foto}
+                alt={item.foto}
                 width={400}
                 height={400}
                 className='object-cover w-full transition duration-500 border-b-[3px] border-ink group-hover:grayscale'
               />
               <div className='flex items-start flex-1 gap-3 p-4'>
                 <span className={`mt-1 shrink-0 w-3 h-3 ${acento(index).bg}`} />
-                <h3 className='text-sm font-bold leading-snug uppercase'>{item.norma}</h3>
+                <h3 className='text-sm font-bold leading-snug uppercase'>{item.nombre}</h3>
               </div>
             </div>
           ))}
