@@ -103,15 +103,15 @@ export default function Presentacion({ modulo }: { modulo?: string | null }) {
           btnDownloadPdf: { enabled: false },
           btnPrint: { enabled: false },
           btnShare: { enabled: false },
-          btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-          btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-          btnSound: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-          btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnSound: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
           btnBookmark: { enabled: false },
-          btnExpand: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-          btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          btnExpand: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
           currentPage: { hAlign: 'center' },
-          btnBackground: 'rgb(35 63 139);'
+          btnBackground: 'rgb(36 86 200);'
         });
       } else {
         console.error('jQuery or flipBook not available');
@@ -124,10 +124,8 @@ export default function Presentacion({ modulo }: { modulo?: string | null }) {
   }, [initializeFlipbook]);
 
   return (
-      <div
-        className={`flex min-h-screen bg-[url('https://webinars.webinarsenconcreto.com/images/webinars.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
-      >
-        <div style={{'width':'100%','position':'relative', backgroundColor:'rgba(0,0,0,0.5)'}}>
+      <div className='flex min-h-screen border-[3px] border-ink bg-graphite shadow-hard bh-stage'>
+        <div style={{'width':'100%','position':'relative'}}>
           <div id="container"></div>
         </div>
         <Script

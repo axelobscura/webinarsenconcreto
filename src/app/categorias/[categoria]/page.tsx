@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useThemeContext } from '../../context/theme'
 import LoaderImcyc from '../../components/LoaderImcyc'
+import { PageBackground, StickyHeading, acento } from '../../components/Bauhaus'
 
 function decodeCategorySegment(segment?: string) {
   if (!segment) {
@@ -22,19 +23,10 @@ export default function Categoria() {
   const categoria = decodeCategorySegment(pathname?.split('/').pop())
   const [categoriaData, setCategoriaData] = useState<any>(null);
   const [webinars, setWebinars] = useState<any[]>([]);
-  const [useFondo, setFondo] = useState<string>('https://webinars.webinarsenconcreto.com/images/contenido.jpg');
 
   useEffect(() => {
     if (!categoria) {
       return;
-    }
-
-    switch (categoria) {
-      case 'tilt-up':
-        setFondo('/bkgs/tiltup.webp');
-        break;
-      default:
-        setFondo('https://webinars.webinarsenconcreto.com/images/contenido.jpg');
     }
 
     async function fetchData() {
@@ -58,45 +50,47 @@ export default function Categoria() {
   };
 
   return (
-    <div
-        className={`flex justify-center min-h-screen bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
-        style={{ 
-          background: `url(${useFondo}) fixed center/cover no-repeat`,
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <div className='grid grid-cols-1 sm:grid-cols-[1fr_2fr] w-full p-10 pt-36'>
-          <div>
-            <h2 className='font-bold text-left text-white text-[4rem] border-b border-white mb-4 uppercase leading-[3.5rem] py-5'>{categoria?.split('-').join(' ')}</h2>
-          </div>
-          <div>
-            <div className='grid w-full grid-cols-1 gap-3 p-3 sm:grid-cols-3'>
-              {webinars.map((webinar) => (
-                <Link 
-                  href={`/categorias/${categoria}/${webinar.url}/${webinar.modulo ? 'modulos' : 'presentación-ejecutiva'}`}
-                  key={webinar.id} 
-                  className='grid items-center w-full grid-cols-1 text-center transition duration-300 bg-white rounded-lg shadow-lg bg-opacity-30 hover:bg-opacity-50 hover:text-gray-900 hover:scale-110 hover:bg-black'
-                >
+    <div className='relative isolate min-h-screen w-full bg-paper text-ink pt-[72px]'>
+      <PageBackground src={categoria === 'tilt-up' ? '/bkgs/tiltup.webp' : 'https://webinars.webinarsenconcreto.com/images/contenido.jpg'} />
+      <StickyHeading
+        eyebrow={`Contenido IMCYC · ${webinars.length} cursos`}
+        titulo={categoria?.split('-').join(' ')}
+      />
+      <div className='w-full px-5 pt-10 pb-20 sm:px-10'>
+        <div className='grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
+          {webinars.map((webinar, index) => {
+            const color = acento(index);
+            return (
+              <Link
+                href={`/categorias/${categoria}/${webinar.url}/${webinar.modulo ? 'modulos' : 'presentación-ejecutiva'}`}
+                key={webinar.id}
+                className='flex flex-col overflow-hidden bh-card-link group'
+              >
+                <div className='relative aspect-video bg-ink border-b-[3px] border-ink overflow-hidden'>
                   <Image
                     src={`https://webinars.webinarsenconcreto.com/images/fundamentos/${webinar.imagen}.png` || '/imcyc_registrada.svg'}
                     alt={webinar.nombre}
                     title={webinar.nombre}
                     width={300}
                     height={0}
-                    className='rounded-tl-lg rounded-tr-lg'
+                    className='object-cover h-full transition duration-500 group-hover:grayscale group-hover:scale-105'
                     style={{
                       width: "100%"
                     }}
                   />
-                  <h3 className='flex items-center justify-center p-3 text-[1.2rem] leading-5 h-28 uppercase font-bold text-white hover:text-white text-center w-full'>{webinar.nombre}</h3>
-                </Link>
-              ))}
-            </div>
-          </div>
+                  <span className={`absolute top-0 left-0 px-3 py-2 text-sm font-bold border-r-[3px] border-b-[3px] border-ink ${color.bg} ${color.text}`}>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                <div className='flex items-center justify-between flex-1 gap-4 p-5'>
+                  <h3 className='text-lg font-extrabold leading-tight uppercase'>{webinar.nombre}</h3>
+                  <span className={`shrink-0 w-4 h-4 ${color.bg} ${color.shape === 'circle' ? 'rounded-full' : ''} ${color.shape === 'triangle' ? 'bh-triangle' : ''}`} aria-hidden />
+                </div>
+              </Link>
+            )
+          })}
         </div>
+      </div>
     </div>
   )
 }

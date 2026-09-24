@@ -7,6 +7,7 @@ import Presentacion from '@/app/components/Presentacion';
 import Player from '@/app/components/Player';
 import Evaluacion from '@/app/components/Evaluacion';
 import Link from 'next/link';
+import { PageBackground, acento } from '@/app/components/Bauhaus';
 
 function decodeCategorySegment(segment?: string) {
   if (!segment) {
@@ -66,27 +67,35 @@ export default function Tipo() {
   }
 
   return (
-      <div
-        className={`flex min-h-screen bg-[url('https://webinars.webinarsenconcreto.com/images/webinars.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
-      >
-        <div className='w-full mt-28'>
-          <div className='grid grid-cols-1 gap-3 p-3 sm:grid-cols-[1fr_4fr] w-full'>
+      <div className='relative bh-page isolate'>
+        <PageBackground src='https://webinars.webinarsenconcreto.com/images/webinars.jpg' />
+        <div className='pt-6 bh-container-full'>
+          <div className='grid w-full grid-cols-1 gap-10 lg:grid-cols-[320px_1fr]'>
             <div>
               <MenuLateralWebinar webinar={webinar ? webinar : null} />
             </div>
             <div className='w-full'>
               {modulos.length > 0 && modulo === 'modulos' &&
-                <div className='grid w-full grid-cols-1 gap-5 sm:grid-cols-2'>
-                  {modulos.length > 0 && modulos.map((modulo: any, index: number) => (
+                <div>
+                  <p className='mb-4 bh-eyebrow'><span className='w-3 h-3 bg-navy' /> {modulos.length} módulos</p>
+                  <div className='grid w-full grid-cols-1 gap-6 sm:grid-cols-2 2xl:grid-cols-3'>
+                  {modulos.length > 0 && modulos.map((modulo: any, index: number) => {
+                    const color = acento(index);
+                    return (
                     <Link 
                       href={`/categorias/${categoria}/${nombre}/módulo-${modulo.webinar}/presentación-ejecutiva`}
                       key={`${modulo.webinar ?? modulo.titulo ?? 'modulo'}-${index}`} 
-                      className='flex flex-col w-full p-5 text-2xl font-bold text-center text-white transition duration-300 bg-white rounded-lg shadow-lg py-7 bg-opacity-30 hover:bg-opacity-50 hover:text-gray-100 hover:scale-110 hover:bg-black'
+                      className='bh-card-link group grid grid-cols-[88px_1fr] overflow-hidden'
                     >
-                      {modulo.norma && <span className='text-black' dangerouslySetInnerHTML={{ __html: modulo.norma }} />}
-                      <span dangerouslySetInnerHTML={{ __html: modulo.titulo }} />
+                      <span className={`flex items-center justify-center text-4xl font-black border-r-[3px] border-ink ${color.bg} ${color.text}`}>{index + 1}</span>
+                      <span className='flex flex-col justify-center gap-1 p-5'>
+                        {modulo.norma && <span className='text-xs font-bold tracking-widest uppercase text-cobalt' dangerouslySetInnerHTML={{ __html: modulo.norma }} />}
+                        <span className='text-lg font-extrabold leading-tight uppercase' dangerouslySetInnerHTML={{ __html: modulo.titulo }} />
+                      </span>
                     </Link>
-                  ))}
+                    )
+                  })}
+                  </div>
                 </div>
               }
               {modulos.length === 0 && <>
