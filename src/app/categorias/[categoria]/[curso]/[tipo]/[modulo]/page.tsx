@@ -6,6 +6,7 @@ import LoaderImcyc from '../../../../../components/LoaderImcyc'
 import Presentacion from '@/app/components/Presentacion';
 import Player from '@/app/components/Player';
 import Evaluacion from '@/app/components/Evaluacion';
+import { PageBackground } from '@/app/components/Bauhaus';
 
 function decodeCategorySegment(segment?: string) {
   if (!segment) {
@@ -47,11 +48,10 @@ export default function Modulo() {
   }
 
   return (
-      <div
-        className={`flex min-h-screen bg-[url('https://webinars.webinarsenconcreto.com/images/webinars.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
-      >
-        <div className='w-full mt-28'>
-          <div className='grid grid-cols-1 gap-3 p-3 sm:grid-cols-[1fr_4fr] w-full'>
+      <div className='relative bh-page isolate'>
+        <PageBackground src='https://webinars.webinarsenconcreto.com/images/webinars.jpg' />
+        <div className='pt-6 bh-container-full'>
+          <div className='grid w-full grid-cols-1 gap-10 lg:grid-cols-[320px_1fr]'>
             <div>
               <MenuLateralWebinar webinar={webinar ? webinar : null} modulo={seccion ? seccion : null} />
             </div>

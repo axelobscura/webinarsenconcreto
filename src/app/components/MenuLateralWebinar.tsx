@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useThemeContext } from '../context/theme'
 import { BsChevronLeft } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
-import { BsArrowRightSquare } from "react-icons/bs";
+import { BsArrowRight } from "react-icons/bs";
 
 export default function MenuLateralWebinar(
   { 
@@ -49,63 +49,54 @@ export default function MenuLateralWebinar(
     { nombre: 'INTELIGENCIA ARTIFICIAL', url: `/categorias/${contenido}/${categoria}/${modulo}/encuesta-de-salida` },
   ];
 
+  const items = modulo?.length ? itemsMenuModulo : itemsMenu;
+
   return (
-    <div>
-      <Link href={`/categorias/${contenido}/`} className='flex items-center w-full p-2 mb-0 font-bold text-white bg-gray-900 rounded-md hover:bg-gray-800 hover:text-gray-300'>
-        <BsChevronLeft className='mr-3 text-gray-400 bg-gray-900'/> 
-        REGRESAR
+    <aside className='lg:sticky lg:top-28'>
+      <Link href={`/categorias/${contenido}/`} className='flex items-center gap-3 mb-6 text-sm font-bold tracking-widest uppercase hover:text-cobalt'>
+        <span className='flex items-center justify-center w-8 h-8 text-white bg-ink'><BsChevronLeft /></span>
+        Regresar
       </Link>
-      <Image
-        src={`https://webinars.webinarsenconcreto.com/images/fundamentos/${webinar.imagen}.png` || '/imcyc_registrada.svg'}
-        alt={webinar.nombre}
-        title={webinar.nombre}
-        width={300}
-        height={200}
-        className='object-cover'
-        style={{
-          width: "100%"
-        }}
-      />
-      <h2 className="px-3 py-5 text-2xl font-semibold text-center text-white bg-black bg-opacity-50">{webinar?.nombre?.split("-").join(" ").toUpperCase()}</h2>
-      {!modulo?.length &&
-        <ul className='w-full p-0 m-0'>
-          <li className='w-full'>
-            {itemsMenu.map((item, index) => (
-              <Link 
-                href={item.url}
-                key={index} 
-                className={`flex items-center justify-between w-full rounded-md p-3 my-1 font-bold text-1xl hover:bg-gray-950 hover:bg-opacity-50 hover:text-gray-100 ${
-                  tipoDecode === item.nombre ? 'bg-black bg-opacity-50 text-gray-100' : 'bg-white bg-opacity-30 text-white'
-                }`}
-              > 
-                {item.nombre}
-                <BsArrowRightSquare className='inline mr-2 text-white' />
-              </Link>
-            ))}
-          </li>
-        </ul>
-      }
-      {modulo?.length &&
-        <>
-          <h2 className="px-1 py-3 text-2xl font-light text-center text-white bg-gray-900 bg-opacity-50">{modulo?.split("-").join(" ").toUpperCase()}</h2>
+      <div className='overflow-hidden bh-card'>
+        <Image
+          src={`https://webinars.webinarsenconcreto.com/images/fundamentos/${webinar.imagen}.png` || '/imcyc_registrada.svg'}
+          alt={webinar.nombre}
+          title={webinar.nombre}
+          width={300}
+          height={200}
+          className='object-cover border-b-[3px] border-ink'
+          style={{
+            width: "100%"
+          }}
+        />
+        <h2 className="p-5 text-xl font-black leading-tight uppercase">{webinar?.nombre?.split("-").join(" ")}</h2>
+        {modulo?.length &&
+          <p className="flex items-center gap-2 px-5 py-3 text-sm font-bold tracking-widest text-white uppercase bg-navy border-t-[3px] border-ink">
+            <span className='w-3 h-3 rounded-full bg-mist' /> {modulo?.split("-").join(" ")}
+          </p>
+        }
+        <nav className='border-t-[3px] border-ink'>
           <ul className='w-full p-0 m-0'>
-            <li className='w-full'>
-              {itemsMenuModulo.map((item, index) => (
-                <Link 
-                  href={item.url}
-                  key={index} 
-                  className={`flex items-center justify-between w-full rounded-md p-3 my-1 font-bold text-1xl hover:bg-gray-950 hover:bg-opacity-50 hover:text-gray-100 ${
-                    tipoDecode === item.nombre ? 'bg-black bg-opacity-50 text-gray-100' : 'bg-white bg-opacity-30 text-white'
-                  }`}
-                > 
-                  {item.nombre}
-                  <BsArrowRightSquare className='inline mr-2 text-white' />
-                </Link>
-              ))}
-            </li>
+            {items.map((item, index) => {
+              const activo = tipoDecode === item.nombre;
+              return (
+                <li key={index} className='border-b border-ink/15 last:border-b-0'>
+                  <Link
+                    href={item.url}
+                    className={`group flex items-center gap-4 w-full px-5 py-3 text-sm font-bold tracking-wide transition ${
+                      activo ? 'bg-cobalt text-white' : 'hover:bg-mist'
+                    }`}
+                  >
+                    <span className={`text-xs tabular-nums ${activo ? 'text-white/70' : 'text-ink/40'}`}>{String(index + 1).padStart(2, '0')}</span>
+                    <span className='flex-1'>{item.nombre}</span>
+                    <BsArrowRight className={`transition group-hover:translate-x-1 ${activo ? '' : 'opacity-40'}`} />
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
-        </>
-      }
-  </div>
+        </nav>
+      </div>
+    </aside>
   )
 }

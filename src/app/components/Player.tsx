@@ -15,7 +15,7 @@ export default function Player() {
           }}
           defer
         />
-        <div className='p-3 bg-black bg-opacity-50'>
+        <div className='p-3 border-[3px] border-ink bg-ink shadow-hard'>
           <video id="player" controls>
             <source src="https://webinarimcyc.com/videos/ASTM_C_31.mp4" type="video/mp4" />
           </video>

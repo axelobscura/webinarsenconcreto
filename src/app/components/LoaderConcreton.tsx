@@ -1,17 +1,9 @@
 import React from "react";
-import Image from "next/image";
 
 const LoaderConcreton = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
-        <Image
-          src={`/loader.svg`}
-          alt="IMCYC"
-          width={40}
-          height={0}
-          layout="intrinsic"
-          className="animate-[spin_2s_linear_infinite]"
-        />
+    <div className="flex items-center justify-center" aria-hidden>
+        <span className="block w-5 h-5 border-[3px] border-current border-t-transparent rounded-full animate-spin" />
     </div>
   );
 };

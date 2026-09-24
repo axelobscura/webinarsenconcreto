@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import MenuLateral from '@/app/components/MenuLateral';
 import { useThemeContext } from '../../../context/theme'
 import Script from 'next/script';
+import { PageBackground } from '@/app/components/Bauhaus';
 
 export default function Curso() {
   const { pathname } = useThemeContext()
@@ -50,15 +51,15 @@ export default function Curso() {
           btnDownloadPdf: { enabled: false },
           btnPrint: { enabled: false },
           btnShare: { enabled: false },
-          btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-          btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-          btnSound: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-          btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnSound: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
           btnBookmark: { enabled: false },
-          btnExpand: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-          btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+          btnExpand: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
           currentPage: { hAlign: 'center' },
-          btnBackground: 'rgb(35 63 139);'
+          btnBackground: 'rgb(36 86 200);'
         });
       } else {
         console.error('jQuery or flipBook not available');
@@ -71,11 +72,10 @@ export default function Curso() {
   }, []);
 
   return (
-      <div
-        className={`flex min-h-screen bg-[url('https://webinars.webinarsenconcreto.com/images/webinars.jpg')] bg-gray-700 bg-blend-multiply bg-opacity-30 z-10 bg-cover bg-center bg-no-repeat bg-fixed`}
-      >
-        <div className='w-full mt-28'>
-          <div className='grid grid-cols-1 gap-3 p-3 sm:grid-cols-[1fr_4fr] w-full'>
+      <div className='relative bh-page isolate'>
+        <PageBackground src='https://webinars.webinarsenconcreto.com/images/webinars.jpg' />
+        <div className='pt-6 bh-container-full'>
+          <div className='grid w-full grid-cols-1 gap-10 lg:grid-cols-[320px_1fr]'>
             <div>
               {webinar && <MenuLateral
                 id={webinar.id}
@@ -86,7 +86,7 @@ export default function Curso() {
               />}
             </div>
             <div>
-              <div className='min-h-screen' style={{'width':'100%','position':'relative', backgroundColor:'rgba(0,0,0,0.5)'}}>
+              <div className='relative w-full min-h-screen border-[3px] border-ink bg-graphite shadow-hard'>
                 <div id="container"></div>
               </div>
               {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}

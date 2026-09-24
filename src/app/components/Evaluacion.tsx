@@ -4,6 +4,7 @@ import { useThemeContext } from '../context/theme'
 import Contador from './Contador';
 import LoaderImcyc from './LoaderImcyc';
 import { TfiPencilAlt } from "react-icons/tfi";
+import { acento } from './Bauhaus';
 
 function decodeCategorySegment(segment?: string) {
   if (!segment) {
@@ -56,18 +57,18 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
   const getRespuestas = (id: any) => {
     const pregs = respuestas.filter((val) => val.pregunta_id === id);
     const prex = pregs.map((preta: any) => (
-      <div key={preta.id} className="flex items-center mb-1 mr-2">
+      <label key={preta.id} className="flex items-center gap-3 px-4 py-3 border-[3px] border-ink bg-white cursor-pointer transition hover:bg-mist/30 has-[:checked]:bg-mist">
         <input
-          className="mr-2 h-5 w-5 cursor-pointer border border-black bg-black accent-[#55dc40]"
+          className="w-5 h-5 cursor-pointer accent-[#2456C8] shrink-0"
           type="radio"
           name={`pregunta${id}`}
           id={`pregunta${id}`}
           value={preta.correcta}
         />
-        <label className="pt-[3px] pl-1 uppercase text-[#f2f2f2]">
+        <span className="font-medium uppercase">
           {preta.respuestas}
-        </label>
-      </div>
+        </span>
+      </label>
     ));
 
     return prex
@@ -96,65 +97,45 @@ export default function Evaluacion({ categoria } : {categoria: string | null}) {
 
   return (
       <div>
-        <div className='h-auto'>
-          <div className='w-full'>
-            <h2 className='flex p-5 text-3xl font-bold text-white bg-black bg-opacity-70'><TfiPencilAlt className='mr-3' /> {seccion.split("-").join(" ").toUpperCase()}</h2>
-          </div>
+        <div className='flex items-center gap-4 p-6 mb-6 text-white bg-ink'>
+          <span className='flex items-center justify-center w-12 h-12 text-2xl bg-cobalt'><TfiPencilAlt /></span>
+          <h2 className='text-3xl font-black uppercase'>{seccion.split("-").join(" ")}</h2>
         </div>
-        <div className='h-auto'>
-          <div className='w-full'>
-            <Contador />
-          </div>
-        </div>
-        <div>
-          <div className='w-full'>
-            <div className='m-0 h-full overflow-auto overflow-x-hidden border border-black bg-black/50 p-2.5 text-left shadow-[0_0_10px_#000]'>
-              {fields.length >= 1 ? 
-                <div>
-                  <h2 className='p-0'>RESULTADOS</h2>
-                  <h4 className='mb-5 text-white'><b>Total de aciertos: {(total * 5 / 100)*100} %</b></h4>
-                </div>
-                : 
-                <form onSubmit={examen}>
-                  {preguntas.map((preg, i) => {
-                    if(i <= 49){
-                      return (
-                        <div key={preg.id} className='p-5 border-b border-gray-700'>
-                          <div className='flex items-center h-full mb-3'>
-                            <div className='flex w-[90px] max-w-[90px] shrink-0 text-center h-full'>
-                              <h2 className='m-5 flex w-[90px] items-center text-4xl justify-center p-0 bg-gray-100 text-gray-900 font-bold rounded-md py-32'>{i + 1}</h2>
-                            </div>
-                            <div>
-                              <div>
-                                <h3 className='p-0 m-0 text-3xl text-white'>{preg.pregunta}</h3>
-                                <p className='p-0 m-0'><small>NORMA: {preg.norma} - CAPÍTULO: {preg.capitulo}</small></p>
-                              </div>
-                              <div className='my-[5px]'>
-                                <div className='flex flex-col'>
-                                  {getRespuestas(preg.id)}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    }
-                  })}
-                  <div className='h-auto'>
-                    <div className='w-full'>
-                      <button
-                        type="submit"
-                        className='mt-0 rounded border border-[#111] bg-[#111] px-4 py-2 font-bold text-white transition-colors duration-300 hover:bg-white hover:text-black'
-                      >
-                        ENVIAR RESPUESTAS
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              }
+        <Contador />
+        {fields.length >= 1 ?
+          <div className='grid grid-cols-1 overflow-hidden bh-card sm:grid-cols-[auto_1fr]'>
+            <div className='flex items-center justify-center p-10 text-6xl font-black text-white bg-navy sm:border-r-[3px] border-ink'>
+              {(total * 5 / 100)*100}%
+            </div>
+            <div className='flex flex-col justify-center p-8'>
+              <p className='mb-2 bh-eyebrow'><span className='w-3 h-3 rounded-full bg-cobalt' /> Resultados</p>
+              <h4 className='text-3xl font-black uppercase'>Total de aciertos</h4>
             </div>
           </div>
-        </div>
+          :
+          <form onSubmit={examen} className='flex flex-col gap-8'>
+            {preguntas.map((preg, i) => {
+              if(i <= 49){
+                const color = acento(i);
+                return (
+                  <div key={preg.id} className='grid grid-cols-1 overflow-hidden bh-card sm:grid-cols-[96px_1fr]'>
+                    <div className={`flex items-center justify-center p-4 text-4xl font-black sm:border-r-[3px] border-b-[3px] sm:border-b-0 border-ink ${color.bg} ${color.text}`}>{i + 1}</div>
+                    <div className='p-6'>
+                      <p className='mb-2 text-xs font-bold tracking-widest uppercase text-ink/50'>Norma: {preg.norma} · Capítulo: {preg.capitulo}</p>
+                      <h3 className='mb-5 text-2xl font-bold leading-snug'>{preg.pregunta}</h3>
+                      <div className='flex flex-col gap-2'>
+                        {getRespuestas(preg.id)}
+                      </div>
+                    </div>
+                  </div>
+                )
+              }
+            })}
+            <button type="submit" className='self-start text-white bh-btn bg-cobalt'>
+              Enviar respuestas
+            </button>
+          </form>
+        }
       </div>
   )
 }

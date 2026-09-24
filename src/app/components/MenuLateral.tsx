@@ -1,10 +1,19 @@
 import Image from 'next/image'
 import Link from 'next/link';
-import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
+import { BsArrowRight, BsChevronLeft } from 'react-icons/bs';
 import { useRouter } from 'next/navigation'
 
+const secciones = [
+  { nombre: 'PRESENTACIÓN EJECUTIVA', activa: ' PRESENTACIÓN EJECUTIVA' },
+  { nombre: 'PRESENTACIÓN GRABADA', activa: ' PRESENTACIÓN GRABADA' },
+  { nombre: 'DATO EN CONCRETO', activa: ' PRESENTACIÓN EJECUTIVA' },
+  { nombre: 'INFOGRAFÍAS', activa: ' PRESENTACIÓN EJECUTIVA' },
+  { nombre: 'EVALUACIÓN FINAL', activa: ' EVALUACIÓN FINAL' },
+  { nombre: 'CONTENIDO ADICIONAL', activa: ' CONTENIDO ADICIONAL' },
+];
+
 export default function MenuLateral(
-  { 
+  {
     id,
     imagen,
     nombre,
@@ -23,29 +32,33 @@ export default function MenuLateral(
     }
 
   return (
-    <div className='barra_lateral'>
-      <h2 className="text-[8rem] text-center text-white">{nombre}</h2>
-      <button onClick={back} className='regresar'><BsChevronLeft/> REGRESAR</button>
-      <ul className='menu'>
-        <li>
-          <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN EJECUTIVA</a>
-        </li>
-        <li>
-          <a onClick={seccion} className={categoria === ' PRESENTACIÓN GRABADA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> PRESENTACIÓN GRABADA</a>
-        </li>
-        <li>
-          <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> DATO EN CONCRETO</a>
-        </li>
-        <li>
-          <a onClick={seccion} className={categoria === ' PRESENTACIÓN EJECUTIVA' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> INFOGRAFÍAS</a>
-        </li>
-        <li>
-          <a onClick={seccion} className={categoria === ' EVALUACIÓN FINAL' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> EVALUACIÓN FINAL</a>
-        </li>
-        <li>
-          <a onClick={seccion} className={categoria === ' CONTENIDO ADICIONAL' ? 'active mb-0' : 'mb-0'}><BsChevronRight/> CONTENIDO ADICIONAL</a>
-        </li>
-      </ul>
-  </div>
+    <aside className='lg:sticky lg:top-28'>
+      <button onClick={back} className='flex items-center gap-3 mb-6 text-sm font-bold tracking-widest uppercase hover:text-cobalt'>
+        <span className='flex items-center justify-center w-8 h-8 text-white bg-ink'><BsChevronLeft /></span>
+        Regresar
+      </button>
+      <div className='overflow-hidden bh-card'>
+        <h2 className="p-5 text-xl font-black leading-tight uppercase border-b-[3px] border-ink">{nombre}</h2>
+        <ul className='w-full p-0 m-0'>
+          {secciones.map((item, index) => {
+            const activo = categoria === item.activa;
+            return (
+              <li key={item.nombre} className='border-b border-ink/15 last:border-b-0'>
+                <a
+                  onClick={seccion}
+                  className={`group flex items-center gap-4 w-full px-5 py-3 text-sm font-bold tracking-wide cursor-pointer transition ${
+                    activo ? 'bg-cobalt text-white' : 'hover:bg-mist'
+                  }`}
+                >
+                  <span className={`text-xs tabular-nums ${activo ? 'text-white/70' : 'text-ink/40'}`}>{String(index + 1).padStart(2, '0')}</span>
+                  <span className='flex-1'>{item.nombre}</span>
+                  <BsArrowRight className={`transition group-hover:translate-x-1 ${activo ? '' : 'opacity-40'}`} />
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </aside>
   )
 }
