@@ -8,7 +8,8 @@ import Script from 'next/script';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 
 export default function Norma() {
-  const searchParams = useSearchParams();
+  // Con un directorio pages/ presente, useSearchParams() puede devolver null.
+  const searchParams = useSearchParams() ?? new URLSearchParams();
   const id = searchParams.get('id');
   const nombre = searchParams.get('nombre');
   const imagen = searchParams.get('imagen');
