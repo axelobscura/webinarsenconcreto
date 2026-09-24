@@ -3,8 +3,11 @@
 import Plyr from 'plyr'
 import Script from 'next/script';
 
-export default function Player() {
+type PlayerProps = {
+  videoId?: string;
+};
 
+export default function Player({ videoId = 'bTqVqk7FSmY' }: PlayerProps) {
   return (
       <div className='player'>
         <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
@@ -16,9 +19,7 @@ export default function Player() {
           defer
         />
         <div className='p-3 border-[3px] border-ink bg-ink shadow-hard'>
-          <video id="player" controls>
-            <source src="https://webinarimcyc.com/videos/ASTM_C_31.mp4" type="video/mp4" />
-          </video>
+          <div id="player" data-plyr-provider="youtube" data-plyr-embed-id={videoId}></div>
         </div>
       </div>
   )
