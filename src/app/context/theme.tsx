@@ -57,7 +57,8 @@ const ThemeContext = createContext<MyContextType>({
 export const ThemeContextProvider = ({ children }: { children : any }) => {
     const [usuario, setUsuario] = useState<Usuario | null>(null);
     const [listo, setListo] = useState(false);
-    const pathname = usePathname()
+    // Con un directorio pages/ presente, usePathname() puede devolver null.
+    const pathname = usePathname() ?? undefined
     const router = useRouter()
     const esPublica = RUTAS_PUBLICAS.includes(pathname ?? '/');
 
