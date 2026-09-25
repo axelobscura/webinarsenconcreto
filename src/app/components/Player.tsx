@@ -18,7 +18,7 @@ export default function Player({ videoId = 'bTqVqk7FSmY' }: PlayerProps) {
           }}
           defer
         />
-        <div className='p-3 border-[3px] border-ink bg-ink shadow-hard'>
+        <div className='p-3 border border-ink rounded-md bg-ink shadow-hard'>
           <div id="player" data-plyr-provider="youtube" data-plyr-embed-id={videoId}></div>
         </div>
       </div>

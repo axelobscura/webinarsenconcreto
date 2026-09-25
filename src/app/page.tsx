@@ -48,16 +48,16 @@ export default function Home() {
       <div className='grid min-h-screen grid-cols-1 bg-paper lg:grid-cols-2'>
         <div className='flex flex-col justify-center px-5 pb-16 pt-36 sm:px-10 lg:px-16'>
           <p className='mb-6 bh-eyebrow'>
-            <span className='w-3 h-3 rounded-full bg-cobalt' /> Instituto Mexicano del Cemento y del Concreto
+            <span className='w-3 h-3 rounded-full bg-gradient-to-r from-cobalt to-navy' /> Instituto Mexicano del Cemento y del Concreto
           </p>
-          <h1 className='max-w-2xl text-[2.5rem] font-black leading-[0.95] tracking-tight uppercase hyphens-auto sm:text-6xl xl:text-7xl'>
+          <h1 className='max-w-2xl text-[2.5rem] font-bold leading-[0.95] tracking-tight uppercase hyphens-auto sm:text-6xl xl:text-7xl'>
             {!useInicio ? (
-              <>Una plataforma para profesionales <span className='text-steel'>de la construcción</span> con <span className='text-cobalt'>concreto</span></>
+              <>Una plataforma para profesionales <span className='text-steel'>de la construcción</span> con <span className='text-transparent bg-gradient-to-r from-sky to-cobalt bg-clip-text'>concreto</span></>
             ) : 'Iniciar sesión'}
           </h1>
           {!useInicio &&
             <div className='mt-12'>
-              <button className='text-white bh-btn bg-cobalt' onClick={checkInicio}>
+              <button className='text-white bh-btn bg-gradient-to-r from-cobalt to-navy' onClick={checkInicio}>
                 Iniciar sesión <BsChevronRight />
               </button>
             </div>
@@ -65,23 +65,23 @@ export default function Home() {
           {useInicio && (
             <div className='w-full max-w-lg mt-10'>
               {errorMessage && (
-                <p role='alert' className='flex items-center gap-3 p-4 mb-6 font-bold tracking-wider uppercase border-[3px] border-ink bg-mist'>
-                  <span className='w-3 h-3 shrink-0 bg-cobalt' /> {errorMessage}
+                <p role='alert' className='flex items-center gap-3 p-4 mb-6 font-bold tracking-wider uppercase border border-ink rounded-md bg-mist'>
+                  <span className='w-3 h-3 shrink-0 bg-gradient-to-r from-cobalt to-navy' /> {errorMessage}
                 </p>
               )}
               <form onSubmit={registro} className='flex flex-col gap-6'>
                 <div className='flex flex-col'>
-                  <label htmlFor='email' className='mb-2 bh-eyebrow'><span className='w-3 h-3 bg-navy' /> Correo electrónico</label>
+                  <label htmlFor='email' className='mb-2 bh-eyebrow'><span className='w-4 h-1 bg-gradient-to-r from-cobalt to-navy' /> Correo electrónico</label>
                   <input id='email' type="email" name='email' autoComplete='username' className="bh-input" placeholder="correo@electronico.com" required disabled={loading} />
                 </div>
                 <div className='flex flex-col'>
-                  <label htmlFor='password' className='mb-2 bh-eyebrow'><span className='w-3 h-3 bg-mist bh-triangle' /> Contraseña</label>
+                  <label htmlFor='password' className='mb-2 bh-eyebrow'><span className='w-4 h-1 bg-gradient-to-r from-cobalt to-navy' /> Contraseña</label>
                   <input id='password' type="password" name='password' autoComplete='current-password' className="bh-input" required disabled={loading} />
                 </div>
-                <button className='w-full mt-2 text-white bh-btn bg-cobalt disabled:opacity-70 disabled:pointer-events-none' type="submit" disabled={loading}>
+                <button className='w-full mt-2 text-white bh-btn bg-gradient-to-r from-cobalt to-navy disabled:opacity-70 disabled:pointer-events-none' type="submit" disabled={loading}>
                   {loading ? <>Ingresando <LoaderConcreton /></> : <>Ingresar a su cuenta <BsChevronRight /></>}
                 </button>
-                <button type="button" onClick={checkInicio} className='self-start text-sm font-bold tracking-widest uppercase underline underline-offset-4 decoration-2 hover:text-cobalt'>Regresar</button>
+                <button type="button" onClick={checkInicio} className='self-start text-sm font-bold tracking-widest uppercase underline underline-offset-4 decoration-2 hover:text-sky'>Regresar</button>
               </form>
             </div>
           )}
@@ -94,12 +94,11 @@ export default function Home() {
                 : "bg-[url('https://webinars.webinarsenconcreto.com/images/login2.png')]"
             }`}
           />
-          <div className='absolute rounded-full w-[70%] aspect-square -right-[15%] top-[18%] bg-cobalt opacity-90' />
-          <div className='absolute w-[38%] aspect-square left-[10%] bottom-[12%] bg-steel opacity-90' />
-          <div className='absolute w-[26%] aspect-square left-[38%] top-[20%] bg-mist bh-triangle' />
-          <div className='absolute left-0 w-full h-3 bottom-[40%] bg-paper' />
-          <div className='absolute top-0 h-full w-3 left-[62%] bg-paper' />
-          <div className='absolute w-24 h-24 border-[10px] border-paper rounded-full right-[8%] bottom-[8%]' />
+          <div className='absolute inset-0 bg-gradient-to-tr from-paper/90 via-paper/20 to-transparent' />
+          {/* Franjas azules en diagonal, como en las gráficas de F1 */}
+          <div className='absolute h-8 -left-[10%] w-[130%] bottom-[30%] bg-gradient-to-r from-cobalt to-navy -rotate-[14deg]' />
+          <div className='absolute h-2 -left-[10%] w-[130%] bottom-[25%] bg-gradient-to-r from-cobalt to-navy -rotate-[14deg]' />
+          <div className='absolute w-40 h-24 border-t-8 border-r-8 border-white right-[8%] top-[12%] rounded-tr-3xl' />
         </div>
       </div>
   )

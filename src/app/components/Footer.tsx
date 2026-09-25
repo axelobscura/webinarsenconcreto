@@ -17,11 +17,7 @@ export default function Footer() {
       <div className='h-1.5 bh-stripe' />
       <div className='grid grid-cols-1 gap-8 px-5 py-10 sm:px-10 lg:grid-cols-[auto_1fr] items-center'>
         <div className='flex items-center gap-4'>
-          <span className='flex gap-1.5' aria-hidden>
-            <span className='w-5 h-5 rounded-full bg-cobalt' />
-            <span className='w-5 h-5 bg-mist bh-triangle' />
-            <span className='w-5 h-5 bg-steel' />
-          </span>
+          <span className='w-8 h-5 border-t-4 border-r-4 border-cobalt rounded-tr-xl' aria-hidden />
           <p className='text-xs font-bold tracking-[0.3em] uppercase'>Nuestros Asociados</p>
         </div>
         <div className='flex flex-wrap items-center gap-x-8 gap-y-6 lg:justify-end'>

@@ -103,13 +103,13 @@ export default function Presentacion({ modulo }: { modulo?: string | null }) {
           btnDownloadPdf: { enabled: false },
           btnPrint: { enabled: false },
           btnShare: { enabled: false },
-          btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
-          btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
-          btnSound: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
-          btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
+          btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
+          btnSound: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
+          btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
           btnBookmark: { enabled: false },
-          btnExpand: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
-          btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnExpand: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
+          btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
           currentPage: { hAlign: 'center' },
           btnBackground: 'rgb(36 86 200);'
         });
@@ -124,7 +124,7 @@ export default function Presentacion({ modulo }: { modulo?: string | null }) {
   }, [initializeFlipbook]);
 
   return (
-      <div className='flex min-h-screen border-[3px] border-ink bg-graphite shadow-hard bh-stage'>
+      <div className='flex min-h-screen border border-ink rounded-md bg-graphite shadow-hard bh-stage'>
         <div style={{'width':'100%','position':'relative'}}>
           <div id="container"></div>
         </div>

@@ -23,11 +23,11 @@ export default function Contador(props:any) {
             };
     });
   return (
-      <div className='flex items-center justify-between gap-4 px-6 py-4 mb-6 border-[3px] border-ink bg-mist shadow-hard'>
+      <div className='flex items-center justify-between gap-4 px-6 py-4 mb-6 border border-ink rounded-md bg-mist shadow-hard'>
         <span className='bh-eyebrow'><span className='w-3 h-3 rounded-full bg-ink' /> Tiempo restante</span>
         { minutes === 0 && seconds === 0
-            ? <span className='text-2xl font-black'>0:00</span>
-            : <span className='text-3xl font-black tabular-nums'>{minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</span>
+            ? <span className='text-2xl font-bold'>0:00</span>
+            : <span className='text-3xl font-bold tabular-nums'>{minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</span>
         }
       </div>
   )

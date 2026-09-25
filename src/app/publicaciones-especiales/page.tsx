@@ -36,10 +36,10 @@ export default function PublicacionesEspeciales() {
                 alt={item.foto}
                 width={400}
                 height={400}
-                className='object-cover w-full transition duration-500 border-b-[3px] border-ink group-hover:grayscale'
+                className='object-cover w-full transition duration-500 border-b border-ink group-hover:grayscale'
               />
               <div className='flex items-start flex-1 gap-3 p-4'>
-                <span className={`mt-1 shrink-0 w-3 h-3 ${acento(index).bg}`} />
+                <span className={`mt-1 shrink-0 w-3 h-3 rounded-full ${acento(index).bg}`} />
                 <h3 className='text-sm font-bold leading-snug uppercase'>{item.nombre}</h3>
               </div>
             </div>

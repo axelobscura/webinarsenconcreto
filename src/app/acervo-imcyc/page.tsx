@@ -37,8 +37,8 @@ export default function AcervoImcyc() {
   return (
     <div className='bh-page'>
       <div className='max-w-5xl bh-container'>
-        <div className='grid grid-cols-1 gap-8 pt-6 pb-10 mb-10 border-b-[3px] border-ink sm:grid-cols-[auto_1fr] items-center'>
-          <div className='relative flex items-center justify-center w-40 h-40 border-[3px] border-ink rounded-full bg-mist shadow-hard'>
+        <div className='grid grid-cols-1 gap-8 pt-6 pb-10 mb-10 border-b border-ink sm:grid-cols-[auto_1fr] items-center'>
+          <div className='relative flex items-center justify-center w-40 h-40 border border-ink rounded-full bg-mist shadow-hard'>
             <Image
               src={`/concreton.webp`}
               alt=""
@@ -48,18 +48,18 @@ export default function AcervoImcyc() {
             />
           </div>
           <div>
-            <p className='mb-4 bh-eyebrow'><span className='w-3 h-3 bg-cobalt' /> Inteligencia Artificial · IMCYC</p>
+            <p className='mb-4 bh-eyebrow'><span className='w-3 h-3 bg-gradient-to-r from-cobalt to-navy' /> Inteligencia Artificial · IMCYC</p>
             <h1 className='bh-title'>Acervo IMCYC</h1>
           </div>
         </div>
         <div className='grid grid-cols-2 mb-8 bh-card'>
-          <div className='p-5 border-r-[3px] border-ink'>
+          <div className='p-5 border-r border-ink'>
             <p className='bh-eyebrow text-ink/60'>Créditos disponibles</p>
-            <p className='text-4xl font-black text-navy'>300</p>
+            <p className='text-4xl font-bold text-white'>300</p>
           </div>
           <div className='p-5'>
             <p className='bh-eyebrow text-ink/60'>Créditos utilizados</p>
-            <p className='text-4xl font-black text-cobalt'>0</p>
+            <p className='text-4xl font-bold text-sky'>0</p>
           </div>
         </div>
         <p className='max-w-3xl mb-8 text-lg'>¡Bienvenido al Acervo IMCYC! Aquí podrás interactuar con nuestro asistente de inteligencia artificial para obtener respuestas a tus preguntas sobre el cemento y el concreto. Simplemente ingresa tu consulta y el Asistente Concretón te proporcionará información precisa y útil. ¡Comienza a explorar el mundo del cemento y el concreto con nosotros!</p>

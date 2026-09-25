@@ -66,7 +66,7 @@ export default function Categoria() {
                 key={webinar.id}
                 className='flex flex-col overflow-hidden bh-card-link group'
               >
-                <div className='relative aspect-video bg-ink border-b-[3px] border-ink overflow-hidden'>
+                <div className='relative aspect-video bg-ink border-b border-ink overflow-hidden'>
                   <Image
                     src={`https://webinars.webinarsenconcreto.com/images/fundamentos/${webinar.imagen}.png` || '/imcyc_registrada.svg'}
                     alt={webinar.nombre}
@@ -78,13 +78,13 @@ export default function Categoria() {
                       width: "100%"
                     }}
                   />
-                  <span className={`absolute top-0 left-0 px-3 py-2 text-sm font-bold border-r-[3px] border-b-[3px] border-ink ${color.bg} ${color.text}`}>
+                  <span className={`absolute top-3 left-3 px-3 py-1 text-xs font-bold rounded-full ${color.bg} ${color.text}`}>
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
                 <div className='flex items-center justify-between flex-1 gap-4 p-5'>
                   <h3 className='text-lg font-extrabold leading-tight uppercase'>{webinar.nombre}</h3>
-                  <span className={`shrink-0 w-4 h-4 ${color.bg} ${color.shape === 'circle' ? 'rounded-full' : ''} ${color.shape === 'triangle' ? 'bh-triangle' : ''}`} aria-hidden />
+                  <span className={`shrink-0 w-4 h-4 ${color.bg} rounded-full`} aria-hidden />
                 </div>
               </Link>
             )
