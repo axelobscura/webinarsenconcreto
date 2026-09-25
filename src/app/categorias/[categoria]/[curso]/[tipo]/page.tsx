@@ -105,7 +105,7 @@ export default function Tipo() {
                 {seccion === 'presentación-ejecutiva' && <Presentacion />}
                 {seccion === 'dato-en-concreto' && <Presentacion />}
                 {seccion === 'infografías' && <Presentacion />}
-                {seccion === 'videos' && <Player />}
+                {seccion === 'videos' && <Player idContenido={webinar.id} />}
                 {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} curso={webinar?.nombre} />}
                 {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} curso={webinar?.nombre} />}
                 {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}

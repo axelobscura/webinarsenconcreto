@@ -64,7 +64,7 @@ export default function Lider({ lider } : {lider: string}) {
               <div className='text-sm leading-relaxed [&_p]:mb-3 [&_a]:underline [&_strong]:font-bold [&_b]:font-bold [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5' dangerouslySetInnerHTML={{ __html: useLider.resumen }} />
             )}
           </div>
-          <Player videoId={useLider.video || undefined} />
+          <Player codigo={useLider.video} />
         </div>
       </div>
     </div>
