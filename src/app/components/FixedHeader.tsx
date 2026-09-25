@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FaRegUserCircle } from "react-icons/fa";
 import { BsBoxArrowRight } from "react-icons/bs";
 import { useThemeContext } from '../context/theme';
+import Buscador from './Buscador';
 
 function MenuUsuario() {
   const { usuario, logout } = useThemeContext();
@@ -62,6 +63,7 @@ function MenuUsuario() {
 }
 
 export default function FixedHeader() {
+  const { usuario } = useThemeContext();
 
   return (
     <header className='fixed top-0 left-0 z-50 w-full text-white bg-ink'>
@@ -76,7 +78,8 @@ export default function FixedHeader() {
           <span className='hidden h-10 w-px bg-white/20 sm:block' />
           <span className='hidden text-sm font-bold tracking-[0.3em] uppercase sm:block'>Plataforma Educativa</span>
         </Link>
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center justify-end flex-1 gap-2 md:gap-6 md:pl-10'>
+          {usuario && <Buscador />}
           <MenuUsuario />
         </div>
       </div>
