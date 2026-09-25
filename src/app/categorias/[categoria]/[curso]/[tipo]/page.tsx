@@ -106,11 +106,11 @@ export default function Tipo() {
                 {seccion === 'dato-en-concreto' && <Presentacion />}
                 {seccion === 'infografías' && <Presentacion />}
                 {seccion === 'videos' && <Player />}
-                {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} />}
-                {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} />}
+                {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} curso={webinar?.nombre} />}
+                {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} curso={webinar?.nombre} />}
                 {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
                 {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
-                {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}
+                {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre} curso={webinar?.nombre} />}
                 {categoria === ' CONTENIDO ADICIONAL' && <Contenido categoria={nombre}/>} */}
               </>}
             </div>

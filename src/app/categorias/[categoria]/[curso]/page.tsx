@@ -94,7 +94,7 @@ export default function Curso() {
               </div>
               {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}
               {categoria === ' PRESENTACIÓN GRABADA' && <Player/>}
-              {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre}/>}
+              {categoria === ' EVALUACIÓN FINAL' && <Evaluacion categoria={nombre} curso={webinar?.nombre} />}
               {categoria === ' CONTENIDO ADICIONAL' && <Contenido categoria={nombre}/>} */}
             </div>
           </div>

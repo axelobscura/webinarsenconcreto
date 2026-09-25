@@ -63,8 +63,8 @@ export default function Modulo() {
                 {modulo === 'dato-en-concreto' && <Presentacion modulo={seccion} />}
                 {modulo === 'infografías' && <Presentacion modulo={seccion} />}
                 {seccion === 'videos' && <Player />}
-                {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} />}
-                {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} />}
+                {seccion === 'evaluación-diagnóstico' && <Evaluacion categoria={nombre} curso={webinar?.nombre} />}
+                {seccion === 'evaluación-final' && <Evaluacion categoria={nombre} curso={webinar?.nombre} />}
             </div>
           </div>
         </div>
