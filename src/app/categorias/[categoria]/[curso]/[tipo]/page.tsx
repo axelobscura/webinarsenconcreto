@@ -87,9 +87,9 @@ export default function Tipo() {
                       key={`${modulo.webinar ?? modulo.titulo ?? 'modulo'}-${index}`} 
                       className='bh-card-link group grid grid-cols-[88px_1fr] overflow-hidden'
                     >
-                      <span className={`flex items-center justify-center text-4xl font-black border-r-[3px] border-ink ${color.bg} ${color.text}`}>{index + 1}</span>
+                      <span className={`flex items-center justify-center text-4xl font-bold border-r border-ink ${color.bg} ${color.text}`}>{index + 1}</span>
                       <span className='flex flex-col justify-center gap-1 p-5'>
-                        {modulo.norma && <span className='text-xs font-bold tracking-widest uppercase text-cobalt' dangerouslySetInnerHTML={{ __html: modulo.norma }} />}
+                        {modulo.norma && <span className='text-xs font-bold tracking-widest uppercase text-sky' dangerouslySetInnerHTML={{ __html: modulo.norma }} />}
                         <span className='text-lg font-extrabold leading-tight uppercase' dangerouslySetInnerHTML={{ __html: modulo.titulo }} />
                       </span>
                     </Link>

@@ -2212,8 +2212,8 @@ body {
   /* clip evita el scroll horizontal sin romper position: sticky */
   overflow-x: clip;
   font-family: 'Jost', 'Futura', 'Century Gothic', sans-serif;
-  background: #E9ECEF !important;
-  color: #111418;
+  background: #15151E !important;
+  color: #FFFFFF;
 }
 
 a {
@@ -2846,8 +2846,10 @@ form.loginf {
   }
 }
 /* ==========================================================
- * Sistema de diseño Bauhaus
- * Papel, tinta, primarios, bordes duros y sombras planas.
+ * Sistema de diseño estilo Fórmula 1
+ * Carbón oscuro, azul institucional IMCYC en degradado, blanco; plano, sin brillos.
+ * Firma: la "esquina" (borde superior + derecho con la esquina superior derecha redondeada).
+ * Las clases conservan el prefijo bh- para no tocar cada página.
  * ========================================================== */
 @layer components {
   .bh-page {
@@ -2860,28 +2862,33 @@ form.loginf {
     @apply w-full px-5 sm:px-10 pb-20;
   }
   .bh-eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-bold tracking-[0.3em] uppercase;
+    @apply inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-steel;
   }
   .bh-title {
-    @apply text-4xl font-black leading-[0.9] tracking-tight uppercase hyphens-auto sm:text-6xl lg:text-7xl;
+    @apply text-4xl font-black leading-[0.95] tracking-tight uppercase hyphens-auto sm:text-5xl lg:text-6xl;
+  }
+  /* Esquina F1: borde arriba y a la derecha, redondeada arriba a la derecha */
+  .bh-corner {
+    @apply border-t-2 border-r-2 border-ink rounded-tr-2xl;
   }
   .bh-card {
-    @apply bg-white border-[3px] border-ink shadow-hard transition duration-200;
+    @apply bh-corner bg-surface shadow-hard transition duration-200;
   }
   .bh-card-link {
-    @apply bh-card hover:-translate-x-1 hover:-translate-y-1 hover:shadow-hard-lg;
+    @apply bh-card hover:border-cobalt hover:-translate-y-0.5 hover:shadow-hard-lg;
   }
   .bh-btn {
-    @apply inline-flex items-center justify-center gap-3 px-8 py-4 font-bold tracking-widest uppercase border-[3px] border-ink shadow-hard transition duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg active:translate-x-1 active:translate-y-1 active:shadow-none;
+    @apply inline-flex items-center justify-center gap-3 px-7 py-3.5 font-bold tracking-wider uppercase rounded-md bg-gradient-to-r from-cobalt to-navy text-white transition duration-150 hover:brightness-125 active:scale-[0.98];
   }
   .bh-input {
-    @apply w-full px-5 py-4 text-lg bg-white border-[3px] border-ink text-ink placeholder:text-ink/40 outline-none focus:shadow-hard-sm focus:bg-mist/10;
+    @apply w-full px-5 py-3.5 text-base bg-surface border border-ink rounded-md text-ink placeholder:text-steel outline-none transition focus:border-cobalt focus:shadow-hard-sm;
   }
+  /* Franja de sección: degradado azul institucional */
   .bh-stripe {
-    background: linear-gradient(90deg, #2456C8 0 33.33%, #C5CCD4 33.33% 66.66%, #7D8A99 66.66% 100%);
+    background: linear-gradient(90deg, #1A56DB, #233876);
   }
   .bh-dots {
-    background-image: radial-gradient(#111418 1.2px, transparent 1.2px);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px);
     background-size: 18px 18px;
   }
   .bh-triangle {

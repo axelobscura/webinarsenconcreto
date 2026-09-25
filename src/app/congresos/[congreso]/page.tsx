@@ -38,8 +38,6 @@ export default function Congreso({ params } : { params: { congreso: string } }) 
   };
 
   const archivo = (nombre: string) =>{
-    //`${congreso.carpeta}/${encodeURIComponent(nombre)}`;
-    console.log('archivo', nombre, congreso);
     if(congreso.slug === '1er-encuentro-del-cemento-y-concreto'){
       return `https://www.webinarsenconcreto.com/imcyc/eventos/encuentro/${encodeURIComponent(nombre)}`;
     } else if(congreso.slug === '2do-encuentro-del-cemento-y-concreto'){
@@ -62,7 +60,7 @@ export default function Congreso({ params } : { params: { congreso: string } }) 
           <div className='grid w-full grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-4'>
             {useDocumentos.map((item, index) => (
               <a href={archivo(item.documento)} target='_blank' rel='noopener noreferrer' key={item.id} className='flex flex-col overflow-hidden bh-card-link group'>
-                <div className='aspect-[4/3] overflow-hidden border-b-[3px] border-ink bg-ink'>
+                <div className='aspect-[4/3] overflow-hidden border-b border-ink bg-ink'>
                   {item.imagen && (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -74,7 +72,7 @@ export default function Congreso({ params } : { params: { congreso: string } }) 
                   )}
                 </div>
                 <div className='flex items-start flex-1 gap-3 p-4'>
-                  <span className={`mt-1 shrink-0 w-3 h-3 ${acento(index).bg}`} />
+                  <span className={`mt-1 shrink-0 w-3 h-3 rounded-full ${acento(index).bg}`} />
                   <div className='flex flex-col gap-1'>
                     {item.tipo && <span className='text-[11px] font-bold tracking-wider uppercase opacity-60'>{item.tipo}</span>}
                     <h3 className='text-sm font-bold leading-snug uppercase'>{item.titulo}</h3>

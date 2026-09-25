@@ -7,23 +7,33 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // Paleta Bauhaus en frío: papel, tinta, azules y grises
+      // Paleta estilo Fórmula 1 con el azul institucional IMCYC: carbón oscuro, degradado azul y blanco
       colors: {
-        paper: '#E9ECEF',
-        ink: '#111418',
-        cobalt: '#2456C8',
-        navy: '#15254A',
-        steel: '#7D8A99',
-        mist: '#C5CCD4',
-        graphite: '#2B3139',
+        paper: '#15151E',
+        ink: '#FFFFFF',
+        surface: '#1F1F27',
+        cobalt: '#1A56DB',
+        navy: '#233876',
+        steel: '#949498',
+        mist: '#38383F',
+        graphite: '#1F1F27',
+        sky: '#3F83F8', // azul claro IMCYC, para texto azul sobre fondo oscuro
+        orchid: '#949498',
+      },
+      // "ink" es texto blanco, pero como fondo y borde necesita tonos oscuros
+      backgroundColor: {
+        ink: '#0F0F16',
+      },
+      borderColor: {
+        ink: '#38383F',
       },
       fontFamily: {
         sans: ['Jost', 'Futura', 'Century Gothic', 'sans-serif'],
       },
       boxShadow: {
-        hard: '6px 6px 0 0 #111418',
-        'hard-sm': '3px 3px 0 0 #111418',
-        'hard-lg': '10px 10px 0 0 #111418',
+        hard: '0 8px 24px -12px rgba(0, 0, 0, 0.6)',
+        'hard-sm': '0 0 0 3px rgba(26, 86, 219, 0.4)',
+        'hard-lg': '0 18px 36px -18px rgba(0, 0, 0, 0.85)',
       },
       keyframes: {
         'bh-bounce': {

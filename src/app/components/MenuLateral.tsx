@@ -33,12 +33,12 @@ export default function MenuLateral(
 
   return (
     <aside className='lg:sticky lg:top-28'>
-      <button onClick={back} className='flex items-center gap-3 mb-6 text-sm font-bold tracking-widest uppercase hover:text-cobalt'>
+      <button onClick={back} className='flex items-center gap-3 mb-6 text-sm font-bold tracking-widest uppercase hover:text-sky'>
         <span className='flex items-center justify-center w-8 h-8 text-white bg-ink'><BsChevronLeft /></span>
         Regresar
       </button>
       <div className='overflow-hidden bh-card'>
-        <h2 className="p-5 text-xl font-black leading-tight uppercase border-b-[3px] border-ink">{nombre}</h2>
+        <h2 className="p-5 text-xl font-bold leading-tight uppercase border-b border-ink">{nombre}</h2>
         <ul className='w-full p-0 m-0'>
           {secciones.map((item, index) => {
             const activo = categoria === item.activa;
@@ -47,7 +47,7 @@ export default function MenuLateral(
                 <a
                   onClick={seccion}
                   className={`group flex items-center gap-4 w-full px-5 py-3 text-sm font-bold tracking-wide cursor-pointer transition ${
-                    activo ? 'bg-cobalt text-white' : 'hover:bg-mist'
+                    activo ? 'bg-gradient-to-r from-cobalt to-navy text-white' : 'hover:bg-mist'
                   }`}
                 >
                   <span className={`text-xs tabular-nums ${activo ? 'text-white/70' : 'text-ink/40'}`}>{String(index + 1).padStart(2, '0')}</span>

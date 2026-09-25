@@ -51,7 +51,7 @@ export default function Lider({ lider } : {lider: string}) {
         </Link>
         <div className='grid items-start w-full grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]'>
           <div className='flex flex-col gap-6'>
-            <div className='border-[3px] border-ink shadow-hard'>
+            <div className='overflow-hidden border border-ink rounded-md shadow-hard'>
               <Image
                 src={`https://www.webinarsenconcreto.com/images/lideres/${useLider.foto}`}
                 alt={useLider.nombre}

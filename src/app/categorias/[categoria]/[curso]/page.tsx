@@ -51,13 +51,13 @@ export default function Curso() {
           btnDownloadPdf: { enabled: false },
           btnPrint: { enabled: false },
           btnShare: { enabled: false },
-          btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
-          btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
-          btnSound: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
-          btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
+          btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
+          btnSound: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
+          btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
           btnBookmark: { enabled: false },
-          btnExpand: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
-          btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#2456C8' },
+          btnExpand: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
+          btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#7C5CFF' },
           currentPage: { hAlign: 'center' },
           btnBackground: 'rgb(36 86 200);'
         });
@@ -86,7 +86,7 @@ export default function Curso() {
               />}
             </div>
             <div>
-              <div className='relative w-full min-h-screen border-[3px] border-ink bg-graphite shadow-hard'>
+              <div className='relative w-full min-h-screen border border-ink rounded-md bg-graphite shadow-hard'>
                 <div id="container"></div>
               </div>
               {/*categoria === ' PRESENTACIÓN EJECUTIVA' && <Documento lanorma={lanorma} />}

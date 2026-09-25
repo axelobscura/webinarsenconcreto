@@ -53,7 +53,7 @@ export default function MenuLateralWebinar(
 
   return (
     <aside className='lg:sticky lg:top-28'>
-      <Link href={`/categorias/${contenido}/`} className='flex items-center gap-3 mb-6 text-sm font-bold tracking-widest uppercase hover:text-cobalt'>
+      <Link href={`/categorias/${contenido}/`} className='flex items-center gap-3 mb-6 text-sm font-bold tracking-widest uppercase hover:text-sky'>
         <span className='flex items-center justify-center w-8 h-8 text-white bg-ink'><BsChevronLeft /></span>
         Regresar
       </Link>
@@ -64,18 +64,18 @@ export default function MenuLateralWebinar(
           title={webinar.nombre}
           width={300}
           height={200}
-          className='object-cover border-b-[3px] border-ink'
+          className='object-cover border-b border-ink'
           style={{
             width: "100%"
           }}
         />
-        <h2 className="p-5 text-xl font-black leading-tight uppercase">{webinar?.nombre?.split("-").join(" ")}</h2>
+        <h2 className="p-5 text-xl font-bold leading-tight uppercase">{webinar?.nombre?.split("-").join(" ")}</h2>
         {modulo?.length &&
-          <p className="flex items-center gap-2 px-5 py-3 text-sm font-bold tracking-widest text-white uppercase bg-navy border-t-[3px] border-ink">
+          <p className="flex items-center gap-2 px-5 py-3 text-sm font-bold tracking-widest text-white uppercase bg-navy border-t border-ink">
             <span className='w-3 h-3 rounded-full bg-mist' /> {modulo?.split("-").join(" ")}
           </p>
         }
-        <nav className='border-t-[3px] border-ink'>
+        <nav className='border-t border-ink'>
           <ul className='w-full p-0 m-0'>
             {items.map((item, index) => {
               const activo = tipoDecode === item.nombre;
@@ -84,7 +84,7 @@ export default function MenuLateralWebinar(
                   <Link
                     href={item.url}
                     className={`group flex items-center gap-4 w-full px-5 py-3 text-sm font-bold tracking-wide transition ${
-                      activo ? 'bg-cobalt text-white' : 'hover:bg-mist'
+                      activo ? 'bg-gradient-to-r from-cobalt to-navy text-white' : 'hover:bg-mist'
                     }`}
                   >
                     <span className={`text-xs tabular-nums ${activo ? 'text-white/70' : 'text-ink/40'}`}>{String(index + 1).padStart(2, '0')}</span>
