@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import MenuLateralWebinar from '@/app/components/MenuLateralWebinar';
+import BotonRegresar from '@/app/components/BotonRegresar';
 import { useThemeContext } from '../../../../../context/theme'
 import LoaderImcyc from '../../../../../components/LoaderImcyc'
 import Presentacion from '@/app/components/Presentacion';
@@ -48,9 +49,11 @@ export default function Modulo() {
   }
 
   return (
-      <div className='relative bh-page isolate'>
+      <div className='relative bh-page isolate pt-[72px]'>
         <PageBackground src='https://webinars.webinarsenconcreto.com/images/webinars.jpg' />
-        <div className='pt-6 bh-container-full'>
+        <div className='bh-container-full'>
+          {/* Fuera de la cuadrícula para que el menú y el contenido empiecen a la misma altura */}
+          <BotonRegresar href={`/categorias/${pathname?.split('/')[2]}/`} />
           <div className='grid w-full grid-cols-1 gap-10 lg:grid-cols-[320px_1fr]'>
             <div>
               <MenuLateralWebinar webinar={webinar ? webinar : null} modulo={seccion ? seccion : null} />
