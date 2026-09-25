@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import { useThemeContext } from '../context/theme'
-import { BsChevronLeft } from 'react-icons/bs';
-import { useRouter } from 'next/navigation';
 import { BsArrowRight } from "react-icons/bs";
 
 export default function MenuLateralWebinar(
@@ -18,10 +16,6 @@ export default function MenuLateralWebinar(
   const categoria = pathname?.split('/')[3];
   const tipo = pathname?.split('/')[pathname.split('/').length - 1];
   const tipoDecode = decodeURIComponent(tipo ? tipo : "").split('-').join(' ').toUpperCase();
-  const router = useRouter()
-  const back = () => {
-    router.back()
-  }
 
   const itemsMenu = [
     { nombre: 'EVALUACIÓN DIAGNÓSTICO', url: `/categorias/${contenido}/${categoria}/evaluación-diagnóstico` },
@@ -52,11 +46,7 @@ export default function MenuLateralWebinar(
   const items = modulo?.length ? itemsMenuModulo : itemsMenu;
 
   return (
-    <aside className='lg:sticky lg:top-28'>
-      <Link href={`/categorias/${contenido}/`} className='flex items-center gap-3 mb-6 text-sm font-bold tracking-widest uppercase hover:text-sky'>
-        <span className='flex items-center justify-center w-8 h-8 text-white bg-ink'><BsChevronLeft /></span>
-        Regresar
-      </Link>
+    <aside className='lg:sticky lg:top-24'>
       <div className='overflow-hidden bh-card'>
         <Image
           src={`https://webinars.webinarsenconcreto.com/images/fundamentos/${webinar.imagen}.png` || '/imcyc_registrada.svg'}

@@ -42,6 +42,7 @@ export default function Categorias() {
   const superiores = categorias.filter((categoria) => categoria.tipo === 'superior');
   const consulta = categorias.filter((categoria) => categoria.tipo === 'consulta' && categoria.nombre !== 'Inteligencia Artificial');
 
+  
   return (
     <div className='relative bh-page isolate'>
       <PageBackground src='https://webinars.webinarsenconcreto.com/images/bkg_contenidos.jpg' />

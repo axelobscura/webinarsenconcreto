@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link';
-import { BsArrowRight, BsChevronLeft } from 'react-icons/bs';
-import { useRouter } from 'next/navigation'
+import { BsArrowRight } from 'react-icons/bs';
 
 const secciones = [
   { nombre: 'PRESENTACIÓN EJECUTIVA', activa: ' PRESENTACIÓN EJECUTIVA' },
@@ -26,17 +25,9 @@ export default function MenuLateral(
     seccion: any | null,
     categoria: string | null,
   }) {
-    const router = useRouter()
-    const back = () => {
-      router.back()
-    }
 
   return (
-    <aside className='lg:sticky lg:top-28'>
-      <button onClick={back} className='flex items-center gap-3 mb-6 text-sm font-bold tracking-widest uppercase hover:text-sky'>
-        <span className='flex items-center justify-center w-8 h-8 text-white bg-ink'><BsChevronLeft /></span>
-        Regresar
-      </button>
+    <aside className='lg:sticky lg:top-24'>
       <div className='overflow-hidden bh-card'>
         <h2 className="p-5 text-xl font-bold leading-tight uppercase border-b border-ink">{nombre}</h2>
         <ul className='w-full p-0 m-0'>
